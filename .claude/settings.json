@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cd /Users/emilio/Desktop/carehub.org && git add -A && git diff --cached --quiet || (git commit -m 'Auto-update from Claude Code' && git push) 2>/dev/null || true",
+            "statusMessage": "Auto-committing and pushing..."
+          }
+        ]
+      }
+    ]
+  }
+}
