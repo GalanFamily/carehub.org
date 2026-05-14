@@ -148,8 +148,6 @@ function Hero({ accent, displayFont, darkHero }) {
              style={{ color: accent.c700 }}>
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: accent.c500 }} />
           <span>Maple Community Care Hub</span>
-          <span style={{ color: muted, opacity: 0.6 }}>·</span>
-          <span style={{ color: muted }}>California, est. 2025</span>
         </div>
 
         <h1
@@ -163,7 +161,7 @@ function Hero({ accent, displayFont, darkHero }) {
         </h1>
 
         <p className="text-xl md:text-2xl leading-relaxed max-w-2xl mb-12" style={{ color: muted }}>
-          Healthier communities, supported.
+          We empower county agencies, justice partners, and community-based organizations — to deliver on the promise of enhanced community care.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
