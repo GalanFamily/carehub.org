@@ -163,7 +163,7 @@ function Hero({ accent, displayFont, darkHero }) {
         </h1>
 
         <p className="text-xl md:text-2xl leading-relaxed max-w-2xl mb-12" style={{ color: muted }}>
-          We empower county agencies, justice partners, and community-based organizations to deliver enhanced community care — without the administrative weight.
+          Healthier communities, supported.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
