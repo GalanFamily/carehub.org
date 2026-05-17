@@ -3,17 +3,18 @@
 const { useState, useEffect } = React;
 const {
   Menu, X, ArrowRight, ArrowDown, Activity, Users, FileText, Shield, Heart, Network,
-  BookOpen, Quote, Building, Scale, Home, Mail, MapPin, TrendingUp, Hospital, Handshake
+  BookOpen, Quote, Building, Scale, Home, Mail, MapPin, TrendingUp, Hospital, Handshake, MapleLeaf, School
 } = window.Icons;
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "accent": "teal",
+  "accent": "maple",
   "displayFont": "fraunces",
   "darkHero": false,
   "showStoryTimer": true
 }/*EDITMODE-END*/;
 
 const ACCENT_MAP = {
+  maple: { name: "Maple", c700: "#2c6e5b", c600: "#3b8a73", c500: "#4eaa90", c400: "#94d4be", c100: "#dcefe7", c900: "#1c4538" },
   teal:  { name: "Teal",  c700: "#0f766e", c600: "#0d9488", c500: "#14b8a6", c400: "#5eead4", c100: "#ccfbf1", c900: "#134e4a" },
   navy:  { name: "Navy",  c700: "#1e3a8a", c600: "#1d4ed8", c500: "#2563eb", c400: "#60a5fa", c100: "#dbeafe", c900: "#172554" },
   olive: { name: "Olive", c700: "#4d7c0f", c600: "#65a30d", c500: "#84cc16", c400: "#bef264", c100: "#ecfccb", c900: "#365314" }
@@ -54,13 +55,20 @@ const RESOURCES = [
 
 function Logo({ accent }) {
   return (
-    <a href="#top" className="flex items-center gap-2.5">
-      <div className="w-8 h-8 flex items-center justify-center" style={{ background: "#0f172a" }}>
-        <Network className="w-5 h-5" style={{ color: accent.c400 }} />
-      </div>
-      <span className="text-[19px] font-bold tracking-tight text-slate-900">
-        Care Hub
-        <span className="text-slate-400 font-normal">.org</span>
+    <a href="#top" className="flex items-center gap-2.5 group">
+      {/* Three overlapping circles arranged in a triangle — community / coming together */}
+      <svg viewBox="0 0 36 32" className="w-10 h-9" aria-hidden="true">
+        <g style={{ mixBlendMode: "multiply" }}>
+          <circle cx="18" cy="10" r="9" fill={accent.c700} />
+          <circle cx="11" cy="21" r="9" fill={accent.c500} fillOpacity="0.92" />
+          <circle cx="25" cy="21" r="9" fill={accent.c400} fillOpacity="0.92" />
+        </g>
+      </svg>
+      <span
+        className="text-[19px] tracking-tight"
+        style={{ color: "#1f1b16", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600 }}
+      >
+        Care<span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>Hub</span>
       </span>
     </a>
   );
@@ -78,17 +86,19 @@ function Nav({ accent }) {
   }, []);
 
   const navLinks = [
-    { name: "Your Role", href: "#roles" },
-    { name: "Policy Framework", href: "#research" },
-    { name: "How We Got Here", href: "#story" },
-    { name: "The Model", href: "#model" }
+    { name: "Where Health Happens", href: "#where" },
+    { name: "Evidence", href: "#evidence" },
+    { name: "The Gap", href: "#gap" },
+    { name: "What We Do", href: "#what-that-means" },
+    { name: "How We Got Here", href: "#story" }
   ];
 
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3" : "bg-transparent py-5"
+        scrolled ? "backdrop-blur-md py-3 border-b" : "bg-transparent py-5"
       }`}
+      style={scrolled ? { background: "rgba(251, 247, 237, 0.92)", borderColor: "#e8e1d2" } : {}}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Logo accent={accent} />
@@ -101,10 +111,10 @@ function Nav({ accent }) {
             </a>
           ))}
           <a href="#contact"
-             className="text-white px-4 py-2 text-[13px] font-semibold transition-colors"
-             style={{ background: "#0f172a" }}
+             className="text-white px-4 py-2 text-[13px] font-semibold transition-colors rounded-md"
+             style={{ background: "#1f2d24" }}
              onMouseEnter={(e) => (e.currentTarget.style.background = accent.c700)}
-             onMouseLeave={(e) => (e.currentTarget.style.background = "#0f172a")}>
+             onMouseLeave={(e) => (e.currentTarget.style.background = "#1f2d24")}>
             Partner with us →
           </a>
         </div>
@@ -123,7 +133,8 @@ function Nav({ accent }) {
               {link.name}
             </a>
           ))}
-          <a href="#contact" className="bg-slate-900 text-white text-center py-3 font-semibold mt-2"
+          <a href="#contact" className="text-white text-center py-3 font-semibold mt-2 rounded-md"
+             style={{ background: "#1f2d24" }}
              onClick={() => setIsMenuOpen(false)}>
             Partner with us
           </a>
@@ -134,20 +145,22 @@ function Nav({ accent }) {
 }
 
 function Hero({ accent, displayFont, darkHero }) {
-  const bg = darkHero ? "#0b1220" : "#ffffff";
-  const fg = darkHero ? "#f8fafc" : "#0f172a";
-  const muted = darkHero ? "#94a3b8" : "#475569";
+  const bg = darkHero ? "#1d2a23" : "#fbf7ed";
+  const fg = darkHero ? "#f5efe2" : "#221b14";
+  const muted = darkHero ? "#a8ad9c" : "#5e554a";
   return (
     <header
       id="top"
       className="relative pt-32 pb-20 md:pt-44 md:pb-32 px-6 border-b"
-      style={{ background: bg, color: fg, borderColor: darkHero ? "#1e293b" : "#e2e8f0" }}
+      style={{ background: bg, color: fg, borderColor: darkHero ? "#2d3a32" : "#e8e1d2" }}
     >
       <div className="max-w-7xl mx-auto">
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] mb-8 flex items-center gap-3"
              style={{ color: accent.c700 }}>
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: accent.c500 }} />
-          <span>Maple Community Care Hub</span>
+          <span>CareHub</span>
+          <span style={{ color: muted, opacity: 0.6 }}>·</span>
+          <span style={{ color: muted }}>California</span>
         </div>
 
         <h1
@@ -156,26 +169,26 @@ function Hero({ accent, displayFont, darkHero }) {
         >
           Working together to support{" "}
           <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
-            healthy communities
+            healthy communities.
           </span>
         </h1>
 
         <p className="text-xl md:text-2xl leading-relaxed max-w-2xl mb-12" style={{ color: muted }}>
-          We empower county agencies, schools, justice partners, and community-based organizations to deliver the promise of enhanced community care including ECM, Community Supports, and CYBHI — with administrative, billing, and clinical support.
+          We are a Medi-Cal Community Care Hub empowering county agencies, schools, justice partners, community-based organizations, and MCPs to deliver on the promise of enhanced community care — with administrative, billing, and clinical support.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
           <a href="#model"
-             className="inline-flex items-center justify-center gap-2 text-white px-7 py-4 text-sm font-semibold transition-colors"
-             style={{ background: "#0f172a" }}
+             className="inline-flex items-center justify-center gap-2 text-white px-7 py-4 text-sm font-semibold transition-colors rounded-md"
+             style={{ background: "#1f2d24" }}
              onMouseEnter={(e) => (e.currentTarget.style.background = accent.c700)}
-             onMouseLeave={(e) => (e.currentTarget.style.background = "#0f172a")}>
+             onMouseLeave={(e) => (e.currentTarget.style.background = "#1f2d24")}>
             Explore the Model <ArrowRight className="w-4 h-4" />
           </a>
           <a href="#story"
-             className="inline-flex items-center justify-center gap-2 border px-7 py-4 text-sm font-semibold transition-colors"
+             className="inline-flex items-center justify-center gap-2 border px-7 py-4 text-sm font-semibold transition-colors rounded-md"
              style={{
-               borderColor: darkHero ? "#334155" : "#cbd5e1",
+               borderColor: darkHero ? "#3d4a42" : "#d4cdb8",
                color: fg,
                background: "transparent"
              }}>
@@ -185,7 +198,7 @@ function Hero({ accent, displayFont, darkHero }) {
 
         {/* footer rule */}
         <div className="mt-20 pt-6 border-t flex flex-wrap gap-x-12 gap-y-4 font-mono text-[11px] uppercase tracking-[0.22em]"
-             style={{ borderColor: darkHero ? "#1e293b" : "#e2e8f0", color: muted }}>
+             style={{ borderColor: darkHero ? "#2d3a32" : "#e8e1d2", color: muted }}>
           <span><span style={{ color: accent.c700 }}>01</span> &nbsp; Transitions of Care</span>
           <span><span style={{ color: accent.c700 }}>02</span> &nbsp; Community Supports</span>
           <span><span style={{ color: accent.c700 }}>03</span> &nbsp; Justice-Involved Initiative</span>
@@ -198,7 +211,7 @@ function Hero({ accent, displayFont, darkHero }) {
 
 function Landscape({ accent }) {
   return (
-    <section id="landscape" className="py-24 px-6 bg-slate-50 border-b border-slate-200">
+    <section id="landscape" className="py-24 px-6 border-b" style={{ background: "#fbf7ed", borderColor: "#e8e1d2" }}>
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 tracking-tight max-w-2xl">
@@ -209,8 +222,8 @@ function Landscape({ accent }) {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-12 border-t border-l border-slate-200 bg-white">
-          <div className="md:col-span-4 p-8 md:p-12 border-r border-b border-slate-200 flex flex-col">
+        <div className="grid md:grid-cols-12 border-t border-l bg-white" style={{ borderColor: "#e8e1d2" }}>
+          <div className="md:col-span-4 p-8 md:p-12 border-r border-b flex flex-col" style={{ borderColor: "#e8e1d2" }}>
             <span className="block font-black leading-none mb-2 tabular-nums"
                   style={{ color: accent.c700, fontSize: "clamp(4rem, 9vw, 7rem)", letterSpacing: "-0.04em" }}>
               50%
@@ -238,8 +251,8 @@ function Landscape({ accent }) {
               body: "To support populations with complex needs, California has removed traditional licensure barriers. Community-based organizations are now the frontline of enhanced care."
             }
           ].map((b) => (
-            <div key={b.title} className="md:col-span-4 p-8 md:p-12 border-r border-b border-slate-200">
-              <div className="w-10 h-10 bg-slate-100 flex items-center justify-center mb-6">
+            <div key={b.title} className="md:col-span-4 p-8 md:p-12 border-r border-b" style={{ borderColor: "#e8e1d2" }}>
+              <div className="w-10 h-10 rounded-md flex items-center justify-center mb-6" style={{ background: "#f0e8d6" }}>
                 {b.icon}
               </div>
               <h3 className="text-xl font-bold mb-3 tracking-tight">{b.title}</h3>
@@ -254,11 +267,11 @@ function Landscape({ accent }) {
 
 function Research({ accent, displayFont }) {
   return (
-    <section id="research" className="py-24 px-6 bg-white border-b border-slate-200">
+    <section id="research" className="py-24 px-6 bg-white border-b" style={{ borderColor: "#e8e1d2" }}>
       <div className="max-w-7xl mx-auto">
         <div className="mb-16 max-w-2xl">
           <span className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: accent.c700 }}>
-            ◆ Policy Framework
+            Policy Framework
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 tracking-tight">
             Grounded in evidence.
@@ -269,8 +282,8 @@ function Research({ accent, displayFont }) {
         </div>
 
         {/* Pull quote */}
-        <blockquote className="mb-20 relative bg-slate-50 border-l-2 p-10 md:p-14"
-                    style={{ borderColor: accent.c600 }}>
+        <blockquote className="mb-20 relative border-l-2 p-10 md:p-14"
+                    style={{ borderColor: accent.c600, background: "#fbf7ed" }}>
           <span className="absolute top-6 left-6 font-bold leading-none select-none"
                 style={{ color: accent.c700, opacity: 0.08, fontSize: "9rem", fontFamily: displayFont }}>
             "
@@ -291,27 +304,28 @@ function Research({ accent, displayFont }) {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {RESOURCES.map((r, i) => (
             <a key={r.title} href={r.href} target="_blank" rel="noreferrer"
-               className="group block bg-white border border-slate-200 transition-all hover:-translate-y-1 hover:shadow-lg">
-              <div className="aspect-[4/3] relative overflow-hidden border-b border-slate-200"
-                   style={{ background: "repeating-linear-gradient(135deg, #f1f5f9 0 12px, #f8fafc 12px 24px)" }}>
+               className="group block bg-white border transition-all hover:-translate-y-1 hover:shadow-lg rounded-md overflow-hidden"
+               style={{ borderColor: "#e8e1d2" }}>
+              <div className="aspect-[4/3] relative overflow-hidden border-b"
+                   style={{ background: "repeating-linear-gradient(135deg, #f0e8d6 0 12px, #fbf7ed 12px 24px)", borderColor: "#e8e1d2" }}>
                 <div className="absolute inset-0 flex items-center justify-center p-8">
-                  <div className="w-32 h-44 bg-white shadow-lg border border-slate-200 p-4 flex flex-col">
+                  <div className="w-32 h-44 bg-white shadow-md border p-4 flex flex-col rounded-sm" style={{ borderColor: "#e8e1d2" }}>
                     <div className="h-2 w-full mb-3" style={{ background: accent.c700 }} />
-                    <div className="font-mono text-[7px] tracking-widest text-slate-400 mb-3 uppercase">
+                    <div className="font-mono text-[7px] tracking-widest mb-3 uppercase" style={{ color: "#a8a092" }}>
                       Document {String(i + 1).padStart(2, "0")}
                     </div>
                     {Array.from({ length: 8 }).map((_, k) => (
                       <div key={k}
                            className="h-[3px] mb-1.5"
                            style={{
-                             background: "#e2e8f0",
+                             background: "#ece4d0",
                              width: `${[100, 100, 70, 90, 100, 65, 100, 80][k]}%`
                            }} />
                     ))}
                     <div className="mt-auto h-1.5 w-1/3" style={{ background: accent.c100 }} />
                   </div>
                 </div>
-                <div className="absolute top-3 right-3 font-mono text-[10px] uppercase tracking-[0.22em] text-slate-400">
+                <div className="absolute top-3 right-3 font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
                   ↗ External
                 </div>
               </div>
@@ -326,7 +340,7 @@ function Research({ accent, displayFont }) {
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed mb-5">{r.blurb}</p>
                 <span className="inline-flex items-center text-[13px] font-semibold text-slate-900 border-b pb-0.5 group-hover:gap-2 transition-all"
-                      style={{ borderColor: "#cbd5e1" }}>
+                      style={{ borderColor: "#d4cdb8" }}>
                   Read summary <ArrowRight className="w-4 h-4 ml-2" />
                 </span>
               </div>
@@ -340,11 +354,11 @@ function Research({ accent, displayFont }) {
 
 function Gap({ accent }) {
   return (
-    <section className="py-24 px-6 text-white" style={{ background: "#0b1220" }}>
+    <section className="py-24 px-6 text-white" style={{ background: "#1d2a23" }}>
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
         <div>
           <span className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: accent.c400 }}>
-            ◆ The Problem
+            The Problem
           </span>
           <h2 className="text-3xl md:text-5xl font-bold mt-3 mb-6 tracking-tight">
             The infrastructure gap.
@@ -360,24 +374,24 @@ function Gap({ accent }) {
               "Lack of clinical infrastructure limits scope of practice.",
               "Data exchange with managed care plans is a non-starter for most CBOs."
             ].map((t) => (
-              <li key={t} className="flex items-start gap-4 border-l border-slate-800 pl-4 py-1">
-                <span className="font-mono text-xs text-red-400 mt-1 select-none">✕</span>
-                <p className="text-slate-300">{t}</p>
+              <li key={t} className="flex items-start gap-4 border-l pl-4 py-1" style={{ borderColor: "#2d3a32" }}>
+                <span className="font-mono text-xs mt-1 select-none" style={{ color: "#d4a87a" }}>—</span>
+                <p style={{ color: "#e0d9c9" }}>{t}</p>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="relative p-10 md:p-12 border" style={{ background: "#0f172a", borderColor: "#1e293b" }}>
+        <div className="relative p-10 md:p-12 border rounded-md" style={{ background: "#243530", borderColor: "#34423c" }}>
           <div className="absolute -top-3 left-10 font-mono text-[10px] uppercase tracking-[0.22em] px-2 py-1"
-               style={{ background: "#0f172a", color: accent.c400 }}>
-            ◆ The Solution
+               style={{ background: "#243530", color: accent.c400 }}>
+            The Solution
           </div>
           <h3 className="text-3xl font-bold mb-4 tracking-tight" style={{ color: accent.c400 }}>
             Care Hub
           </h3>
-          <p className="text-white text-lg font-medium mb-10 leading-snug">
-            We provide the missing infrastructure so providers can do what they do best — care for the community.
+          <p className="text-lg font-medium mb-10 leading-snug" style={{ color: "#f5efe2" }}>
+            We provide the support communities need so providers can do what they do best — care for people.
           </p>
 
           <div className="space-y-3">
@@ -387,12 +401,12 @@ function Gap({ accent }) {
               { t: "Data Integration", d: "Unified systems for tracking outcomes and reporting.", n: "03" },
               { t: "Contracting", d: "Single point of contract for plans, agencies, and CBOs.", n: "04" }
             ].map((item) => (
-              <div key={item.t} className="flex items-start gap-4 p-4 border-l-2"
-                   style={{ background: "rgba(0,0,0,0.25)", borderColor: accent.c500 }}>
+              <div key={item.t} className="flex items-start gap-4 p-4 border-l-2 rounded-sm"
+                   style={{ background: "rgba(0,0,0,0.2)", borderColor: accent.c500 }}>
                 <span className="font-mono text-[10px] tracking-widest mt-1" style={{ color: accent.c400 }}>{item.n}</span>
                 <div>
                   <h4 className="font-bold text-white">{item.t}</h4>
-                  <p className="text-sm text-slate-400">{item.d}</p>
+                  <p className="text-sm" style={{ color: "#b8b09e" }}>{item.d}</p>
                 </div>
               </div>
             ))}
@@ -409,7 +423,7 @@ function Model({ accent, displayFont }) {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20 max-w-3xl mx-auto">
           <span className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: accent.c700 }}>
-            ◆ Our Model
+            Our Model
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mt-3 tracking-tight">
             Medi-Cal funded community.
@@ -423,12 +437,12 @@ function Model({ accent, displayFont }) {
           <div className="grid md:grid-cols-3 gap-6 md:gap-10 items-stretch">
             {/* Left: Payers */}
             <div className="space-y-4">
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 mb-3">◇ Payers</div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] mb-3" style={{ color: "#7a7060" }}>Payers</div>
               {[
-                { icon: <Shield className="w-5 h-5 text-slate-500" />, t: "Medi-Cal Managed Care Plans" },
-                { icon: <Building className="w-5 h-5 text-slate-500" />, t: "County Agencies" }
+                { icon: <Shield className="w-5 h-5" style={{ color: "#7a7060" }} />, t: "Medi-Cal Managed Care Plans" },
+                { icon: <Building className="w-5 h-5" style={{ color: "#7a7060" }} />, t: "County Agencies" }
               ].map((p) => (
-                <div key={p.t} className="p-6 bg-slate-50 border border-slate-200 flex items-center gap-4">
+                <div key={p.t} className="p-6 border rounded-md flex items-center gap-4" style={{ background: "#fbf7ed", borderColor: "#e8e1d2" }}>
                   {p.icon}
                   <h3 className="font-bold text-slate-900 text-sm">{p.t}</h3>
                 </div>
@@ -437,16 +451,16 @@ function Model({ accent, displayFont }) {
 
             {/* Center: Hub */}
             <div className="relative flex items-center">
-              <div className="hidden md:block absolute top-1/2 -left-6 -right-6 h-px bg-slate-200 -z-10 transform -translate-y-1/2" />
+              <div className="hidden md:block absolute top-1/2 -left-6 -right-6 h-px -z-10 transform -translate-y-1/2" style={{ background: "#e8e1d2" }} />
               <div className="hidden md:block absolute top-1/2 -left-6 -right-6 -z-10 transform -translate-y-1/2 flex justify-between">
                 {Array.from({ length: 22 }).map((_, i) => (
                   <span key={i} className="inline-block w-1 h-1 rounded-full"
-                        style={{ background: i % 2 === 0 ? "#cbd5e1" : "transparent" }} />
+                        style={{ background: i % 2 === 0 ? "#d4cdb8" : "transparent" }} />
                 ))}
               </div>
-              <div className="w-full text-white p-8 py-12 text-center relative z-10 shadow-2xl"
+              <div className="w-full text-white p-8 py-12 text-center relative z-10 shadow-2xl rounded-md"
                    style={{ background: accent.c900 }}>
-                <Network className="w-12 h-12 mx-auto mb-4" style={{ color: accent.c400 }} />
+                <MapleLeaf className="w-12 h-12 mx-auto mb-4" style={{ color: accent.c400 }} />
                 <h3 className="text-2xl font-bold mb-2 tracking-tight"
                     style={{ fontFamily: displayFont, fontWeight: 500 }}>
                   Care Hub
@@ -454,22 +468,21 @@ function Model({ accent, displayFont }) {
                 <p className="text-sm" style={{ color: accent.c100, opacity: 0.85 }}>
                   Contracting · Billing · Clinical · Data
                 </p>
-                <div className="mt-6 pt-6 border-t font-mono text-[10px] uppercase tracking-[0.22em] flex justify-center gap-3"
+                <div className="mt-6 pt-6 border-t font-mono text-[10px] uppercase tracking-[0.22em] flex justify-center gap-2"
                      style={{ borderColor: "rgba(255,255,255,0.15)", color: accent.c400 }}>
-                  <span>NPI ✓</span><span>·</span><span>837P ✓</span><span>·</span><span>HIPAA ✓</span>
+                  <span>For plans</span><span style={{ opacity: 0.5 }}>·</span><span>For counties</span><span style={{ opacity: 0.5 }}>·</span><span>For CBOs</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Providers */}
             <div className="space-y-4">
-              <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 mb-3 text-right">Providers ◇</div>
+              <div className="font-mono text-[11px] uppercase tracking-[0.22em] mb-3 text-right" style={{ color: "#7a7060" }}>Providers</div>
               {[
-                { icon: <Users className="w-5 h-5 text-slate-500" />, t: "Community-Based Organizations" },
-                { icon: <Scale className="w-5 h-5 text-slate-500" />, t: "Justice Partners" },
-                { icon: <BookOpen className="w-5 h-5 text-slate-500" />, t: "Schools" }
+                { icon: <Users className="w-5 h-5" style={{ color: "#7a7060" }} />, t: "Community-Based Organizations" },
+                { icon: <Scale className="w-5 h-5" style={{ color: "#7a7060" }} />, t: "Justice Partners" }
               ].map((p) => (
-                <div key={p.t} className="p-6 bg-slate-50 border border-slate-200 flex items-center gap-4 flex-row-reverse text-right">
+                <div key={p.t} className="p-6 border rounded-md flex items-center gap-4 flex-row-reverse text-right" style={{ background: "#fbf7ed", borderColor: "#e8e1d2" }}>
                   {p.icon}
                   <h3 className="font-bold text-slate-900 text-sm">{p.t}</h3>
                 </div>
@@ -485,133 +498,135 @@ function Model({ accent, displayFont }) {
 function Roles({ accent, displayFont }) {
   const roles = [
     {
-      n: "01",
+      tone: "#b8525a",
       audience: "Hospitals",
-      tagline: "Transitions of care · Readmissions",
-      icon: <Hospital className="w-5 h-5" />,
-      headline: "From readmissions working group to readmissions reduction network.",
-      stat: "25%",
-      statLabel: "lower inpatient utilization with integrated community partners (JGIM, 2025)",
-      body: "Hospitals invest enormous effort in reducing readmissions. The missing piece isn't another internal committee — it's a network of community-based care managers who hold members through the transition.",
-      cta: "For Hospitals"
+      headline: "The discharge isn't the end.",
+      body: "When a hub is in place, somebody meets a person at the door, drives them home, makes sure the meds are filled, and checks in next Tuesday."
     },
     {
-      n: "02",
-      audience: "CBOs & Providers",
-      tagline: "The critical touchpoints",
-      icon: <Users className="w-5 h-5" />,
-      headline: "You are the people who keep members engaged and stable in the community.",
-      stat: null,
-      statLabel: null,
-      body: "Every check-in, ride, meal, and follow-up call is a clinical event. We handle contracting, billing, and compliance so you can focus on the relationship — the part no one else can do.",
-      cta: "For CBOs"
+      tone: "#3a8a8a",
+      audience: "Clinics",
+      headline: "The steady door for primary care.",
+      body: "FQHCs, rural clinics, free clinics — the trusted places people come back to. CareHub helps clinics wrap care management and community supports around the visit, so the work doesn't end at the exam room."
     },
     {
-      n: "03",
-      audience: "County Agencies",
-      tagline: "The safety-net starting line",
-      icon: <Building className="w-5 h-5" />,
-      headline: "Stop talking about ECM. Start delivering enhanced community care.",
-      stat: null,
-      statLabel: null,
-      body: "Counties are the starting place for benefits and care in the safety net. We bring together the providers, plans, and partners already in motion — and move from program acronyms to coordinated care.",
-      cta: "For Counties"
+      tone: "#c69b56",
+      audience: "Schools",
+      headline: "Care that meets kids where they spend their day.",
+      body: "Half the kids who need a doctor only see one if you bring care to the cafeteria. We help schools connect families to Medi-Cal and the supports they already qualify for."
     },
     {
-      n: "04",
-      audience: "Health Plans",
-      tagline: "Streamlined compliance",
-      icon: <Shield className="w-5 h-5" />,
-      headline: "One contract. Many partners. Real outcomes.",
-      stat: null,
-      statLabel: null,
-      body: "Administrative and clinical compliance is the bottleneck between mandate and delivery. We streamline both — so the dollars plans are required to spend on enhanced community care actually move into the community.",
-      cta: "For Health Plans"
+      tone: "#2c6e5b",
+      audience: "Community-Based Organizations",
+      headline: "You already know everyone's name.",
+      body: "The rides, the meals, the calls, the follow-up — CareHub turns the work you already do into reimbursable enhanced care. Same work. Real pay."
+    },
+    {
+      tone: "#3f5c8a",
+      audience: "Counties",
+      headline: "The front door of the safety net.",
+      body: "Eligibility, public health, behavioral health — county teams hold a lot. We help you hand off to community partners with nobody falling through."
+    },
+    {
+      tone: "#7b4a8a",
+      audience: "Health plans",
+      headline: "Mandates don't deliver care. Communities do.",
+      body: "We translate enhanced-care benefits into actual care on the ground — and bring the documentation back in compliant 837 form."
     }
   ];
 
   return (
-    <section id="roles" className="py-24 px-6 bg-slate-50 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto">
+    <section id="roles" className="py-24 md:py-28 px-6 border-t" style={{ background: "#fbf7ed", borderColor: "#e8e1d2" }}>
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="mb-16 grid md:grid-cols-12 gap-8 items-end">
-          <div className="md:col-span-7">
+        <div className="grid md:grid-cols-12 gap-8 mb-16 md:mb-20">
+          <div className="md:col-span-8">
             <span className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: accent.c700 }}>
-              ◆ A shared responsibility
+              Together
             </span>
-            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 mt-4 tracking-tight leading-[1.03]"
-                style={{ fontFamily: displayFont }}>
-              We all have a role in <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>community care</span>.
+            <h2
+              className="mt-4 text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-[1.03]"
+              style={{ fontFamily: displayFont }}
+            >
+              Together we can build <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>healthy communities</span> — and keep people <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>out</span> of the hospital and out of incarceration.
             </h2>
           </div>
-          <div className="md:col-span-5">
-            <p className="text-lg md:text-xl text-slate-700 leading-relaxed">
-              Because we are all involved. Care Hub is about healthy communities — the kind that take hospitals, CBOs, counties, and plans pulling on the same rope.
+          <div className="md:col-span-4 md:pt-4">
+            <p className="text-lg leading-relaxed" style={{ color: "#3a2f24" }}>
+              Nobody can pull this off alone. Hospitals, clinics, schools, community-based organizations, counties, and health plans — everybody holds a piece. The work is to pull together.
             </p>
           </div>
         </div>
 
-        {/* Cards grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 border-t border-l border-slate-200 bg-white">
+        {/* Community directory — soft cards, no hard stripes */}
+        <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {roles.map((r) => (
-            <div key={r.n} className="relative p-8 md:p-9 border-r border-b border-slate-200 flex flex-col">
-              {/* top stripe */}
-              <div className="absolute top-0 left-0 right-0 h-[3px]" style={{ background: accent.c700 }} />
-
-              <div className="flex items-start justify-between mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-slate-100 flex items-center justify-center text-slate-700">
-                    {r.icon}
-                  </div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] text-slate-500">
-                    For
-                  </div>
-                </div>
-                <span className="font-mono text-[11px] tracking-[0.22em] text-slate-400">{r.n}</span>
+            <li
+              key={r.audience}
+              className="p-7 flex flex-col"
+              style={{
+                background: "#ffffff",
+                border: "1px solid #e8e1d2",
+                borderRadius: 6,
+                boxShadow: "0 1px 0 rgba(0,0,0,0.02), 0 14px 30px -22px rgba(60,40,12,0.18)"
+              }}
+            >
+              {/* warm colored mark — circle blob */}
+              <div className="mb-5 flex items-center gap-3">
+                <span
+                  className="inline-block"
+                  style={{
+                    width: 26,
+                    height: 26,
+                    borderRadius: "50%",
+                    background: r.tone
+                  }}
+                />
+                <span className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
+                  For
+                </span>
               </div>
 
-              <h3 className="text-xl font-bold text-slate-900 tracking-tight mb-2">
+              <h3
+                className="text-2xl tracking-tight mb-3"
+                style={{ fontFamily: displayFont, fontWeight: 600, color: "#221b14" }}
+              >
                 {r.audience}
               </h3>
-              <p className="font-mono text-[10px] uppercase tracking-[0.22em] mb-6"
-                 style={{ color: accent.c700 }}>
-                {r.tagline}
-              </p>
 
-              <p className="text-[17px] leading-snug text-slate-900 mb-6"
-                 style={{ fontFamily: displayFont, fontWeight: 500 }}>
+              <p
+                className="text-[16px] leading-snug mb-4"
+                style={{ fontFamily: displayFont, fontStyle: "italic", fontWeight: 400, color: "#3a2f24" }}
+              >
                 {r.headline}
               </p>
 
-              {r.stat && (
-                <div className="mb-6 pb-5 border-b border-slate-200">
-                  <div className="font-black leading-none tabular-nums"
-                       style={{ color: accent.c700, fontSize: "3.5rem", letterSpacing: "-0.04em" }}>
-                    {r.stat}
-                  </div>
-                  <p className="mt-2 text-xs text-slate-500 leading-snug">{r.statLabel}</p>
-                </div>
-              )}
-
-              <p className="text-sm text-slate-600 leading-relaxed mb-6 flex-1">
+              <p className="text-[14px] leading-relaxed flex-1" style={{ color: "#5e554a" }}>
                 {r.body}
               </p>
 
-              <a href="#contact"
-                 className="inline-flex items-center gap-2 text-sm font-semibold text-slate-900 mt-auto group/cta">
-                <span className="border-b pb-0.5" style={{ borderColor: "#cbd5e1" }}>{r.cta}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover/cta:translate-x-1" />
+              <a
+                href="#contact"
+                className="mt-6 inline-flex items-center gap-2 text-[13px] font-semibold transition-colors"
+                style={{ color: "#221b14" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = r.tone)}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#221b14")}
+              >
+                <span className="border-b pb-0.5" style={{ borderColor: "#d4cdb8" }}>Say hello</span>
+                <ArrowRight className="w-4 h-4" />
               </a>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
-        {/* Footnote sources */}
-        <div className="mt-8 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400 flex flex-wrap gap-x-6 gap-y-2">
-          <span>Sources ↗</span>
-          <a href="https://link.springer.com/article/10.1007/s11606-025-09839-2" target="_blank" rel="noreferrer" className="hover:text-slate-700">JGIM 2025</a>
-          <a href="https://www.nature.com/articles/s41746-025-02195-9" target="_blank" rel="noreferrer" className="hover:text-slate-700">npj Digital Medicine 2025</a>
-          <a href="https://pubmed.ncbi.nlm.nih.gov/42018601/" target="_blank" rel="noreferrer" className="hover:text-slate-700">PubMed 42018601</a>
+        {/* Closing line */}
+        <div className="mt-14 max-w-3xl">
+          <p
+            className="text-xl md:text-2xl leading-[1.4]"
+            style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
+          >
+            Not "stakeholders." <span style={{ color: accent.c700, fontStyle: "italic" }}>Community partners</span> — doing the same work, just shared.
+          </p>
         </div>
       </div>
     </section>
@@ -620,17 +635,17 @@ function Roles({ accent, displayFont }) {
 
 function Footer({ accent, displayFont }) {
   return (
-    <footer id="contact" className="text-white py-24 px-6" style={{ background: "#0b1220" }}>
+    <footer id="contact" className="text-white py-24 px-6" style={{ background: "#1d2a23" }}>
       <div className="max-w-5xl mx-auto">
         <span className="font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: accent.c400 }}>
-          ◆ Contact
+          Contact
         </span>
         <h2 className="text-4xl md:text-6xl font-bold mt-3 mb-8 tracking-tight max-w-3xl"
             style={{ fontFamily: displayFont }}>
-          Empower your care ecosystem.
+          Let's work together to build <span style={{ color: accent.c400, fontStyle: "italic", fontWeight: 500 }}>healthy communities</span>.
         </h2>
         <p className="text-xl text-slate-400 mb-12 max-w-2xl leading-relaxed">
-          Whether you're a hospital, county agency, managed care plan, or community-based organization, Care Hub provides the infrastructure you need to deliver enhanced community care.
+          Whether you're a hospital, clinic, school, community-based organization, county agency, or Medi-Cal Managed Care Plan — CareHub provides the support communities need to deliver on the promise of enhanced care.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mb-16">
@@ -639,7 +654,7 @@ function Footer({ accent, displayFont }) {
             { icon: <MapPin className="w-4 h-4" />, label: "Located", value: "Santa Clara County, CA" },
             { icon: <TrendingUp className="w-4 h-4" />, label: "Status", value: "Accepting partners — 2026 cohort" }
           ].map((c) => (
-            <div key={c.label} className="p-6 border" style={{ borderColor: "#1e293b", background: "rgba(255,255,255,0.02)" }}>
+            <div key={c.label} className="p-6 border rounded-md" style={{ borderColor: "#34423c", background: "rgba(255,255,255,0.03)" }}>
               <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] mb-3"
                    style={{ color: accent.c400 }}>
                 {c.icon}<span>{c.label}</span>
@@ -650,19 +665,23 @@ function Footer({ accent, displayFont }) {
         </div>
 
         <a href="mailto:partners@carehub.org"
-           className="inline-flex items-center gap-3 font-bold py-5 px-10 transition-all hover:-translate-y-0.5"
+           className="inline-flex items-center gap-3 font-bold py-5 px-10 transition-all hover:-translate-y-0.5 rounded-md"
            style={{ background: accent.c600, color: "#fff" }}>
           Partner with us <ArrowRight className="w-4 h-4" />
         </a>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t flex flex-col md:flex-row justify-between items-center text-slate-500 text-sm"
-           style={{ borderColor: "#1e293b" }}>
-        <div className="mb-4 md:mb-0 flex items-center gap-2">
-          <div className="w-5 h-5 flex items-center justify-center" style={{ background: "#0f172a" }}>
-            <Network className="w-3 h-3" style={{ color: accent.c400 }} />
-          </div>
-          <span><span className="font-bold text-slate-300">Maple Community Care Hub</span> &nbsp;·&nbsp; carehub.org &copy; 2026</span>
+      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t flex flex-col md:flex-row justify-between items-center text-sm"
+           style={{ borderColor: "#34423c", color: "#8a8474" }}>
+        <div className="mb-4 md:mb-0 flex items-center gap-2.5">
+          <svg viewBox="0 0 36 32" className="w-7 h-6" aria-hidden="true">
+            <g style={{ mixBlendMode: "screen" }}>
+              <circle cx="18" cy="10" r="9" fill={accent.c400} />
+              <circle cx="11" cy="21" r="9" fill={accent.c500} fillOpacity="0.85" />
+              <circle cx="25" cy="21" r="9" fill="#fbf7ed" fillOpacity="0.35" />
+            </g>
+          </svg>
+          <span><span className="font-bold" style={{ color: "#c4bdab" }}>CareHub</span> &nbsp;·&nbsp; carehub.org &copy; 2026</span>
         </div>
         <div className="flex gap-8">
           <a href="#" className="hover:text-white transition-colors">Privacy</a>
@@ -686,6 +705,7 @@ function Tweaks({ t, setTweak }) {
           value={t.accent}
           onChange={(v) => setTweak("accent", v)}
           options={[
+            { value: "maple", label: "Maple" },
             { value: "teal", label: "Teal" },
             { value: "navy", label: "Navy" },
             { value: "olive", label: "Olive" }
@@ -729,15 +749,18 @@ function App() {
     document.documentElement.style.setProperty("--accent-400", accent.c400);
   }, [displayFont, accent]);
 
+  const { WhereHealthHappens, GroundedInEvidence, TheGap, GroundedInPolicy, WhatThatMeans } = window;
+
   return (
-    <div className="min-h-screen bg-white text-slate-900 selection:bg-teal-200/60 selection:text-teal-900">
+    <div className="min-h-screen text-slate-900" style={{ background: "#fbf7ed" }}>
       <Nav accent={accent} />
       <Hero accent={accent} displayFont={displayFont} darkHero={t.darkHero} />
-      <Landscape accent={accent} />
-      <Research accent={accent} displayFont={displayFont} />
+      <WhereHealthHappens accent={accent} displayFont={displayFont} />
+      <GroundedInEvidence accent={accent} displayFont={displayFont} />
+      <TheGap accent={accent} displayFont={displayFont} />
+      <GroundedInPolicy accent={accent} displayFont={displayFont} />
+      <WhatThatMeans accent={accent} displayFont={displayFont} />
       <HowWeGotHere />
-      <Gap accent={accent} />
-      <Model accent={accent} displayFont={displayFont} />
       <Roles accent={accent} displayFont={displayFont} />
       <Footer accent={accent} displayFont={displayFont} />
       <Tweaks t={t} setTweak={setTweak} />

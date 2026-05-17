@@ -36,13 +36,15 @@ const Scale = _svg(<><path d="M16 16l3-8 3 8c-2 1-4 1-6 0z" /><path d="M2 16l3-8
 const Home = _svg(<><path d="M3 11l9-8 9 8" /><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10" /><path d="M10 21v-6h4v6" /></>);
 const Mail = _svg(<><rect x="3" y="5" width="18" height="14" rx="2" /><polyline points="3 7 12 13 21 7" /></>);
 const MapPin = _svg(<><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" /><circle cx="12" cy="10" r="3" /></>);
+const MapleLeaf = _svg(<><path d="M12 21v-3" /><path d="M12 18l-4-1 1-3-4-1 3-3-1-3 3 1 1-3 1 3 3-1-1 3 3 3-4 1 1 3z" /></>, "0 0 24 24");
 const TrendingUp = _svg(<><polyline points="3 17 9 11 13 15 21 7" /><polyline points="15 7 21 7 21 13" /></>);
 const Hospital = _svg(<><path d="M4 21V6a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v15" /><line x1="2" y1="21" x2="22" y2="21" /><path d="M12 9v6" /><path d="M9 12h6" /><line x1="9" y1="21" x2="9" y2="17" /><line x1="15" y1="21" x2="15" y2="17" /></>);
 const Handshake = _svg(<><path d="M11 17l2 2a1 1 0 0 0 1.4 0l4-4a1 1 0 0 0 0-1.4l-2-2" /><path d="M22 12l-4-4-6 6-4-4-5 5 4 4 2-2" /><path d="M11 17l1.5 1.5" /></>);
 const Sparkle = _svg(<><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z" /></>);
+const School = _svg(<><path d="M22 10l-10-5L2 10l10 5 10-5z" /><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5" /></>);
 
 window.Icons = {
   Menu, X, ArrowRight, ArrowDown, Activity, Users, FileText, Shield, Heart, Network,
   BookOpen, Quote, ChevronDown, Building, Scale, Home, Mail, MapPin, TrendingUp,
-  Hospital, Handshake, Sparkle
+  Hospital, Handshake, Sparkle, MapleLeaf, School
 };
