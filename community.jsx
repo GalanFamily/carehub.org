@@ -68,13 +68,13 @@ function Eyebrow({ children, color = "#7a7060" }) {
 
 const PLACES = [
   { name: "Schools",              note: "Where kids spend half their waking hours.",                  tone: "#d97757", shape: "triangle" },
-  { name: "Churches",             note: "Where trust gathers on Sunday morning.",                     tone: "#c69b56", shape: "arch" },
   { name: "Food pantries",        note: "Where the line for groceries is also the line for care.",   tone: "#a06a3c", shape: "square" },
   { name: "CBOs",                 note: "The people who pick up the phone first.",                    tone: "#2c6e5b", shape: "circle" },
   { name: "County agencies",      note: "Where benefits live before they reach a wallet.",            tone: "#3f5c8a", shape: "square" },
   { name: "Justice partners",     note: "Meeting people the day they get out — not six weeks later.", tone: "#7b4a8a", shape: "halfcircle" },
   { name: "Residential homes",    note: "Group homes, recuperative beds, the in-between places.",     tone: "#8a6a4a", shape: "house" },
-  { name: "Living rooms",         note: "Where most of life — and most of recovery — happens.",       tone: "#b8525a", shape: "heart" }
+  { name: "Living rooms",         note: "Where most of life — and most of recovery — happens.",       tone: "#b8525a", shape: "heart" },
+  { name: "Churches",             note: "Where trust gathers on Sunday morning.",                     tone: "#c69b56", shape: "arch" }
 ];
 
 function PlaceGlyph({ shape, tone }) {
@@ -265,23 +265,9 @@ function WhereHealthHappens({ accent, displayFont }) {
             <p className="mt-6 text-lg md:text-xl leading-[1.7]" style={{ color: "#5e554a" }}>
               The work isn't to invent a new front door. It's to find the door each person already
               walks through — their place, their people — and to make them a real partner in the
-              hub of care. Not a referral. A teammate.
+              hub of care.
             </p>
           </div>
-
-          {/* margin annotation */}
-          <aside className="md:col-span-3 md:col-start-10 md:pt-12">
-            <div
-              className="border-l-2 pl-5 text-sm leading-relaxed"
-              style={{ borderColor: accent.c500, color: "#5e554a", fontFamily: displayFont, fontStyle: "italic" }}
-            >
-              "Finding the place — and the people — that already work in someone's life,
-              and making them part of the care team."
-            </div>
-            <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
-              — Care Hub working principle
-            </div>
-          </aside>
         </div>
 
         {/* The constellation — one person bouncing through community settings */}
