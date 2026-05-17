@@ -154,7 +154,7 @@ function Hero({ accent, displayFont, darkHero }) {
           className="font-bold tracking-tight leading-[1.02] mb-10"
           style={{ fontFamily: displayFont, fontSize: "clamp(2.75rem, 6.5vw, 5.75rem)" }}
         >
-          Supporting healthy communities through{" "}
+          The support communities need for{" "}
           <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
             enhanced care.
           </span>
