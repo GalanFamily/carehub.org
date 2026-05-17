@@ -119,16 +119,16 @@ function PlaceGlyph({ shape, tone }) {
 // A constellation showing one person's journey across community settings.
 // SVG with simple circles + dashed path + animated dot — no hand-drawn imagery.
 function JourneyConstellation({ accent, displayFont }) {
-  const W = 1000, H = 460;
+  const W = 1000, H = 500;
   const nodes = [
-    { n: "01", label: "Jail",                tone: "#7b4a8a", x: 90,  y: 130 },
-    { n: "02", label: "ED",                  tone: "#b8525a", x: 260, y: 340 },
-    { n: "03", label: "Hospital",            tone: "#b8525a", x: 380, y: 250 },
-    { n: "04", label: "Residential program", tone: "#8a6a4a", x: 500, y: 130 },
-    { n: "05", label: "County agency",       tone: "#3f5c8a", x: 670, y: 360 },
-    { n: "06", label: "Justice partner",     tone: "#7b4a8a", x: 890, y: 200 },
-    { n: "07", label: "CBO",                 tone: "#2c6e5b", x: 560, y: 50  },
-    { n: "08", label: "Food pantry",         tone: "#a06a3c", x: 180, y: 50  }
+    { n: "01", label: "Jail",                tone: "#7b4a8a", x: 90,  y: 160 },
+    { n: "02", label: "ED",                  tone: "#b8525a", x: 260, y: 360 },
+    { n: "03", label: "Hospital",            tone: "#b8525a", x: 380, y: 270 },
+    { n: "04", label: "Residential program", tone: "#8a6a4a", x: 510, y: 160 },
+    { n: "05", label: "County agency",       tone: "#3f5c8a", x: 690, y: 380 },
+    { n: "06", label: "Justice partner",     tone: "#7b4a8a", x: 890, y: 230 },
+    { n: "07", label: "CBO",                 tone: "#2c6e5b", x: 600, y: 80  },
+    { n: "08", label: "Food pantry",         tone: "#a06a3c", x: 180, y: 80  }
   ];
 
   // Sporadic bouncing — heavy ED↔Hospital, occasional excursions to the others.
@@ -146,29 +146,30 @@ function JourneyConstellation({ accent, displayFont }) {
 
   return (
     <div className="relative">
-      <svg
-        viewBox={`0 0 ${W} ${H}`}
-        className="w-full h-auto"
-        style={{ maxHeight: 520 }}
-        aria-hidden="true"
-      >
+      <div className="-mx-6 md:mx-0 overflow-x-auto md:overflow-visible">
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          className="h-auto mx-auto block"
+          style={{ minWidth: 760, width: "100%", maxWidth: 1100, maxHeight: 560 }}
+          aria-hidden="true"
+        >
         {/* moving dot — sporadic bouncing, mostly ED↔Hospital */}
-        <circle r="7" fill={accent.c700}>
+        <circle r="10" fill={accent.c700}>
           <animateMotion dur="22s" repeatCount="indefinite" path={motionPath} />
         </circle>
-        <circle r="14" fill={accent.c500} fillOpacity="0.25">
+        <circle r="20" fill={accent.c500} fillOpacity="0.25">
           <animateMotion dur="22s" repeatCount="indefinite" path={motionPath} />
         </circle>
 
         {/* nodes */}
         {nodes.map((p) => (
           <g key={p.n} transform={`translate(${p.x} ${p.y})`}>
-            <circle r="26" fill="#fbf7ed" stroke={p.tone} strokeWidth="1.5" />
-            <circle r="6" fill={p.tone} />
+            <circle r="38" fill="#fbf7ed" stroke={p.tone} strokeWidth="2.25" />
+            <circle r="9" fill={p.tone} />
             <text
               textAnchor="middle"
-              y="-36"
-              fontSize="11"
+              y="-50"
+              fontSize="15"
               fontFamily="JetBrains Mono, monospace"
               fill="#7a7060"
               letterSpacing="2"
@@ -177,8 +178,8 @@ function JourneyConstellation({ accent, displayFont }) {
             </text>
             <text
               textAnchor="middle"
-              y="56"
-              fontSize="16"
+              y="68"
+              fontSize="22"
               fontFamily={displayFont}
               fontWeight="600"
               fill="#221b14"
@@ -187,20 +188,21 @@ function JourneyConstellation({ accent, displayFont }) {
             </text>
           </g>
         ))}
-      </svg>
+        </svg>
+      </div>
 
       {/* legend / explanation */}
       <div className="mt-6 grid md:grid-cols-3 gap-6 md:gap-10 max-w-4xl">
         <div>
           <Eyebrow color={accent.c700}>Without a hub</Eyebrow>
           <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "#3a2f24" }}>
-            One person, eight systems, no shared record. Each touchpoint starts the story over.
+            One person, eight disconnected touchpoints. Each touchpoint starts over.
           </p>
         </div>
         <div>
           <Eyebrow color={accent.c700}>With a hub</Eyebrow>
           <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "#3a2f24" }}>
-            The same eight settings, but now one care team holds the through-line — meeting the person at every door.
+            The same eight, coordinated. One care team holds the through-line — meeting the person at every door.
           </p>
         </div>
         <div>
@@ -281,6 +283,39 @@ function WhereHealthHappens({ accent, displayFont }) {
             </span>
           </div>
           <JourneyConstellation accent={accent} displayFont={displayFont} />
+        </div>
+
+        {/* What we've learned — operational insight from the first JI hub */}
+        <div className="mb-20 md:mb-24 grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+          <div className="md:col-span-4">
+            <Eyebrow color={accent.c700}>What we've learned</Eyebrow>
+            <h3
+              className="mt-3 text-3xl md:text-4xl leading-[1.15]"
+              style={{ fontFamily: displayFont, fontWeight: 600, color: "#221b14" }}
+            >
+              From the first hub for{" "}
+              <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
+                Justice-Involved
+              </span>{" "}
+              in the state.
+            </h3>
+          </div>
+          <div className="md:col-span-7 md:col-start-6">
+            <p
+              className="text-xl md:text-2xl leading-[1.45]"
+              style={{ fontFamily: displayFont, fontWeight: 400, color: "#3a2f24" }}
+            >
+              Post-incarceration and post-hospitalization, the environment is so unstable
+              that it's difficult to establish regular patterns — "show up at this clinic
+              every Tuesday" doesn't survive contact with reality.
+            </p>
+            <p className="mt-5 text-lg leading-[1.7]" style={{ color: "#5e554a" }}>
+              It's about finding the places they already go. The location for their
+              monthly long-acting injections (LAI). Regular visits with justice partners.
+              Residential or sober-living programs. Meet them there, and the care plan
+              starts to hold.
+            </p>
+          </div>
         </div>
 
         {/* The places — loose, organic flow, NOT a hard grid */}
