@@ -121,15 +121,28 @@ function PlaceGlyph({ shape, tone }) {
 function JourneyConstellation({ accent, displayFont }) {
   const W = 1000, H = 460;
   const nodes = [
-    { n: "01", label: "Jail",             tone: "#7b4a8a", x: 90,  y: 130 },
-    { n: "02", label: "ED",               tone: "#b8525a", x: 260, y: 340 },
-    { n: "03", label: "Residential",      tone: "#8a6a4a", x: 450, y: 150 },
-    { n: "04", label: "County agency",    tone: "#3f5c8a", x: 660, y: 360 },
-    { n: "05", label: "Justice partner",  tone: "#7b4a8a", x: 880, y: 200 },
-    { n: "06", label: "CBO",              tone: "#2c6e5b", x: 540, y: 60  },
-    { n: "07", label: "Food pantry",      tone: "#a06a3c", x: 180, y: 60  }
+    { n: "01", label: "Jail",                tone: "#7b4a8a", x: 90,  y: 130 },
+    { n: "02", label: "ED",                  tone: "#b8525a", x: 260, y: 340 },
+    { n: "03", label: "Hospital",            tone: "#b8525a", x: 380, y: 250 },
+    { n: "04", label: "Residential program", tone: "#8a6a4a", x: 500, y: 130 },
+    { n: "05", label: "County agency",       tone: "#3f5c8a", x: 670, y: 360 },
+    { n: "06", label: "Justice partner",     tone: "#7b4a8a", x: 890, y: 200 },
+    { n: "07", label: "CBO",                 tone: "#2c6e5b", x: 560, y: 50  },
+    { n: "08", label: "Food pantry",         tone: "#a06a3c", x: 180, y: 50  }
   ];
-  const path = nodes.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
+
+  // Sporadic bouncing — heavy ED↔Hospital, occasional excursions to the others.
+  const [JAIL, ED, HOSP, RES, COUNTY, JUSTICE, CBO, FOOD] = nodes;
+  const sequence = [
+    ED, HOSP, ED, HOSP, ED, HOSP, ED,
+    JAIL, ED, HOSP, ED, HOSP, ED, HOSP,
+    CBO, HOSP, ED, HOSP, ED, HOSP,
+    RES, ED, HOSP, ED, HOSP, ED,
+    COUNTY, HOSP, ED, HOSP, ED, HOSP,
+    JUSTICE, ED, HOSP, ED, HOSP, ED,
+    FOOD, ED, HOSP, ED, HOSP, ED, HOSP, ED
+  ];
+  const motionPath = sequence.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
 
   return (
     <div className="relative">
@@ -139,23 +152,12 @@ function JourneyConstellation({ accent, displayFont }) {
         style={{ maxHeight: 520 }}
         aria-hidden="true"
       >
-        {/* dashed bouncing path */}
-        <path
-          d={path}
-          fill="none"
-          stroke="#3a2f24"
-          strokeOpacity="0.22"
-          strokeWidth="1.5"
-          strokeDasharray="3 7"
-          strokeLinecap="round"
-        />
-
-        {/* moving dot */}
+        {/* moving dot — sporadic bouncing, mostly ED↔Hospital */}
         <circle r="7" fill={accent.c700}>
-          <animateMotion dur="18s" repeatCount="indefinite" path={path} rotate="auto" />
+          <animateMotion dur="22s" repeatCount="indefinite" path={motionPath} />
         </circle>
         <circle r="14" fill={accent.c500} fillOpacity="0.25">
-          <animateMotion dur="18s" repeatCount="indefinite" path={path} rotate="auto" />
+          <animateMotion dur="22s" repeatCount="indefinite" path={motionPath} />
         </circle>
 
         {/* nodes */}
@@ -192,13 +194,13 @@ function JourneyConstellation({ accent, displayFont }) {
         <div>
           <Eyebrow color={accent.c700}>Without a hub</Eyebrow>
           <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "#3a2f24" }}>
-            One person, seven systems, no shared record. Each touchpoint starts the story over.
+            One person, eight systems, no shared record. Each touchpoint starts the story over.
           </p>
         </div>
         <div>
           <Eyebrow color={accent.c700}>With a hub</Eyebrow>
           <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "#3a2f24" }}>
-            The same seven settings, but now one care team holds the through-line — meeting the person at every door.
+            The same eight settings, but now one care team holds the through-line — meeting the person at every door.
           </p>
         </div>
         <div>
