@@ -154,14 +154,14 @@ function Hero({ accent, displayFont, darkHero }) {
           className="font-bold tracking-tight leading-[1.02] mb-10"
           style={{ fontFamily: displayFont, fontSize: "clamp(2.75rem, 6.5vw, 5.75rem)" }}
         >
-          The infrastructure for{" "}
+          Supporting healthy communities through{" "}
           <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
-            enhanced community care.
+            enhanced care.
           </span>
         </h1>
 
         <p className="text-xl md:text-2xl leading-relaxed max-w-2xl mb-12" style={{ color: muted }}>
-          We empower county agencies, justice partners, and community-based organizations — to deliver on the promise of enhanced community care.
+          We empower county agencies, schools, justice partners, and community-based organizations to deliver the promise of enhanced community care including ECM, Community Supports, and CYBHI — with administrative, billing, and clinical support.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
