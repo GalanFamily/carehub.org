@@ -156,7 +156,7 @@ function Hero({ accent, displayFont, darkHero }) {
         >
           Working together to support{" "}
           <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
-            health communities
+            healthy communities
           </span>
         </h1>
 
