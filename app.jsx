@@ -466,7 +466,8 @@ function Model({ accent, displayFont }) {
               <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-slate-500 mb-3 text-right">Providers ◇</div>
               {[
                 { icon: <Users className="w-5 h-5 text-slate-500" />, t: "Community-Based Organizations" },
-                { icon: <Scale className="w-5 h-5 text-slate-500" />, t: "Justice Partners" }
+                { icon: <Scale className="w-5 h-5 text-slate-500" />, t: "Justice Partners" },
+                { icon: <BookOpen className="w-5 h-5 text-slate-500" />, t: "Schools" }
               ].map((p) => (
                 <div key={p.t} className="p-6 bg-slate-50 border border-slate-200 flex items-center gap-4 flex-row-reverse text-right">
                   {p.icon}
