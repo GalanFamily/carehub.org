@@ -118,35 +118,40 @@ function PlaceGlyph({ shape, tone }) {
 // A constellation showing one person's journey across community settings.
 // SVG with simple circles + dashed path + animated dot — no hand-drawn imagery.
 function JourneyConstellation({ accent, displayFont }) {
-  const W = 1200, H = 600;
+  const W = 1300, H = 610;
 
-  // The system — places we want people to come OUT of, not into.
-  const JAIL = { label: "Jail",     tone: "#7b4a8a", x: 100, y: 110 };
-  const ED   = { label: "ED",       tone: "#b8525a", x: 120, y: 370 };
-  const HOSP = { label: "Hospital", tone: "#b8525a", x: 280, y: 480 };
-  const system = [JAIL, ED, HOSP];
+  // The medical system — left side. ED → Hospital is always paired.
+  const ED   = { label: "Emergency Department", lines: ["Emergency", "Department"], tone: "#b8525a", x: 130, y: 200 };
+  const HOSP = { label: "Hospital", tone: "#b8525a", x: 160, y: 460 };
+
+  // The carceral system — right side, across from the medical cluster.
+  const JAIL = { label: "Jail", tone: "#7b4a8a", x: 1180, y: 300 };
+
+  const system = [ED, HOSP, JAIL];
 
   // The Community — a unified concept the hub helps define.
-  const COMM = { label: "Community", x: 760, y: 300 };
+  const COMM = { label: "Community", x: 680, y: 300 };
 
-  // The seven community satellites, arranged around COMM.
-  const CBO     = { label: "CBOs",                tone: "#2c6e5b", x: 760, y: 90  };
-  const COUNTY  = { label: "County agency",       tone: "#3f5c8a", x: 916, y: 175 };
-  const JUSTICE = { label: "Justice partner",     tone: "#7b4a8a", x: 955, y: 345 };
-  const FOOD    = { label: "Food pantry",         tone: "#a06a3c", x: 847, y: 480 };
-  const RES     = { label: "Residential program", tone: "#8a6a4a", x: 673, y: 480 };
-  const SCHOOLS = { label: "Schools",             tone: "#d97757", x: 565, y: 345 };
-  const CHURCH  = { label: "Churches",            tone: "#c69b56", x: 604, y: 175 };
-  const satellites = [CBO, COUNTY, JUSTICE, FOOD, RES, SCHOOLS, CHURCH];
+  // Eight community satellites, arranged around COMM at radius 200.
+  const CBO     = { label: "CBOs",                tone: "#2c6e5b", x: 680, y: 100 };
+  const COUNTY  = { label: "County agency",       tone: "#3f5c8a", x: 821, y: 159 };
+  const JUSTICE = { label: "Justice partner",     tone: "#7b4a8a", x: 880, y: 300 };
+  const CLINIC  = { label: "Clinic",              tone: "#3a8a8a", x: 821, y: 441 };
+  const MEAL    = { label: "Meal Program",        tone: "#a06a3c", x: 680, y: 500 };
+  const RES     = { label: "Residential program", lines: ["Residential", "program"], tone: "#8a6a4a", x: 539, y: 441 };
+  const SCHOOLS = { label: "Schools",             tone: "#d97757", x: 480, y: 300 };
+  const CHURCH  = { label: "Churches",            tone: "#c69b56", x: 539, y: 159 };
+  const satellites = [CBO, COUNTY, JUSTICE, CLINIC, MEAL, RES, SCHOOLS, CHURCH];
 
-  // Motion: system loop (Jail → ED → Hospital) → discharge to Community →
-  // out to one or more satellites → eventually back into the system.
+  // Motion: medical system loop (ED → Hospital) → discharge to Community →
+  // out to one or more satellites → eventually back into the system (Jail or ED).
   // ED → Hospital is always paired. Hospital → Community is always paired.
   const sequence = [
-    JAIL, ED, HOSP, COMM, CBO, COMM, FOOD, COMM, RES, JAIL,
-    ED, HOSP, COMM, SCHOOLS, COMM, CHURCH, COMM, CBO, ED,
-    HOSP, COMM, JUSTICE, COMM, COUNTY, COMM, RES, COMM, FOOD,
-    ED, HOSP, COMM, CHURCH, COMM, SCHOOLS, COMM, CBO, COMM, JAIL
+    JAIL, ED, HOSP, COMM, CBO, COMM, MEAL, COMM, RES, JAIL,
+    ED, HOSP, COMM, SCHOOLS, COMM, CHURCH, COMM, CLINIC, ED,
+    HOSP, COMM, JUSTICE, COMM, COUNTY, COMM, RES, COMM, MEAL,
+    JAIL, ED, HOSP, COMM, CHURCH, COMM, SCHOOLS, COMM, CLINIC,
+    COMM, CBO, COMM, JAIL
   ];
   const motionPath = sequence.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
 
@@ -156,27 +161,14 @@ function JourneyConstellation({ accent, displayFont }) {
         <svg
           viewBox={`0 0 ${W} ${H}`}
           className="h-auto mx-auto block"
-          style={{ minWidth: 920, width: "100%", maxWidth: 1200, maxHeight: 640 }}
+          style={{ minWidth: 1000, width: "100%", maxWidth: 1300, maxHeight: 660 }}
           aria-hidden="true"
         >
-          {/* Faint orbit ring around Community — communicates "satellites" */}
-          <circle
-            cx={COMM.x}
-            cy={COMM.y}
-            r="200"
-            fill="none"
-            stroke={accent.c500}
-            strokeOpacity="0.18"
-            strokeWidth="1"
-            strokeDasharray="2 6"
-          />
-
-          {/* The Community hub — large central node */}
+          {/* The Community hub — large central node, no ring */}
           <g transform={`translate(${COMM.x} ${COMM.y})`}>
-            <circle r="90" fill={accent.c100} stroke={accent.c700} strokeWidth="3" />
             <text
               textAnchor="middle"
-              y="-48"
+              y="-12"
               fontSize="13"
               fontFamily="JetBrains Mono, monospace"
               fill={accent.c700}
@@ -186,10 +178,10 @@ function JourneyConstellation({ accent, displayFont }) {
             </text>
             <text
               textAnchor="middle"
-              y="6"
-              fontSize="32"
+              y="36"
+              fontSize="42"
               fontFamily={displayFont}
-              fontWeight="600"
+              fontWeight="700"
               fill={accent.c900}
             >
               Community
@@ -205,22 +197,26 @@ function JourneyConstellation({ accent, displayFont }) {
           </circle>
 
           {/* System + satellite nodes */}
-          {[...system, ...satellites].map((p) => (
-            <g key={p.label} transform={`translate(${p.x} ${p.y})`}>
-              <circle r="38" fill="#fbf7ed" stroke={p.tone} strokeWidth="2.25" />
-              <circle r="9" fill={p.tone} />
-              <text
-                textAnchor="middle"
-                y="68"
-                fontSize="22"
-                fontFamily={displayFont}
-                fontWeight="600"
-                fill="#221b14"
-              >
-                {p.label}
-              </text>
-            </g>
-          ))}
+          {[...system, ...satellites].map((p) => {
+            const labelLines = p.lines || [p.label];
+            return (
+              <g key={p.label} transform={`translate(${p.x} ${p.y})`}>
+                <circle r="38" fill="#fbf7ed" stroke={p.tone} strokeWidth="2.25" />
+                <circle r="9" fill={p.tone} />
+                <text
+                  textAnchor="middle"
+                  fontSize="22"
+                  fontFamily={displayFont}
+                  fontWeight="600"
+                  fill="#221b14"
+                >
+                  {labelLines.map((line, i) => (
+                    <tspan key={i} x="0" y={68 + i * 26}>{line}</tspan>
+                  ))}
+                </text>
+              </g>
+            );
+          })}
         </svg>
       </div>
 
