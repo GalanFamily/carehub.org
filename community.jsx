@@ -118,28 +118,35 @@ function PlaceGlyph({ shape, tone }) {
 // A constellation showing one person's journey across community settings.
 // SVG with simple circles + dashed path + animated dot — no hand-drawn imagery.
 function JourneyConstellation({ accent, displayFont }) {
-  const W = 1000, H = 500;
-  const nodes = [
-    { n: "01", label: "Jail",                tone: "#7b4a8a", x: 90,  y: 160 },
-    { n: "02", label: "ED",                  tone: "#b8525a", x: 260, y: 360 },
-    { n: "03", label: "Hospital",            tone: "#b8525a", x: 380, y: 270 },
-    { n: "04", label: "Residential program", tone: "#8a6a4a", x: 510, y: 160 },
-    { n: "05", label: "County agency",       tone: "#3f5c8a", x: 690, y: 380 },
-    { n: "06", label: "Justice partner",     tone: "#7b4a8a", x: 890, y: 230 },
-    { n: "07", label: "CBO",                 tone: "#2c6e5b", x: 600, y: 80  },
-    { n: "08", label: "Food pantry",         tone: "#a06a3c", x: 180, y: 80  }
-  ];
+  const W = 1200, H = 600;
 
-  // Sporadic bouncing — heavy ED↔Hospital, occasional excursions to the others.
-  const [JAIL, ED, HOSP, RES, COUNTY, JUSTICE, CBO, FOOD] = nodes;
+  // The system — places we want people to come OUT of, not into.
+  const JAIL = { label: "Jail",     tone: "#7b4a8a", x: 100, y: 110 };
+  const ED   = { label: "ED",       tone: "#b8525a", x: 120, y: 370 };
+  const HOSP = { label: "Hospital", tone: "#b8525a", x: 280, y: 480 };
+  const system = [JAIL, ED, HOSP];
+
+  // The Community — a unified concept the hub helps define.
+  const COMM = { label: "Community", x: 760, y: 300 };
+
+  // The seven community satellites, arranged around COMM.
+  const CBO     = { label: "CBOs",                tone: "#2c6e5b", x: 760, y: 90  };
+  const COUNTY  = { label: "County agency",       tone: "#3f5c8a", x: 916, y: 175 };
+  const JUSTICE = { label: "Justice partner",     tone: "#7b4a8a", x: 955, y: 345 };
+  const FOOD    = { label: "Food pantry",         tone: "#a06a3c", x: 847, y: 480 };
+  const RES     = { label: "Residential program", tone: "#8a6a4a", x: 673, y: 480 };
+  const SCHOOLS = { label: "Schools",             tone: "#d97757", x: 565, y: 345 };
+  const CHURCH  = { label: "Churches",            tone: "#c69b56", x: 604, y: 175 };
+  const satellites = [CBO, COUNTY, JUSTICE, FOOD, RES, SCHOOLS, CHURCH];
+
+  // Motion: system loop (Jail → ED → Hospital) → discharge to Community →
+  // out to one or more satellites → eventually back into the system.
+  // ED → Hospital is always paired. Hospital → Community is always paired.
   const sequence = [
-    ED, HOSP, ED, HOSP, ED, HOSP, ED,
-    JAIL, ED, HOSP, ED, HOSP, ED, HOSP,
-    CBO, HOSP, ED, HOSP, ED, HOSP,
-    RES, ED, HOSP, ED, HOSP, ED,
-    COUNTY, HOSP, ED, HOSP, ED, HOSP,
-    JUSTICE, ED, HOSP, ED, HOSP, ED,
-    FOOD, ED, HOSP, ED, HOSP, ED, HOSP, ED
+    JAIL, ED, HOSP, COMM, CBO, COMM, FOOD, COMM, RES, JAIL,
+    ED, HOSP, COMM, SCHOOLS, COMM, CHURCH, COMM, CBO, ED,
+    HOSP, COMM, JUSTICE, COMM, COUNTY, COMM, RES, COMM, FOOD,
+    ED, HOSP, COMM, CHURCH, COMM, SCHOOLS, COMM, CBO, COMM, JAIL
   ];
   const motionPath = sequence.map((p, i) => `${i === 0 ? "M" : "L"} ${p.x} ${p.y}`).join(" ");
 
@@ -149,59 +156,86 @@ function JourneyConstellation({ accent, displayFont }) {
         <svg
           viewBox={`0 0 ${W} ${H}`}
           className="h-auto mx-auto block"
-          style={{ minWidth: 760, width: "100%", maxWidth: 1100, maxHeight: 560 }}
+          style={{ minWidth: 920, width: "100%", maxWidth: 1200, maxHeight: 640 }}
           aria-hidden="true"
         >
-        {/* moving dot — sporadic bouncing, mostly ED↔Hospital */}
-        <circle r="10" fill={accent.c700}>
-          <animateMotion dur="22s" repeatCount="indefinite" path={motionPath} />
-        </circle>
-        <circle r="20" fill={accent.c500} fillOpacity="0.25">
-          <animateMotion dur="22s" repeatCount="indefinite" path={motionPath} />
-        </circle>
+          {/* Faint orbit ring around Community — communicates "satellites" */}
+          <circle
+            cx={COMM.x}
+            cy={COMM.y}
+            r="200"
+            fill="none"
+            stroke={accent.c500}
+            strokeOpacity="0.18"
+            strokeWidth="1"
+            strokeDasharray="2 6"
+          />
 
-        {/* nodes */}
-        {nodes.map((p) => (
-          <g key={p.n} transform={`translate(${p.x} ${p.y})`}>
-            <circle r="38" fill="#fbf7ed" stroke={p.tone} strokeWidth="2.25" />
-            <circle r="9" fill={p.tone} />
+          {/* The Community hub — large central node */}
+          <g transform={`translate(${COMM.x} ${COMM.y})`}>
+            <circle r="90" fill={accent.c100} stroke={accent.c700} strokeWidth="3" />
             <text
               textAnchor="middle"
-              y="-50"
-              fontSize="15"
+              y="-48"
+              fontSize="13"
               fontFamily="JetBrains Mono, monospace"
-              fill="#7a7060"
-              letterSpacing="2"
+              fill={accent.c700}
+              letterSpacing="3"
             >
-              {p.n}
+              THE HUB
             </text>
             <text
               textAnchor="middle"
-              y="68"
-              fontSize="22"
+              y="6"
+              fontSize="32"
               fontFamily={displayFont}
               fontWeight="600"
-              fill="#221b14"
+              fill={accent.c900}
             >
-              {p.label}
+              Community
             </text>
           </g>
-        ))}
+
+          {/* Moving dot — through the system, into community, back again */}
+          <circle r="10" fill={accent.c700}>
+            <animateMotion dur="34s" repeatCount="indefinite" path={motionPath} />
+          </circle>
+          <circle r="20" fill={accent.c500} fillOpacity="0.25">
+            <animateMotion dur="34s" repeatCount="indefinite" path={motionPath} />
+          </circle>
+
+          {/* System + satellite nodes */}
+          {[...system, ...satellites].map((p) => (
+            <g key={p.label} transform={`translate(${p.x} ${p.y})`}>
+              <circle r="38" fill="#fbf7ed" stroke={p.tone} strokeWidth="2.25" />
+              <circle r="9" fill={p.tone} />
+              <text
+                textAnchor="middle"
+                y="68"
+                fontSize="22"
+                fontFamily={displayFont}
+                fontWeight="600"
+                fill="#221b14"
+              >
+                {p.label}
+              </text>
+            </g>
+          ))}
         </svg>
       </div>
 
       {/* legend / explanation */}
-      <div className="mt-6 grid md:grid-cols-3 gap-6 md:gap-10 max-w-4xl">
+      <div className="mt-8 grid md:grid-cols-3 gap-6 md:gap-10 max-w-5xl">
         <div>
           <Eyebrow color={accent.c700}>Without a hub</Eyebrow>
           <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "#3a2f24" }}>
-            One person, eight disconnected touchpoints. Each touchpoint starts over.
+            The person cycles between Jail, ED, and Hospital. "Community" is an abstraction — somewhere they get discharged <em>to</em>.
           </p>
         </div>
         <div>
           <Eyebrow color={accent.c700}>With a hub</Eyebrow>
           <p className="mt-2 text-[15px] leading-relaxed" style={{ color: "#3a2f24" }}>
-            The same eight, coordinated. One care team holds the through-line — meeting the person at every door.
+            We can name what community looks like for each person — and know where they actually show up. Hospitals discharge to a real place.
           </p>
         </div>
         <div>
@@ -273,12 +307,23 @@ function WhereHealthHappens({ accent, displayFont }) {
           </div>
         </div>
 
-        {/* The constellation — one person bouncing through community settings */}
+        {/* The constellation — the system, the community, and the hub between */}
         <div className="mb-20 md:mb-24">
+          <div className="max-w-3xl mb-10">
+            <Eyebrow color={accent.c700}>Discharge to community</Eyebrow>
+            <p
+              className="mt-4 text-2xl md:text-[2rem] leading-[1.3]"
+              style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
+            >
+              In the old days, we'd say{" "}
+              <span style={{ color: accent.c700, fontStyle: "italic" }}>"discharge to community."</span>
+              {" "}Now we can name what that community looks like — and where each person actually shows up.
+            </p>
+          </div>
           <div className="flex items-baseline justify-between mb-6 pb-4 border-b" style={{ borderColor: "#e8e1d2" }}>
-            <Eyebrow>One person · One month</Eyebrow>
+            <Eyebrow>The system &nbsp;·&nbsp; The community</Eyebrow>
             <span className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
-              The bouncing path
+              Where the person actually goes
             </span>
           </div>
           <JourneyConstellation accent={accent} displayFont={displayFont} />
