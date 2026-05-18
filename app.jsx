@@ -55,9 +55,9 @@ const RESOURCES = [
 
 function Logo({ accent }) {
   return (
-    <a href="#top" className="flex items-center gap-2.5 group">
+    <a href="#top" className="flex items-center gap-3 group">
       {/* Three overlapping circles arranged in a triangle — community / coming together */}
-      <svg viewBox="0 0 36 32" className="w-10 h-9" aria-hidden="true">
+      <svg viewBox="0 0 36 32" className="w-14 h-[50px]" aria-hidden="true">
         <g style={{ mixBlendMode: "multiply" }}>
           <circle cx="18" cy="10" r="9" fill={accent.c700} />
           <circle cx="11" cy="21" r="9" fill={accent.c500} fillOpacity="0.92" />
@@ -65,7 +65,7 @@ function Logo({ accent }) {
         </g>
       </svg>
       <span
-        className="text-[19px] tracking-tight"
+        className="text-[26px] tracking-tight"
         style={{ color: "#1f1b16", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600 }}
       >
         Care<span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>Hub</span>
@@ -96,22 +96,22 @@ function Nav({ accent }) {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "backdrop-blur-md py-3 border-b" : "bg-transparent py-5"
+        scrolled ? "backdrop-blur-md py-4 border-b" : "bg-transparent py-7"
       }`}
       style={scrolled ? { background: "rgba(251, 247, 237, 0.92)", borderColor: "#e8e1d2" } : {}}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         <Logo accent={accent} />
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-10">
           {navLinks.map((link) => (
             <a key={link.name} href={link.href}
-               className="text-[13px] font-medium text-slate-600 hover:text-slate-900 transition-colors">
+               className="text-[15px] font-medium text-slate-600 hover:text-slate-900 transition-colors">
               {link.name}
             </a>
           ))}
           <a href="#contact"
-             className="text-white px-4 py-2 text-[13px] font-semibold transition-colors rounded-md"
+             className="text-white px-5 py-3 text-[15px] font-semibold transition-colors rounded-md"
              style={{ background: "#1f2d24" }}
              onMouseEnter={(e) => (e.currentTarget.style.background = accent.c700)}
              onMouseLeave={(e) => (e.currentTarget.style.background = "#1f2d24")}>
@@ -648,20 +648,14 @@ function Footer({ accent, displayFont }) {
           Whether you're a hospital, clinic, school, community-based organization, county agency, or Medi-Cal Managed Care Plan — CareHub provides the support communities need to deliver on the promise of enhanced care.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
-          {[
-            { icon: <Mail className="w-4 h-4" />, label: "Email", value: "partners@carehub.org" },
-            { icon: <MapPin className="w-4 h-4" />, label: "Located", value: "Santa Clara County, CA" },
-            { icon: <TrendingUp className="w-4 h-4" />, label: "Status", value: "Accepting partners — 2026 cohort" }
-          ].map((c) => (
-            <div key={c.label} className="p-6 border rounded-md" style={{ borderColor: "#34423c", background: "rgba(255,255,255,0.03)" }}>
-              <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] mb-3"
-                   style={{ color: accent.c400 }}>
-                {c.icon}<span>{c.label}</span>
-              </div>
-              <p className="text-white">{c.value}</p>
+        <div className="mb-16 max-w-sm">
+          <div className="p-6 border rounded-md" style={{ borderColor: "#34423c", background: "rgba(255,255,255,0.03)" }}>
+            <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.22em] mb-3"
+                 style={{ color: accent.c400 }}>
+              <Mail className="w-4 h-4" /><span>Email</span>
             </div>
-          ))}
+            <p className="text-white">partners@carehub.org</p>
+          </div>
         </div>
 
         <a href="mailto:partners@carehub.org"
