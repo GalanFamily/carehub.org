@@ -188,14 +188,6 @@ function JourneyConstellation({ accent, displayFont }) {
             </text>
           </g>
 
-          {/* Moving dot — through the system, into community, back again */}
-          <circle r="10" fill={accent.c700}>
-            <animateMotion dur="34s" repeatCount="indefinite" path={motionPath} />
-          </circle>
-          <circle r="20" fill={accent.c500} fillOpacity="0.25">
-            <animateMotion dur="34s" repeatCount="indefinite" path={motionPath} />
-          </circle>
-
           {/* System + satellite nodes */}
           {[...system, ...satellites].map((p) => {
             const labelLines = p.lines || [p.label];
@@ -217,6 +209,15 @@ function JourneyConstellation({ accent, displayFont }) {
               </g>
             );
           })}
+
+          {/* The bouncing ball — rendered LAST so it sits on top of every
+              node it visits. Halo + solid dot, both following the same path. */}
+          <circle cx="0" cy="0" r="22" fill={accent.c500} fillOpacity="0.28">
+            <animateMotion dur="34s" repeatCount="indefinite" path={motionPath} />
+          </circle>
+          <circle cx="0" cy="0" r="12" fill={accent.c700} stroke="#fbf7ed" strokeWidth="2">
+            <animateMotion dur="34s" repeatCount="indefinite" path={motionPath} />
+          </circle>
         </svg>
       </div>
 
