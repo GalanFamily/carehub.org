@@ -67,14 +67,13 @@ function Eyebrow({ children, color = "#7a7060" }) {
 // ─────────────────────────────────────────────────────────────────────────────
 
 const PLACES = [
-  { name: "Schools",              note: "Where kids spend half their waking hours.",                  tone: "#d97757", shape: "triangle" },
-  { name: "Food pantries",        note: "Where the line for groceries is also the line for care.",   tone: "#a06a3c", shape: "square" },
-  { name: "CBOs",                 note: "The people who pick up the phone first.",                    tone: "#2c6e5b", shape: "circle" },
-  { name: "County agencies",      note: "Where benefits live before they reach a wallet.",            tone: "#3f5c8a", shape: "square" },
-  { name: "Justice partners",     note: "Meeting people the day they get out — not six weeks later.", tone: "#7b4a8a", shape: "halfcircle" },
-  { name: "Residential homes",    note: "Group homes, recuperative beds, the in-between places.",     tone: "#8a6a4a", shape: "house" },
-  { name: "Living rooms",         note: "Where most of life — and most of recovery — happens.",       tone: "#b8525a", shape: "heart" },
-  { name: "Churches",             note: "Where trust gathers on Sunday morning.",                     tone: "#c69b56", shape: "arch" }
+  { name: "CBOs",                 note: "The people who pick up the phone first.",                                                tone: "#2c6e5b", shape: "circle" },
+  { name: "County agencies",      note: "Where benefits live before they reach a wallet.",                                        tone: "#3f5c8a", shape: "square" },
+  { name: "Justice partners",     note: "Meeting people the day they get out — not six weeks later.",                             tone: "#7b4a8a", shape: "halfcircle" },
+  { name: "Food pantries",        note: "Where the line for groceries is also the line for care.",                                tone: "#a06a3c", shape: "square" },
+  { name: "Residential programs", note: "Medical respite, recuperative beds, sober-living facilities, transitional housing — the in-between places.", tone: "#8a6a4a", shape: "house" },
+  { name: "Schools",              note: "Where kids spend half their waking hours.",                                              tone: "#d97757", shape: "triangle" },
+  { name: "Churches",             note: "Where trust gathers on Sunday morning.",                                                 tone: "#c69b56", shape: "arch" }
 ];
 
 function PlaceGlyph({ shape, tone }) {
@@ -323,20 +322,17 @@ function WhereHealthHappens({ accent, displayFont }) {
           <div className="flex items-baseline justify-between mb-8 pb-4 border-b" style={{ borderColor: "#e8e1d2" }}>
             <Eyebrow>The community, in places</Eyebrow>
             <span className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
-              Eight kinds of door
+              Where care happens
             </span>
           </div>
 
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10">
-            {PLACES.map((p, i) => (
+          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+            {PLACES.map((p) => (
               <li key={p.name} className="flex items-start gap-4">
                 <div className="flex-shrink-0 pt-1">
                   <PlaceGlyph shape={p.shape} tone={p.tone} />
                 </div>
                 <div>
-                  <div className="font-mono text-[10px] uppercase tracking-[0.22em] mb-1" style={{ color: "#a8a092" }}>
-                    {String(i + 1).padStart(2, "0")}
-                  </div>
                   <h3
                     className="text-xl tracking-tight mb-1"
                     style={{ fontFamily: displayFont, fontWeight: 600, color: "#221b14" }}
@@ -358,9 +354,10 @@ function WhereHealthHappens({ accent, displayFont }) {
             className="text-2xl md:text-3xl leading-[1.35]"
             style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
           >
+            These are the places where community care already happens.
             The job of a community care hub is to{" "}
-            <span style={{ color: accent.c700, fontStyle: "italic" }}>stitch these doors together</span>
-            {" "}— to support the people who already show up.
+            <span style={{ color: accent.c700, fontStyle: "italic" }}>bridge them to the funding</span>
+            {" "}— so the people already doing the work get paid for it.
           </p>
         </div>
       </div>
@@ -463,6 +460,9 @@ function GroundedInEvidence({ accent, displayFont }) {
             <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
               Known as → Health-Related Social Needs (HRSNs)
             </div>
+            <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
+              CMS framework → Accountable Health Communities (AHC)
+            </div>
           </div>
         </div>
 
@@ -554,7 +554,7 @@ function GroundedInEvidence({ accent, displayFont }) {
               style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
             >
               Care coordination across <span style={{ color: accent.c700 }}>traditional clinical settings</span>{" "}
-              and the <span style={{ color: accent.c700 }}>deep networks of community</span> is what
+              and the <span style={{ color: accent.c700 }}>deep networks of communities</span> is what
               will make the difference. This is how we build the future of the safety net —
               and the care infrastructure for us all.
             </p>
@@ -783,12 +783,6 @@ function GroundedInPolicy({ accent, displayFont }) {
               So <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>what is</span> a community care hub?
             </h2>
           </div>
-          <div className="md:col-span-5 md:pt-4">
-            <p className="text-lg leading-relaxed" style={{ color: "#5e554a" }}>
-              The federal government calls it "a promising model." California is funding it through
-              CalAIM. CHCF mapped the emerging ones. Here's the version of the answer we operate by.
-            </p>
-          </div>
         </div>
 
         {/* Big editorial definition */}
@@ -802,11 +796,10 @@ function GroundedInPolicy({ accent, displayFont }) {
               style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
             >
               A <span style={{ color: accent.c700 }}>community care hub</span> is the connective tissue
-              between Medi-Cal Managed Care Plans and the trusted local organizations who already
-              deliver care — schools, CBOs, counties, justice partners, residential providers.
-              The hub carries the administrative, billing, clinical, and data infrastructure those
-              partners shouldn't have to carry themselves, so the dollars that policy made available
-              actually reach the people doing the work.
+              between Medi-Cal Managed Care Plans and the trusted local organizations already delivering
+              care — CBOs, counties, justice partners, residential providers, schools. The hub carries
+              the administrative, billing, and clinical infrastructure, so the dollars policy made
+              available reach the people doing the work.
             </p>
           </div>
         </div>
@@ -913,10 +906,10 @@ const ACTIONS = [
   {
     n: "03",
     label: "For care teams",
-    title: "Refer for ECM.",
-    body: "Have a high-need Medi-Cal member who would benefit from Enhanced Care Management? Submit a referral and we'll connect them to a community-based care manager who stays with them across settings.",
-    ctaLabel: "Submit an ECM referral",
-    ctaHref: "/ecm-referral",
+    title: "Enroll in ECM.",
+    body: "Have a high-need Medi-Cal member who would benefit from Enhanced Care Management? We don't stop at the referral — we enroll the member with a community-based care manager who stays with them across settings.",
+    ctaLabel: "Start an ECM enrollment",
+    ctaHref: "/ecm-enrollment",
     accentTone: "#3a8a8a"
   },
   {
@@ -930,9 +923,9 @@ const ACTIONS = [
   },
   {
     n: "05",
-    label: "For CBOs",
+    label: "For any touchpoint",
     title: "Join as a Community Partner.",
-    body: "Get reimbursed by Medi-Cal Managed Care Plans for the ECM, Community Supports, and CYBHI services you already deliver. We handle the contracts, billing, and compliance — you focus on the relationship.",
+    body: "If you see anyone who could qualify — a CBO, a hospital, a school, a county program, a justice partner — you're a touchpoint. Get reimbursed by Medi-Cal Managed Care Plans for the ECM, Community Supports, and CYBHI services you already deliver. We handle the contracts, billing, and compliance.",
     ctaLabel: "Become a partner",
     ctaHref: "/partner",
     accentTone: "#2c6e5b"
