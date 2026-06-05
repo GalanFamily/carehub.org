@@ -71,55 +71,6 @@ function Eyebrow({ children, color = "#7a7060" }) {
 //  1. Where Does Health Happen?
 // ─────────────────────────────────────────────────────────────────────────────
 
-const PLACES = [
-  { name: "CBOs",                 note: "The people who pick up the phone first.",                                                tone: "#2c6e5b", shape: "circle" },
-  { name: "County agencies",      note: "Where benefits live before they reach a wallet.",                                        tone: "#3f5c8a", shape: "square" },
-  { name: "Justice partners",     note: "Meeting people the day they get out — not six weeks later.",                             tone: "#7b4a8a", shape: "halfcircle" },
-  { name: "Food pantries",        note: "Where the line for groceries is also the line for care.",                                tone: "#a06a3c", shape: "square" },
-  { name: "Residential programs", note: "Medical respite, recuperative beds, sober-living facilities, transitional housing — the in-between places.", tone: "#8a6a4a", shape: "house" },
-  { name: "Schools",              note: "Where kids spend half their waking hours.",                                              tone: "#d97757", shape: "triangle" },
-  { name: "Churches",             note: "Where trust gathers on Sunday morning.",                                                 tone: "#c69b56", shape: "arch" }
-];
-
-function PlaceGlyph({ shape, tone }) {
-  // A small abstract mark for each kind of place. Pure CSS shapes only.
-  const common = { width: 28, height: 28, background: tone };
-  if (shape === "triangle") {
-    return <div style={{ width: 0, height: 0, borderLeft: "14px solid transparent", borderRight: "14px solid transparent", borderBottom: `24px solid ${tone}` }} />;
-  }
-  if (shape === "arch") {
-    return <div style={{ ...common, borderRadius: "14px 14px 0 0" }} />;
-  }
-  if (shape === "square") {
-    return <div style={common} />;
-  }
-  if (shape === "circle") {
-    return <div style={{ ...common, borderRadius: "50%" }} />;
-  }
-  if (shape === "halfcircle") {
-    return <div style={{ width: 28, height: 14, background: tone, borderRadius: "14px 14px 0 0" }} />;
-  }
-  if (shape === "house") {
-    return (
-      <div style={{ position: "relative", width: 28, height: 28 }}>
-        <div style={{ position: "absolute", left: 0, right: 0, bottom: 0, height: 18, background: tone }} />
-        <div style={{ position: "absolute", left: -2, right: -2, top: 0, height: 12, background: tone, clipPath: "polygon(50% 0, 100% 100%, 0 100%)" }} />
-      </div>
-    );
-  }
-  if (shape === "heart") {
-    // Subtle, abstract heart-ish shape using two circles + square
-    return (
-      <div style={{ position: "relative", width: 28, height: 28 }}>
-        <div style={{ position: "absolute", left: 0, top: 4, width: 16, height: 16, background: tone, borderRadius: "50%" }} />
-        <div style={{ position: "absolute", right: 0, top: 4, width: 16, height: 16, background: tone, borderRadius: "50%" }} />
-        <div style={{ position: "absolute", left: 4, top: 12, width: 20, height: 14, background: tone, transform: "rotate(45deg)", transformOrigin: "center" }} />
-      </div>
-    );
-  }
-  return <div style={common} />;
-}
-
 // A constellation showing one person's journey across community settings.
 // SVG with simple circles + dashed path + animated dot — no hand-drawn imagery.
 function JourneyConstellation({ accent, displayFont }) {
@@ -364,39 +315,8 @@ function WhereHealthHappens({ accent, displayFont }) {
           </div>
         </div>
 
-        {/* The places — loose, organic flow, NOT a hard grid */}
-        <div className="relative">
-          <div className="flex items-baseline justify-between mb-8 pb-4 border-b" style={{ borderColor: "#e8e1d2" }}>
-            <Eyebrow>The community, in places</Eyebrow>
-            <span className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
-              Where care happens
-            </span>
-          </div>
-
-          <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
-            {PLACES.map((p) => (
-              <li key={p.name} className="flex items-start gap-4">
-                <div className="flex-shrink-0 pt-1">
-                  <PlaceGlyph shape={p.shape} tone={p.tone} />
-                </div>
-                <div>
-                  <h3
-                    className="text-xl tracking-tight mb-1"
-                    style={{ fontFamily: displayFont, fontWeight: 600, color: "#221b14" }}
-                  >
-                    {p.name}
-                  </h3>
-                  <p className="text-[15px] leading-relaxed" style={{ color: "#5e554a" }}>
-                    {p.note}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-
         {/* Closing line */}
-        <div className="mt-20 md:mt-24 max-w-3xl">
+        <div className="max-w-3xl">
           <p
             className="text-2xl md:text-3xl leading-[1.35]"
             style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
@@ -404,7 +324,7 @@ function WhereHealthHappens({ accent, displayFont }) {
             These are the places where community care already happens.
             The job of a community care hub is to{" "}
             <span style={{ color: BRAND_DEEP, fontStyle: "italic" }}>bridge them to the funding</span>
-            {" "}— so the people already doing the work get paid for it.
+            {" "}from a flexible pool of sources — so the people already doing the work get paid for it.
           </p>
         </div>
       </div>
