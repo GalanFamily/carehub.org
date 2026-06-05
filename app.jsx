@@ -176,7 +176,7 @@ function Hero({ accent, displayFont, darkHero }) {
           style={{ fontFamily: displayFont, fontSize: "clamp(2.75rem, 6.5vw, 5.75rem)" }}
         >
           Working together to support{" "}
-          <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
+          <span style={{ color: LOGO_COLORS.deep, fontStyle: "italic", fontWeight: 500 }}>
             healthy communities.
           </span>
         </h1>
@@ -556,7 +556,7 @@ function Roles({ accent, displayFont }) {
               className="mt-4 text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-[1.03]"
               style={{ fontFamily: displayFont }}
             >
-              Together we can build <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>healthy communities</span> — and keep people <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>out</span> of the hospital and out of incarceration.
+              Together we can build <span style={{ color: LOGO_COLORS.deep, fontStyle: "italic", fontWeight: 500 }}>healthy communities</span> — and keep people <span style={{ color: LOGO_COLORS.deep, fontStyle: "italic", fontWeight: 500 }}>out</span> of the hospital and out of incarceration.
             </h2>
           </div>
           <div className="md:col-span-4 md:pt-4">
@@ -633,7 +633,7 @@ function Roles({ accent, displayFont }) {
             className="text-xl md:text-2xl leading-[1.4]"
             style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
           >
-            Not "stakeholders." <span style={{ color: accent.c700, fontStyle: "italic" }}>Community partners</span> — doing the same work, just shared.
+            Not "stakeholders." <span style={{ color: LOGO_COLORS.deep, fontStyle: "italic" }}>Community partners</span> — doing the same work, just shared.
           </p>
         </div>
       </div>
@@ -650,7 +650,7 @@ function Footer({ accent, displayFont }) {
         </span>
         <h2 className="text-4xl md:text-6xl font-bold mt-3 mb-8 tracking-tight max-w-3xl"
             style={{ fontFamily: displayFont }}>
-          Let's work together to build <span style={{ color: accent.c400, fontStyle: "italic", fontWeight: 500 }}>healthy communities</span>.
+          Let's work together to build <span style={{ color: LOGO_COLORS.light, fontStyle: "italic", fontWeight: 500 }}>healthy communities</span>.
         </h2>
         <p className="text-xl text-slate-400 mb-12 max-w-2xl leading-relaxed">
           Whether you're a hospital, clinic, school, community-based organization, county agency, or Medi-Cal Managed Care Plan — CareHub provides the support communities need to deliver on the promise of enhanced care.

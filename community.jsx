@@ -7,6 +7,11 @@
 
 const { useState: useStateC, useEffect: useEffectC, useRef: useRefC } = React;
 
+// Brand emphasis color — mirrors LOGO_COLORS.deep in app.jsx. Used for
+// italic accent words inside headings/paragraphs so the wordmark and the
+// body emphasis share one terracotta voice.
+const BRAND_DEEP = "#b8543a";
+
 // ─────────────────────────────────────────────────────────────────────────────
 //  Shared atoms
 // ─────────────────────────────────────────────────────────────────────────────
@@ -272,7 +277,7 @@ function WhereHealthHappens({ accent, displayFont }) {
           >
             Where does
             <br />
-            <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>health</span> happen?
+            <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>health</span> happen?
           </h2>
 
           <p
@@ -313,7 +318,7 @@ function WhereHealthHappens({ accent, displayFont }) {
               style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
             >
               There's an idea that people are discharged and released{" "}
-              <span style={{ color: accent.c700, fontStyle: "italic" }}>"to the community."</span>
+              <span style={{ color: BRAND_DEEP, fontStyle: "italic" }}>"to the community."</span>
               {" "}Now we can name what that community actually looks like — and where each person shows up.
             </p>
           </div>
@@ -335,7 +340,7 @@ function WhereHealthHappens({ accent, displayFont }) {
               style={{ fontFamily: displayFont, fontWeight: 600, color: "#221b14" }}
             >
               From the first hub for{" "}
-              <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>
+              <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>
                 Justice-Involved
               </span>{" "}
               in the state.
@@ -398,7 +403,7 @@ function WhereHealthHappens({ accent, displayFont }) {
           >
             These are the places where community care already happens.
             The job of a community care hub is to{" "}
-            <span style={{ color: accent.c700, fontStyle: "italic" }}>bridge them to the funding</span>
+            <span style={{ color: BRAND_DEEP, fontStyle: "italic" }}>bridge them to the funding</span>
             {" "}— so the people already doing the work get paid for it.
           </p>
         </div>
@@ -490,7 +495,7 @@ function GroundedInEvidence({ accent, displayFont }) {
               className="mt-4 text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]"
               style={{ fontFamily: displayFont }}
             >
-              What actually keeps people <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>out</span> of the hospital?
+              What actually keeps people <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>out</span> of the hospital?
             </h2>
           </div>
           <div className="md:col-span-5 md:pt-4">
@@ -640,7 +645,7 @@ function TheGap({ accent, displayFont }) {
               style={{ fontFamily: displayFont }}
             >
               Communities and health plans don't{" "}
-              <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>speak the same language</span>.
+              <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>speak the same language</span>.
             </h2>
           </div>
           <div className="md:col-span-5 md:pt-4">
@@ -822,7 +827,7 @@ function GroundedInPolicy({ accent, displayFont }) {
               className="mt-4 text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]"
               style={{ fontFamily: displayFont }}
             >
-              So <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>what is</span> a community care hub?
+              So <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>what is</span> a community care hub?
             </h2>
           </div>
         </div>
@@ -999,14 +1004,14 @@ function WhatThatMeans({ accent, displayFont }) {
               className="mt-5 text-2xl md:text-[2rem] leading-[1.25] tracking-tight"
               style={{ fontFamily: displayFont, fontWeight: 400, color: "#3a2f24" }}
             >
-              We are a <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>Community Care Hub</span>.
+              We are a <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>Community Care Hub</span>.
             </p>
             <h2
               className="mt-3 text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]"
               style={{ fontFamily: displayFont }}
             >
               We provide the support communities need to deliver on the{" "}
-              <span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>promise of enhanced care</span>.
+              <span style={{ color: BRAND_DEEP, fontStyle: "italic", fontWeight: 500 }}>promise of enhanced care</span>.
             </h2>
           </div>
           <div className="md:col-span-5 md:pt-4">
