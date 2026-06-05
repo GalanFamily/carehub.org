@@ -26,6 +26,14 @@ const FONT_MAP = {
   serif:    "'Source Serif 4', 'Georgia', serif"
 };
 
+// Logo brand colors — terracotta family. Decoupled from the site accent
+// (Maple green) so the logo can carry its own identity.
+const LOGO_COLORS = {
+  deep:  "#b8543a", // top circle, deep terracotta — also used for "Hub" wordmark
+  mid:   "#c98975", // bottom-left, dusty rose
+  light: "#e3c2af"  // bottom-right, pale peach
+};
+
 const RESOURCES = [
   {
     pill: "CHCF Report · Oct 2024",
@@ -59,16 +67,16 @@ function Logo({ accent }) {
       {/* Three overlapping circles arranged in a triangle — community / coming together */}
       <svg viewBox="0 0 36 32" className="w-14 h-[50px]" aria-hidden="true">
         <g style={{ mixBlendMode: "multiply" }}>
-          <circle cx="18" cy="10" r="9" fill={accent.c700} />
-          <circle cx="11" cy="21" r="9" fill={accent.c500} fillOpacity="0.92" />
-          <circle cx="25" cy="21" r="9" fill={accent.c400} fillOpacity="0.92" />
+          <circle cx="18" cy="10" r="9" fill={LOGO_COLORS.deep} />
+          <circle cx="11" cy="21" r="9" fill={LOGO_COLORS.mid}   fillOpacity="0.92" />
+          <circle cx="25" cy="21" r="9" fill={LOGO_COLORS.light} fillOpacity="0.92" />
         </g>
       </svg>
       <span
         className="text-[26px] tracking-tight"
         style={{ color: "#1f1b16", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600 }}
       >
-        Care<span style={{ color: accent.c700, fontStyle: "italic", fontWeight: 500 }}>Hub</span>
+        Care<span style={{ color: LOGO_COLORS.deep, fontStyle: "italic", fontWeight: 500 }}>Hub</span>
       </span>
     </a>
   );
@@ -670,8 +678,8 @@ function Footer({ accent, displayFont }) {
         <div className="mb-4 md:mb-0 flex items-center gap-2.5">
           <svg viewBox="0 0 36 32" className="w-7 h-6" aria-hidden="true">
             <g style={{ mixBlendMode: "screen" }}>
-              <circle cx="18" cy="10" r="9" fill={accent.c400} />
-              <circle cx="11" cy="21" r="9" fill={accent.c500} fillOpacity="0.85" />
+              <circle cx="18" cy="10" r="9" fill={LOGO_COLORS.light} />
+              <circle cx="11" cy="21" r="9" fill={LOGO_COLORS.mid} fillOpacity="0.85" />
               <circle cx="25" cy="21" r="9" fill="#fbf7ed" fillOpacity="0.35" />
             </g>
           </svg>
