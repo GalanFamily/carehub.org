@@ -312,9 +312,9 @@ function WhereHealthHappens({ accent, displayFont }) {
               className="mt-4 text-2xl md:text-[2rem] leading-[1.3]"
               style={{ fontFamily: displayFont, fontWeight: 400, color: "#221b14" }}
             >
-              In the old days, we'd say{" "}
-              <span style={{ color: accent.c700, fontStyle: "italic" }}>"discharge to community."</span>
-              {" "}Now we can name what that community looks like — and where each person actually shows up.
+              There's an idea that people are discharged and released{" "}
+              <span style={{ color: accent.c700, fontStyle: "italic" }}>"to the community."</span>
+              {" "}Now we can name what that community actually looks like — and where each person shows up.
             </p>
           </div>
           <div className="flex items-baseline justify-between mb-6 pb-4 border-b" style={{ borderColor: "#e8e1d2" }}>
