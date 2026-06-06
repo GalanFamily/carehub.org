@@ -1,12 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
   <title>CareHub</title>
-  <!-- Cream paper background with rounded corners — matches the site canvas -->
-  <rect width="32" height="32" rx="6" fill="#fbf7ed"/>
   <!-- Three overlapping circles arranged in a triangle, multiplied so the
-       overlaps deepen — same mark that sits next to the wordmark in nav -->
+       overlaps deepen — same mark that sits next to the wordmark in nav.
+       No background — the mark sits transparent so it adapts to the tab. -->
   <g style="mix-blend-mode: multiply">
-    <circle cx="16" cy="10" r="8" fill="#b8543a"/>
-    <circle cx="10" cy="21" r="8" fill="#c98975" fill-opacity="0.92"/>
-    <circle cx="22" cy="21" r="8" fill="#e3c2af" fill-opacity="0.92"/>
+    <circle cx="16" cy="11" r="10" fill="#b8543a"/>
+    <circle cx="11" cy="21" r="10" fill="#c98975" fill-opacity="0.92"/>
+    <circle cx="21" cy="21" r="10" fill="#e3c2af" fill-opacity="0.92"/>
   </g>
 </svg>
