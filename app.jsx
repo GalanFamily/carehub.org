@@ -72,11 +72,19 @@ function Logo({ accent }) {
           <circle cx="25" cy="21" r="9" fill={LOGO_COLORS.light} fillOpacity="0.92" />
         </g>
       </svg>
-      <span
-        className="text-[26px] tracking-tight"
-        style={{ color: "#1f1b16", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600 }}
-      >
-        Care<span style={{ color: LOGO_COLORS.deep, fontStyle: "italic", fontWeight: 500 }}>Hub</span>
+      <span className="flex flex-col" style={{ lineHeight: 1 }}>
+        <span
+          className="text-[26px] tracking-tight"
+          style={{ color: "#1f1b16", fontFamily: "'Fraunces', Georgia, serif", fontWeight: 600 }}
+        >
+          Care<span style={{ color: LOGO_COLORS.deep, fontStyle: "italic", fontWeight: 500 }}>Hub</span>
+        </span>
+        <span
+          className="font-mono text-[10px] uppercase tracking-[0.22em] mt-1.5"
+          style={{ color: "#7a7060" }}
+        >
+          by Maple
+        </span>
       </span>
     </a>
   );
@@ -166,7 +174,7 @@ function Hero({ accent, displayFont, darkHero }) {
         <div className="font-mono text-[11px] uppercase tracking-[0.22em] mb-8 flex items-center gap-3"
              style={{ color: accent.c700 }}>
           <span className="inline-block w-2 h-2 rounded-full" style={{ background: accent.c500 }} />
-          <span>CareHub</span>
+          <span>CareHub by Maple</span>
           <span style={{ color: muted, opacity: 0.6 }}>·</span>
           <span style={{ color: muted }}>California</span>
         </div>
@@ -673,22 +681,27 @@ function Footer({ accent, displayFont }) {
         </a>
       </div>
 
-      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t flex flex-col md:flex-row justify-between items-center text-sm"
+      <div className="max-w-7xl mx-auto mt-24 pt-8 border-t"
            style={{ borderColor: "#34423c", color: "#8a8474" }}>
-        <div className="mb-4 md:mb-0 flex items-center gap-2.5">
-          <svg viewBox="0 0 36 32" className="w-7 h-6" aria-hidden="true">
-            <g style={{ mixBlendMode: "screen" }}>
-              <circle cx="18" cy="10" r="9" fill={LOGO_COLORS.light} />
-              <circle cx="11" cy="21" r="9" fill={LOGO_COLORS.mid} fillOpacity="0.85" />
-              <circle cx="25" cy="21" r="9" fill="#fbf7ed" fillOpacity="0.35" />
-            </g>
-          </svg>
-          <span><span className="font-bold" style={{ color: "#c4bdab" }}>CareHub</span> &nbsp;·&nbsp; carehub.org &copy; 2026</span>
-        </div>
-        <div className="flex gap-8">
-          <a href="#" className="hover:text-white transition-colors">Privacy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms</a>
-          <a href="#" className="hover:text-white transition-colors">Accessibility</a>
+        <p className="text-xs leading-relaxed max-w-3xl mb-6">
+          CareHub is a program of Maple Community Care Hub, a California nonprofit public benefit corporation.
+        </p>
+        <div className="flex flex-col md:flex-row justify-between items-center text-sm">
+          <div className="mb-4 md:mb-0 flex items-center gap-2.5">
+            <svg viewBox="0 0 36 32" className="w-7 h-6" aria-hidden="true">
+              <g style={{ mixBlendMode: "screen" }}>
+                <circle cx="18" cy="10" r="9" fill={LOGO_COLORS.light} />
+                <circle cx="11" cy="21" r="9" fill={LOGO_COLORS.mid} fillOpacity="0.85" />
+                <circle cx="25" cy="21" r="9" fill="#fbf7ed" fillOpacity="0.35" />
+              </g>
+            </svg>
+            <span><span className="font-bold" style={{ color: "#c4bdab" }}>CareHub</span> &nbsp;·&nbsp; carehub.org &copy; 2026</span>
+          </div>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-white transition-colors">Privacy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <a href="#" className="hover:text-white transition-colors">Accessibility</a>
+          </div>
         </div>
       </div>
     </footer>
