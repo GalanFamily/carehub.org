@@ -520,12 +520,6 @@ function Roles({ accent, displayFont }) {
       body: "When a hub is in place, somebody meets a person at the door, drives them home, makes sure the meds are filled, and checks in next Tuesday."
     },
     {
-      tone: "#3a8a8a",
-      audience: "Clinics",
-      headline: "The steady door for primary care.",
-      body: "FQHCs, rural clinics, free clinics — the trusted places people come back to. CareHub helps clinics wrap care management and community supports around the visit, so the work doesn't end at the exam room."
-    },
-    {
       tone: "#c69b56",
       audience: "Schools",
       headline: "Care that meets kids where they spend their day.",
@@ -575,7 +569,7 @@ function Roles({ accent, displayFont }) {
           </div>
           <div className="md:col-span-4 md:pt-4">
             <p className="text-lg leading-relaxed" style={{ color: "#3a2f24" }}>
-              Nobody can pull this off alone. Hospitals, clinics, schools, community-based organizations, counties, justice partners, and health plans — everybody holds a piece. The work is to pull together.
+              Nobody can pull this off alone. Hospitals, schools, community-based organizations, counties, justice partners, and health plans — everybody holds a piece. The work is to pull together.
             </p>
           </div>
         </div>
