@@ -520,10 +520,10 @@ function Roles({ accent, displayFont }) {
       body: "When a hub is in place, somebody meets a person at the door, drives them home, makes sure the meds are filled, and checks in next Tuesday."
     },
     {
-      tone: "#c69b56",
-      audience: "Schools",
-      headline: "Care that meets kids where they spend their day.",
-      body: "Half the kids who need a doctor only see one if you bring care to the cafeteria. We help schools connect families to Medi-Cal and the supports they already qualify for."
+      tone: "#3f5c8a",
+      audience: "Counties",
+      headline: "The front door of the safety net.",
+      body: "Eligibility, public health, behavioral health — county teams hold a lot. We help you hand off to community partners with nobody falling through."
     },
     {
       tone: "#2c6e5b",
@@ -532,10 +532,10 @@ function Roles({ accent, displayFont }) {
       body: "The rides, the meals, the calls, the follow-up — CareHub turns the work you already do into reimbursable enhanced care. Same work. Real pay."
     },
     {
-      tone: "#3f5c8a",
-      audience: "Counties",
-      headline: "The front door of the safety net.",
-      body: "Eligibility, public health, behavioral health — county teams hold a lot. We help you hand off to community partners with nobody falling through."
+      tone: "#c69b56",
+      audience: "Schools",
+      headline: "Care that meets kids where they spend their day.",
+      body: "Half the kids who need a doctor only see one if you bring care to the cafeteria. We help schools connect families to Medi-Cal and the supports they already qualify for."
     },
     {
       tone: "#7b4a8a",
