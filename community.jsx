@@ -867,6 +867,8 @@ const ACTIONS = [
     n: "02",
     label: "For any touchpoint",
     title: "Join as a Community Partner.",
+    stat: "You just need support.",
+    statSub: "You're already doing the work.",
     body: "If you see anyone who could qualify — a CBO, a hospital, a school, a county program, a justice partner — you're a touchpoint. Get reimbursed by Medi-Cal Managed Care Plans for the ECM, Community Supports, and CYBHI services you already deliver. We handle the contracts, billing, and compliance.",
     ctaLabel: "Become a partner",
     ctaHref: "/partner",
