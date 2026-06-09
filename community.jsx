@@ -3,7 +3,7 @@
 //   2. GroundedInEvidence    — HRSN, transportation/housing/food, NEJM/JAMA/Health Affairs
 //   3. TheGap               — "Communities and health plans don't speak the same language" (was Policy)
 //   4. GroundedInPolicy      — What a Community Care Hub IS, w/ CHCF / HHS / CalAIM references
-//   5. WhatThatMeans         — Four concrete actions Care Hub does, w/ real CTAs
+//   5. WhatThatMeans         — Two concrete actions Care Hub does, w/ real CTAs
 
 const { useState: useStateC, useEffect: useEffectC, useRef: useRefC } = React;
 
@@ -855,56 +855,20 @@ const ACTIONS = [
   {
     n: "01",
     label: "For people",
-    title: "Get on Medi-Cal.",
-    body: "Eligible Californians often go uncovered because no one walked them through enrollment. Make a referral and we'll meet the person where they are — at the food pantry, the shelter, the school pickup line.",
-    ctaLabel: "Make a referral",
-    ctaHref: "/referral",
+    title: "Get on Medi-Cal — and stay on it.",
+    body: "Eligible Californians often go uncovered because no one walked them through enrollment. And half of Medi-Cal churn isn't eligibility — it's paperwork. We meet people where they are for both: first-time enrollment, and the redetermination loop before coverage lapses.",
+    ctaLabel: "Get in touch",
+    ctaHref: "#contact",
     accentTone: "#d97757"
   },
   {
     n: "02",
-    label: "For members",
-    title: "Stay on Medi-Cal.",
-    body: "Half of Medi-Cal churn is paperwork, not eligibility. Sign up for automatic renewal support and we'll handle the redetermination loop before coverage lapses.",
-    ctaLabel: "Sign up for renewals",
-    ctaHref: "/renewals",
-    accentTone: "#a06a3c"
-  },
-  {
-    n: "03",
-    label: "For care teams",
-    title: "Enroll in ECM.",
-    body: "Have a high-need Medi-Cal member who would benefit from Enhanced Care Management? We don't stop at the referral — we enroll the member with a community-based care manager who stays with them across settings.",
-    ctaLabel: "Start an ECM enrollment",
-    ctaHref: "/ecm-enrollment",
-    accentTone: "#3a8a8a"
-  },
-  {
-    n: "04",
-    label: "For transitions",
-    title: "Warm hand-offs.",
-    body: "The upgraded ADT feed for transitions of care. Receive — and send — automatic updates to community partners during hospitalizations, ED visits, and incarcerations, so nobody loses track of a member during the moments that matter most.",
-    ctaLabel: "See how it works",
-    ctaHref: "/handoffs",
-    accentTone: "#b8525a"
-  },
-  {
-    n: "05",
     label: "For any touchpoint",
     title: "Join as a Community Partner.",
     body: "If you see anyone who could qualify — a CBO, a hospital, a school, a county program, a justice partner — you're a touchpoint. Get reimbursed by Medi-Cal Managed Care Plans for the ECM, Community Supports, and CYBHI services you already deliver. We handle the contracts, billing, and compliance.",
     ctaLabel: "Become a partner",
     ctaHref: "/partner",
     accentTone: "#2c6e5b"
-  },
-  {
-    n: "06",
-    label: "For existing hubs",
-    title: "Get help with audit, claims, and docs.",
-    body: "Already operating as a community care hub or enhanced-care provider? We provide audit-readiness reviews, claims submission, and medical-necessity documentation support — without disrupting the work you're doing.",
-    ctaLabel: "Talk to our team",
-    ctaHref: "/operations",
-    accentTone: "#3f5c8a"
   }
 ];
 
@@ -937,14 +901,13 @@ function WhatThatMeans({ accent, displayFont }) {
           <div className="md:col-span-5 md:pt-4">
             <p className="text-lg leading-relaxed" style={{ color: "#5e554a" }}>
               That includes Enhanced Care Management (ECM), Community Supports (CS), and the
-              Children &amp; Youth Behavioral Health Initiative (CYBHI). Six things happen
-              concretely:
+              Children &amp; Youth Behavioral Health Initiative (CYBHI). Two concrete places to start:
             </p>
           </div>
         </div>
 
-        {/* Six action cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "#e8e1d2" }}>
+        {/* Action cards */}
+        <div className="grid md:grid-cols-2 gap-px" style={{ background: "#e8e1d2" }}>
           {ACTIONS.map((a) => (
             <article
               key={a.n}
@@ -956,7 +919,7 @@ function WhatThatMeans({ accent, displayFont }) {
               <div className="flex items-baseline justify-between mb-6">
                 <Eyebrow color={a.accentTone}>{a.label}</Eyebrow>
                 <span className="font-mono text-[10px] uppercase tracking-[0.22em]" style={{ color: "#a8a092" }}>
-                  {a.n} / 06
+                  {a.n} / 02
                 </span>
               </div>
 
