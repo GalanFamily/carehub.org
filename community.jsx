@@ -856,7 +856,9 @@ const ACTIONS = [
     n: "01",
     label: "For people",
     title: "Get on Medi-Cal — and stay on it.",
-    body: "Eligible Californians often go uncovered because no one walked them through enrollment. And half of Medi-Cal churn isn't eligibility — it's paperwork. We meet people where they are for both: first-time enrollment, and the redetermination loop before coverage lapses.",
+    stat: "87.5%",
+    statSub: "of Medi-Cal disenrollments are paperwork — not eligibility.",
+    body: "We can help with that. Eligible Californians often go uncovered because no one walked them through first-time enrollment, and once you're in, the redetermination loop trips people up just as easily. We meet people where they are for both.",
     ctaLabel: "Get in touch",
     ctaHref: "#contact",
     accentTone: "#d97757"
@@ -929,6 +931,27 @@ function WhatThatMeans({ accent, displayFont }) {
               >
                 {a.title}
               </h3>
+
+              {a.stat && (
+                <div className="mb-6 pb-6 border-b flex items-baseline gap-4" style={{ borderColor: "#e8e1d2" }}>
+                  <span
+                    style={{
+                      color: a.accentTone,
+                      fontFamily: displayFont,
+                      fontWeight: 700,
+                      fontSize: "clamp(2.25rem, 3.5vw, 3rem)",
+                      letterSpacing: "-0.03em",
+                      lineHeight: 1,
+                      fontVariantNumeric: "tabular-nums"
+                    }}
+                  >
+                    {a.stat}
+                  </span>
+                  <span className="text-[14px] leading-snug" style={{ color: "#5e554a" }}>
+                    {a.statSub}
+                  </span>
+                </div>
+              )}
 
               <p className="text-[15px] leading-relaxed mb-8 flex-1" style={{ color: "#3a2f24" }}>
                 {a.body}
