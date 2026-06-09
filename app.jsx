@@ -545,6 +545,12 @@ function Roles({ accent, displayFont }) {
     },
     {
       tone: "#7b4a8a",
+      audience: "Justice partners",
+      headline: "The handoff has to be ready at the gate.",
+      body: "Pretrial Services, Probation Departments, re-entry programs — the day someone gets out is the day care has to be in place. CareHub turns Justice-Involved (JI) services into reimbursable enhanced care so the handoff actually holds."
+    },
+    {
+      tone: "#7b4a8a",
       audience: "Health plans",
       headline: "Mandates don't deliver care. Communities do.",
       body: "We translate enhanced-care benefits into actual care on the ground — and bring the documentation back in compliant 837 form."
@@ -569,7 +575,7 @@ function Roles({ accent, displayFont }) {
           </div>
           <div className="md:col-span-4 md:pt-4">
             <p className="text-lg leading-relaxed" style={{ color: "#3a2f24" }}>
-              Nobody can pull this off alone. Hospitals, clinics, schools, community-based organizations, counties, and health plans — everybody holds a piece. The work is to pull together.
+              Nobody can pull this off alone. Hospitals, clinics, schools, community-based organizations, counties, justice partners, and health plans — everybody holds a piece. The work is to pull together.
             </p>
           </div>
         </div>
