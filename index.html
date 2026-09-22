@@ -188,7 +188,7 @@ const MapleLeaf = ({ size = 32, color = "var(--maple)", className = "" }) => (
 /* ---------- Logo lockup ---------- */
 const Logo = ({ size = 34, dark = false }) => (
   <div className="inline-flex items-center gap-2.5">
-    <span className="sway inline-block"><MapleLeaf size={size} color="var(--maple)"/></span>
+    <span className="sway inline-block"><MapleLeaf size={size} color={dark ? "var(--cream)" : "var(--maple)"}/></span>
     <span className="font-bold lowercase" style={{ fontFamily: "var(--logo-font, 'Inter', system-ui, sans-serif)", fontWeight: "var(--logo-weight, 700)", fontSize: size*0.7, color: dark ? "#fff" : "var(--ink)", lineHeight: 1, letterSpacing: "var(--logo-tracking, -0.01em)" }}>maple<sup style={{ fontSize: "0.5em", verticalAlign: "super", letterSpacing: 0 }}>™</sup></span>
   </div>
 );
