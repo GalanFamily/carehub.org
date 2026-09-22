@@ -704,29 +704,29 @@ function TheStudy() {
   const slideRes = (dir) => resRef.current?.scrollBy({ left: dir * 360, behavior: "smooth" });
 
   return (
-    <section id="study" className="py-24 px-6 relative overflow-hidden" style={{ background: "var(--ink)", color: "#fff" }}>
+    <section id="study" className="py-24 px-6 relative overflow-hidden" style={{ background: "var(--cream)", color: "var(--ink)" }}>
       <div className="absolute -top-32 -left-32 opacity-[0.06] pointer-events-none">
-        <MapleLeaf size={520} color="#F4C99F"/>
+        <MapleLeaf size={520} color="#A8341A"/>
       </div>
 
       <div className="max-w-7xl mx-auto relative">
         <div className="reveal max-w-3xl mb-10">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--amber-soft)" }}>Research &amp; education</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Research &amp; education</span>
           <h2 className="font-serif font-bold lowercase mt-5 leading-[1.0] tracking-tight" style={{ fontSize: "clamp(34px, 5vw, 62px)" }}>
-            we believe in the power of <span className="italic" style={{ color: "var(--amber-soft)" }}>research.</span>
+            we believe in the power of <span className="italic" style={{ color: "var(--maple)" }}>research.</span>
           </h2>
         </div>
 
         {/* Research question */}
         <div className="reveal mb-14">
-          <p className="text-lg font-medium text-stone-300 mb-6 leading-relaxed">We work to answer our own questions, improve our programs, and share what we learn:</p>
+          <p className="text-lg font-medium text-stone-600 mb-6 leading-relaxed">We work to answer our own questions, improve our programs, and share what we learn:</p>
           <div className="grid md:grid-cols-2 gap-4">
             {[
               "Can stronger community reduce hospitalizations and incarcerations?",
             ].map((q, i) => (
-              <div key={i} className="rounded-2xl p-6 grain flex gap-4 items-start" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}>
-                <span className="font-serif font-bold leading-none" style={{ color: "var(--amber-soft)", fontSize: "26px" }}>?</span>
-                <p className="text-[15.5px] leading-relaxed text-stone-200">{q}</p>
+              <div key={i} className="rounded-2xl p-6 grain flex gap-4 items-start" style={{ background: "#fff", border: "1px solid rgba(168,52,26,0.15)" }}>
+                <span className="font-serif font-bold leading-none" style={{ color: "var(--maple)", fontSize: "26px" }}>?</span>
+                <p className="text-[15.5px] leading-relaxed text-stone-700">{q}</p>
               </div>
             ))}
           </div>
@@ -736,11 +736,11 @@ function TheStudy() {
         <div className="reveal mb-14">
           <div className="flex items-end justify-between gap-4 mb-6 flex-wrap">
             <div className="max-w-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--amber-soft)" }}>Building on research</span>
-              <p className="text-stone-300 text-[15px] leading-relaxed mt-3">A few of the studies that shape how we think about community and health.</p>
+              <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Building on research</span>
+              <p className="text-stone-600 text-[15px] leading-relaxed mt-3">A few of the studies that shape how we think about community and health.</p>
             </div>
             <div className="flex gap-2">
-              <button type="button" onClick={() => slideRes(-1)} className="w-11 h-11 rounded-full flex items-center justify-center text-white transition hover:bg-white/10" style={{ border: "1px solid rgba(255,255,255,0.25)" }} aria-label="Previous studies">
+              <button type="button" onClick={() => slideRes(-1)} className="w-11 h-11 rounded-full flex items-center justify-center transition hover:bg-black/5" style={{ color: "var(--ink)", border: "1px solid rgba(43,24,16,0.25)" }} aria-label="Previous studies">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M15 18l-6-6 6-6"/></svg>
               </button>
               <button type="button" onClick={() => slideRes(1)} className="w-11 h-11 rounded-full flex items-center justify-center text-white" style={{ background: "var(--maple)" }} aria-label="Next studies">
@@ -765,11 +765,11 @@ function TheStudy() {
               { src: "Christakis & Fowler · NEJM, 2007", title: "The Spread of Obesity in a Large Social Network", take: "Health ripples through social networks — we quietly shape each other." },
               { src: "Dean Ornish · 1998", title: "Love & Survival: The Healing Power of Intimacy", take: "A physician's synthesis of the evidence that connection itself is medicine." },
             ].map((s, i) => (
-              <a key={i} href={s.href || ("https://scholar.google.com/scholar?q=" + encodeURIComponent(s.title))} target="_blank" rel="noopener" className="snap-start shrink-0 rounded-2xl p-6 flex flex-col" style={{ width: 300, background: "rgba(255,255,255,0.03)", borderLeft: "3px solid rgba(244,201,159,0.4)", borderTop: "1px solid rgba(255,255,255,0.07)", borderRight: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+              <a key={i} href={s.href || ("https://scholar.google.com/scholar?q=" + encodeURIComponent(s.title))} target="_blank" rel="noopener" className="snap-start shrink-0 rounded-2xl p-6 flex flex-col" style={{ width: 300, background: "rgba(255,255,255,0.75)", borderLeft: "3px solid rgba(168,52,26,0.45)", borderTop: "1px solid rgba(43,24,16,0.08)", borderRight: "1px solid rgba(43,24,16,0.08)", borderBottom: "1px solid rgba(43,24,16,0.08)" }}>
                 <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 mb-3">{s.src}</div>
-                <div className="font-serif leading-snug flex-1" style={{ fontSize: "17px", color: "rgba(255,255,255,0.88)" }}>{s.title}</div>
-                <p className="text-[13px] leading-relaxed text-stone-400 mt-3 mb-4">{s.take}</p>
-                <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: "var(--amber-soft)" }}>Read the study <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+                <div className="font-serif leading-snug flex-1" style={{ fontSize: "17px", color: "var(--ink)" }}>{s.title}</div>
+                <p className="text-[13px] leading-relaxed text-stone-600 mt-3 mb-4">{s.take}</p>
+                <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: "var(--maple)" }}>Read the study <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
               </a>
             ))}
             <div className="shrink-0" style={{ width: 1 }}></div>
@@ -933,25 +933,25 @@ function WhyMaple() {
 /* ---------- Contact / Footer ---------- */
 function Contact() {
   return (
-    <footer id="contact" className="text-white pt-24 pb-12 px-6 relative overflow-hidden" style={{ background: "var(--ink)" }}>
+    <footer id="contact" className="text-white pt-24 pb-12 px-6 relative overflow-hidden" style={{ background: "linear-gradient(165deg, #BC4A22 0%, var(--maple) 100%)" }}>
       {/* Warm gradient bleed from above */}
-      <div className="absolute top-0 inset-x-0 h-64 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(168,52,26,0.22), transparent)" }} aria-hidden="true"></div>
+      <div className="absolute top-0 inset-x-0 h-64 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(244,201,159,0.22), transparent)" }} aria-hidden="true"></div>
       {/* Scattered samara field */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <span className="absolute" style={{ top: "8%",  right: "4%",   opacity: 0.07,  transform: "rotate(22deg)"  }}><MapleLeaf size={340} color="#F4C99F"/></span>
-        <span className="absolute" style={{ bottom: "2%",  left: "1%",   opacity: 0.05,  transform: "rotate(-38deg)" }}><MapleLeaf size={220} color="#F4C99F"/></span>
-        <span className="absolute" style={{ top: "42%", right: "22%",  opacity: 0.045, transform: "rotate(75deg)"  }}><MapleLeaf size={160} color="#F4C99F"/></span>
-        <span className="absolute" style={{ top: "18%", left: "18%",   opacity: 0.04,  transform: "rotate(-12deg)" }}><MapleLeaf size={110} color="#F4C99F"/></span>
-        <span className="absolute" style={{ bottom: "22%", right: "10%", opacity: 0.055, transform: "rotate(50deg)"  }}><MapleLeaf size={260} color="#F4C99F"/></span>
-        <span className="absolute" style={{ top: "65%", left: "38%",   opacity: 0.035, transform: "rotate(-60deg)" }}><MapleLeaf size={130} color="#F4C99F"/></span>
+        <span className="absolute" style={{ top: "8%",  right: "4%",   opacity: 0.07,  transform: "rotate(22deg)"  }}><MapleLeaf size={340} color="#F8E9D0"/></span>
+        <span className="absolute" style={{ bottom: "2%",  left: "1%",   opacity: 0.05,  transform: "rotate(-38deg)" }}><MapleLeaf size={220} color="#F8E9D0"/></span>
+        <span className="absolute" style={{ top: "42%", right: "22%",  opacity: 0.045, transform: "rotate(75deg)"  }}><MapleLeaf size={160} color="#F8E9D0"/></span>
+        <span className="absolute" style={{ top: "18%", left: "18%",   opacity: 0.04,  transform: "rotate(-12deg)" }}><MapleLeaf size={110} color="#F8E9D0"/></span>
+        <span className="absolute" style={{ bottom: "22%", right: "10%", opacity: 0.055, transform: "rotate(50deg)"  }}><MapleLeaf size={260} color="#F8E9D0"/></span>
+        <span className="absolute" style={{ top: "65%", left: "38%",   opacity: 0.035, transform: "rotate(-60deg)" }}><MapleLeaf size={130} color="#F8E9D0"/></span>
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="reveal max-w-3xl">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--amber-soft)" }}>Get in touch</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--cream)" }}>Get in touch</span>
           <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95]" style={{ fontSize: "clamp(44px, 7vw, 92px)" }}>
-            community is built <span className="italic" style={{ color: "var(--amber-soft)" }}>one introduction at a time.</span>
+            community is built <span className="italic" style={{ color: "var(--cream)" }}>one introduction at a time.</span>
           </h2>
-          <p className="mt-8 text-stone-300 leading-relaxed text-lg max-w-xl font-medium">
+          <p className="mt-8 text-white/90 leading-relaxed text-lg max-w-xl font-medium">
             Whether you're a community organization looking for funding, a county partner, a researcher, or a neighbor who just wants to help: write us. And if you're someone's person, the one who shows up for them, we especially want to know you, connect you in, and help fund the work you're already doing.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
@@ -962,11 +962,11 @@ function Contact() {
           </div>
         </div>
 
-        <div className="mt-24 pt-8 border-t border-white/10 flex flex-col gap-6">
-          <p className="text-[12px] leading-relaxed text-stone-400 max-w-2xl normal-case tracking-normal">
+        <div className="mt-24 pt-8 border-t border-white/25 flex flex-col gap-6">
+          <p className="text-[12px] leading-relaxed text-white/75 max-w-2xl normal-case tracking-normal">
             <strong style={{ color: "#fff" }}>Maple Community Care Hub™</strong> is a California public benefit nonprofit.
           </p>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-stone-400">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-white/75">
             <Logo size={28} dark={true}/>
             <span>maple · we all need community · © 2026</span>
           </div>
