@@ -426,7 +426,7 @@ function CHWSection() {
     {
       icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
       title: "Conduct",
-      body: "outreach, home visits, and needs screenings",
+      body: "community outreach and needs screenings",
       color: "var(--ink)",
     },
     {
@@ -523,7 +523,7 @@ function TheWork() {
   const fundPartners = [
     { t: "Community health workers", c: "var(--maple)", d: "CHWs working directly with families and individuals in the community." },
     { t: "Providers", c: "var(--amber)", d: "Safety-net clinics and federally qualified health centers caring for the uninsured." },
-    { t: "Faith communities", c: "var(--moss)", d: "Congregations that feed neighbors, visit the sick, and show up." },
+    { t: "Faith communities", c: "var(--moss)", d: "Congregations that feed neighbors and show up for them." },
     { t: "Neighborhood groups", c: "var(--maple-deep)", d: "Block leaders, associations, and neighbors organizing meals and support." },
     { t: "Justice partners", c: "var(--ink)", d: "Organizations walking with people leaving jail, prison, or treatment." },
     { t: "Service clubs", c: "var(--amber)", d: "Rotary, Lions, and the volunteers who quietly keep things running." },
@@ -554,15 +554,15 @@ function TheWork() {
                 We do
               </div>
               <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
-                Community Health Work — direct, in the community.
+                Care and community health work — direct services.
               </h3>
               <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">
-                Simple, consistent programs that give neighbors a reason to show up, and keep showing up. We meet people where they are: in kitchens, at church, on porches, in clinics.
+                Medical services from licensed clinicians, care management and community health work from a trained team, and simple, consistent community programs that give neighbors a reason to show up, and keep showing up.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-2">
-              {["Community health work", "Navigation", "Community dinners", "Healthy eating", "Support groups", "Health education", "Blood pressure drives", "Flamingo Fridays"].map((t, i) => (
+              {["Medical services", "Care management", "Case management", "Community health work", "Health & social services navigation", "Health education", "Support groups", "Community events", "Flamingo Fridays"].map((t, i) => (
                 <span key={i} className="px-3 py-1.5 rounded-lg text-[12px] font-semibold border text-stone-600" style={{ borderColor: "rgba(168,52,26,0.18)", background: "rgba(168,52,26,0.05)" }}>{t}</span>
               ))}
             </div>
@@ -590,7 +590,7 @@ function TheWork() {
                 Others building <span className="italic" style={{ color: "var(--maple)" }}>healthy communities.</span>
               </h3>
               <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#57534e" }}>
-                We back the organizations already holding their neighborhoods together. Our goal: 70% of every dollar flows to community programs and the people doing the work.
+                We back the organizations already holding their neighborhoods together, with funding plus the billing, claims, and operations support that helps them get paid for their work. Our goal: 70% of every dollar flows to community programs and the people doing the work.
               </p>
             </div>
 
@@ -805,7 +805,7 @@ function WhoWeAre() {
     {
       k: "Going deeper",
       t: "Into the work.",
-      b: "We began working out of a local church — hosting dinners, supporting neighbors through hard seasons, and running music and art nights for teens.",
+      b: "We began working out of a local church — hosting dinners and supporting neighbors through hard seasons.",
       c: "var(--maple)",
     },
     {
