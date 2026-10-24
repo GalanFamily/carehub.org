@@ -497,28 +497,6 @@ function Delivered() {
           </div>
         </div>
 
-        <div className="reveal mt-14">
-          <Label color="#8A7F74">Community partners</Label>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-5">
-            {[
-              "Housing support and shelter",
-              "Food access and basic needs",
-              "Care managers and county programs",
-              "Family, youth and schools",
-              "Congregations and service clubs",
-              "Specialized and cultural services",
-              "Transportation providers",
-              "Behavioral health",
-              "Other social support services",
-            ].map((t, i) => (
-              <div key={i} className="rounded-2xl p-5 flex flex-col justify-between min-h-[150px] md:min-h-[170px]" style={{ background: "var(--paper-2)" }}>
-                <span className="text-[13px] font-medium" style={{ color: "var(--ink)" }}>{i + 1}</span>
-                <span className="font-serif font-semibold leading-tight" style={{ fontSize: "clamp(17px, 1.8vw, 22px)", color: "var(--ink)" }}>{t}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         <p id="partner-note" className="reveal mt-8 text-[12px] leading-relaxed text-stone-400 max-w-3xl">
           <sup>1</sup> Including congregations, service clubs, and neighborhood nonprofits. Community health worker services, whether delivered by Maple or by a partner, are delivered under the supervision of a licensed provider.
         </p>
