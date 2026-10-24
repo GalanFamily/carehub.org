@@ -94,9 +94,19 @@
   .source a { color: #78716c; }
   .source a:hover { color: var(--maple); }
 
+  /* Flip cards */
+  .flip { perspective: 1200px; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+  .flip:focus-visible { outline: 2px solid var(--maple); outline-offset: 4px; border-radius: 24px; }
+  .flip-inner { position: relative; height: 100%; transform-style: preserve-3d; transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+  .flip.is-flipped .flip-inner { transform: rotateY(180deg); }
+  @media (hover: hover) { .flip:hover .flip-inner { transform: rotateY(180deg); } }
+  .flip-face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .flip-back { transform: rotateY(180deg); }
+
   @media (prefers-reduced-motion: reduce) {
     .maple-fall, .maple-spin, .sway, .pulse-dot { animation: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
+    .flip-inner { transition: none; }
   }
 </style>
 </head>
