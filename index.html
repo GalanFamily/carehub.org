@@ -90,33 +90,12 @@
   }
   .pulse-dot { animation: softPulse 2.4s ease-in-out infinite; }
 
-  /* Marquee */
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  .marquee-track { animation: marquee 60s linear infinite; }
-
   /* Source lines under definitions and evidence */
   .source a { color: #78716c; }
   .source a:hover { color: var(--maple); }
 
-  /* Tagline row */
-  .tagline-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink);
-    opacity: 0.45;
-    padding: 0 20px 0 0;
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .maple-fall, .maple-spin, .sway, .marquee-track, .pulse-dot { animation: none; }
+    .maple-fall, .maple-spin, .sway, .pulse-dot { animation: none; }
     .reveal { opacity: 1; transform: none; transition: none; }
   }
 </style>
