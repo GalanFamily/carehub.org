@@ -365,17 +365,38 @@ function WholePersonCare() {
     { text: "Attending to the conditions people live in: food, housing, transportation, and the relationships and resources that shape health outside the clinic.",
       sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }] },
   ];
+  const dayToDay = [
+    { icon: Icons.home,   title: "Housing",              body: "Through community partners, help finding transitional housing and shelter resources you can count on." },
+    { icon: Icons.basket, title: "Food",                 body: "Food banks, meal programs, and grocery delivery partners bring healthy food to people where they are." },
+    { icon: Icons.cal,    title: "Getting to the doctor", body: "Your care team makes it easy to see your doctor, with help scheduling, rides to visits, and getting medications refilled." },
+    { icon: Icons.heart,  title: "Behavioral health",    body: "Access to behavioral health specialists for counseling, guidance, and support, coordinated with your doctor." },
+  ];
   return (
     <section id="services" className="py-24 px-6 relative" style={{ background: "var(--warm-white)" }}>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
-        <div>
-          <Label>Definition</Label>
-          <Headword words={["whole", "person", "care"]}/>
-          <Rule/>
-          <p className="font-bold leading-snug" style={{ fontSize: 16, color: "var(--ink)" }}>Three definitions we work from.</p>
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
+          <div>
+            <Label>Definition</Label>
+            <Headword words={["whole", "person", "care"]}/>
+            <Rule/>
+            <p className="font-bold leading-snug" style={{ fontSize: 16, color: "var(--ink)" }}>Three definitions we work from.</p>
+          </div>
+          <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
+            <Definitions items={items}/>
+          </div>
         </div>
-        <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
-          <Definitions items={items}/>
+
+        <div className="reveal mt-20">
+          <Label color="#8A7F74">What this looks like day to day</Label>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
+            {dayToDay.map((t, i) => (
+              <div key={i} className="rounded-3xl p-7 flex flex-col gap-4 min-h-[250px]" style={{ background: i % 2 ? "var(--maple-deep)" : "var(--ink)", color: "#fff" }}>
+                <div className="flex items-center justify-center rounded-full" style={{ width: 44, height: 44, background: "rgba(255,255,255,0.12)", color: "var(--amber-soft)" }}>{t.icon}</div>
+                <div className="font-serif font-bold lowercase leading-tight mt-auto" style={{ fontSize: "clamp(20px, 2.2vw, 24px)" }}>{t.title}</div>
+                <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{t.body}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
