@@ -504,18 +504,6 @@ function Standards() {
             <Ext href={DHCS_CHW} className="underline-grow font-semibold inline-flex items-center gap-1.5" style={{ color: "var(--maple-deep)" }}>State provider requirements <ArrowOut/></Ext>
           </p>
         </div>
-
-        <div className="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cards.map((c, i) => (
-            <div key={i} className="rounded-2xl border border-stone-200 bg-white p-6 flex flex-col gap-4 lift">
-              <span className="font-serif font-semibold leading-none" style={{ fontSize: 26, color: "var(--maple)" }}>{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <div className="font-semibold text-[16px] leading-tight" style={{ color: "var(--ink)" }}>{c.t}</div>
-                <p className="text-stone-600 text-[14.5px] leading-relaxed mt-2">{c.b}</p>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
