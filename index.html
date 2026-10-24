@@ -323,7 +323,7 @@ function FlipCard({ icon, title, front, back, tone = "paper" }) {
       className={`flip text-left w-full h-full ${flipped ? "is-flipped" : ""}`}
     >
       <div className="flip-inner">
-        <div className="flip-face rounded-3xl p-6 flex flex-col" style={{ background: "var(--paper-2)" }}>
+        <div className="flip-face rounded-3xl p-6 flex flex-col" style={{ background: tone === "white" ? "#fff" : "var(--paper-2)" }}>
           <div style={{ color: "var(--ink)", display: "flex" }}>{icon}</div>
           <p className="mt-auto pt-10 leading-snug" style={{ fontSize: "clamp(18px, 1.7vw, 21px)", fontWeight: 400, color: "var(--ink)" }}>{front}</p>
         </div>
