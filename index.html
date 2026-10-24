@@ -441,50 +441,43 @@ function CHWSection() {
   );
 }
 
-/* ---------- How it is delivered ---------- */
+/* ---------- Partners ---------- */
 function Delivered() {
-  const Pill = ({ children }) => (
-    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4" style={{ background: "rgba(168,52,26,0.09)", color: "var(--maple-deep)" }}>
-      <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--maple)" }}></span>
-      {children}
-    </div>
-  );
   const Chip = ({ children }) => (
     <span className="px-3 py-1.5 rounded-lg text-[12px] font-semibold border text-stone-600" style={{ borderColor: "rgba(168,52,26,0.18)", background: "rgba(168,52,26,0.05)" }}>{children}</span>
   );
+  const kinds = [
+    "Care support",
+    "Food access and basic needs",
+    "Housing support and shelter",
+    "Family, youth, and community",
+    "Congregations and service groups",
+    "Local education agencies and schools",
+    "Specialized and cultural services",
+    "Care managers and probation",
+    "Drop-in centers and food pantries",
+    "Transportation providers",
+    "Other social support services",
+  ];
+  const legalLink = { color: "var(--maple-deep)" };
   return (
     <section id="delivered" className="py-20 px-6 relative" style={{ background: "var(--warm-white)" }}>
       <div className="max-w-7xl mx-auto">
-        <div className="reveal mb-8">
-          <Label>How it is delivered</Label>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-6">
-          <div className="reveal rounded-3xl border border-stone-200 p-8 flex flex-col gap-6" style={{ background: "var(--warm-white)" }}>
-            <div>
-              <Pill>Community partners</Pill>
-              <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
-                We connect people with the community partners<sup><a href="#partner-note" className="no-underline ml-0.5 text-stone-400" style={{ fontSize: "0.55em" }}>1</a></sup>, clinics, and care teams they need most.
-              </h3>
-              <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">We coordinate with local organizations, clinics, and care teams to make sure people get the medical, mental health, and everyday support they need. We also help partners participate in health care programs that create sustainable financial support, so they can keep improving the health of the people they serve.</p>
-              <p className="mt-3 text-[15px]"><a href="#contact" className="underline-grow font-semibold" style={{ color: "var(--maple-deep)" }}>Interested in partnering with us? Let's connect.</a></p>
+        <div className="reveal rounded-3xl border border-stone-200 p-8 md:p-10 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-start" style={{ background: "var(--warm-white)" }}>
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4" style={{ background: "rgba(168,52,26,0.09)", color: "var(--maple-deep)" }}>
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--maple)" }}></span>
+              Partners
             </div>
-            <div className="flex flex-wrap gap-2 mt-auto">
-              {["Housing and shelter", "Food and basic needs", "Congregations and service clubs", "Family, youth and schools", "Transportation", "Behavioral health"].map((t, i) => <Chip key={i}>{t}</Chip>)}
-            </div>
+            <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
+              We connect people with the community partners<sup><a href="#partner-note" className="no-underline ml-0.5 text-stone-400" style={{ fontSize: "0.55em" }}>1</a></sup>, clinics, and care teams they need most.
+            </h3>
+            <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">We coordinate with local organizations, clinics, and care teams to make sure people get the medical, mental health, and everyday support they need. We also help partners participate in health care programs that create sustainable financial support, so they can keep improving the health of the people they serve: network development, payment operations, data and reporting, and quality and audit support.</p>
+            <p className="mt-3 text-stone-600 text-[15px] leading-relaxed">This is the role of a Community Care Hub as defined by the <Ext href={HHS_HUBS} className="underline-grow font-semibold" style={legalLink}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} className="underline-grow font-semibold" style={legalLink}>California Department of Health Care Services</Ext>.</p>
+            <p className="mt-4 text-[15px]"><a href="#contact" className="underline-grow font-semibold" style={{ color: "var(--maple-deep)" }}>Interested in partnering with us? Let's connect.</a></p>
           </div>
-
-          <div className="reveal rounded-3xl border p-8 flex flex-col gap-6" style={{ background: "var(--cream)", borderColor: "rgba(168,52,26,0.15)" }}>
-            <div>
-              <Pill>Maple</Pill>
-              <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
-                Direct care, and administrative support as a <span className="italic" style={{ color: "var(--maple)" }}>Community Care Hub.</span>
-              </h3>
-              <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#57534e" }}>Maple's physician and community health workers deliver care directly. For community partners, Maple provides network development, payment operations, data and reporting, and quality and audit support.</p>
-            </div>
-            <div className="flex flex-wrap gap-2 mt-auto">
-              {["Direct care", "Network development", "Payment operations", "Data and reporting", "Quality and audit support"].map((t, i) => <Chip key={i}>{t}</Chip>)}
-            </div>
+          <div className="flex flex-wrap gap-2 lg:pt-10">
+            {kinds.map((t, i) => <Chip key={i}>{t}</Chip>)}
           </div>
         </div>
 
