@@ -361,9 +361,9 @@ function WholePersonCare() {
     <section id="services" className="py-24 px-6 relative" style={{ background: "var(--warm-white)" }}>
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
         <div>
-          <Label>Definition</Label>
           <Headword words={["whole", "person", "care"]}/>
           <Rule/>
+          <Label>Definition</Label>
           <ol>
             {items.map((d, i) => (
               <li key={i} className="grid grid-cols-[1.75rem_1fr] gap-2" style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
@@ -418,9 +418,9 @@ function CHWSection() {
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
           <div>
-            <Label>Definition</Label>
             <Headword words={["community", "health", "work"]}/>
             <Rule/>
+            <Label>Definition</Label>
             <p className="font-bold leading-snug" style={{ fontSize: 17, color: "var(--ink)" }}>{definition.text}</p>
             <div className="source mt-3 flex flex-col gap-1 text-[12px]">
               {definition.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
