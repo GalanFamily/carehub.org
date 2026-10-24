@@ -320,8 +320,7 @@ function FlipCard({ icon, title, front, back }) {
       aria-pressed={flipped}
       aria-label={`${title}. ${flipped ? back : front} Activate to ${flipped ? "show less" : "show more"}.`}
       onClick={() => setFlipped(v => !v)}
-      className={`flip text-left w-full ${flipped ? "is-flipped" : ""}`}
-      style={{ height: 232 }}
+      className={`flip text-left w-full h-full ${flipped ? "is-flipped" : ""}`}
     >
       <div className="flip-inner">
         <div className="flip-face rounded-3xl border border-stone-200 bg-white p-6 flex flex-col">
