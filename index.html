@@ -473,12 +473,13 @@ function Delivered() {
             <div>
               <Pill>Community partners</Pill>
               <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
-                Trusted local organizations<sup><a href="#partner-note" className="no-underline ml-0.5 text-stone-400" style={{ fontSize: "0.55em" }}>1</a></sup> that already care for the people we serve.
+                We connect people with the community partners<sup><a href="#partner-note" className="no-underline ml-0.5 text-stone-400" style={{ fontSize: "0.55em" }}>1</a></sup>, clinics, and care teams they need most.
               </h3>
-              <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">They remain responsible for their relationships with the community and the care they deliver.</p>
+              <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">We coordinate with local organizations, clinics, and care teams to make sure people get the medical, mental health, and everyday support they need. We also help partners participate in health care programs that create sustainable financial support, so they can keep improving the health of the people they serve.</p>
+              <p className="mt-3 text-[15px]"><a href="#contact" className="underline-grow font-semibold" style={{ color: "var(--maple-deep)" }}>Interested in partnering with us? Let's connect.</a></p>
             </div>
             <div className="flex flex-wrap gap-2 mt-auto">
-              {["Congregations", "Service clubs", "Neighborhood nonprofits", "Clinics and care teams"].map((t, i) => <Chip key={i}>{t}</Chip>)}
+              {["Housing and shelter", "Food and basic needs", "Congregations and service clubs", "Family, youth and schools", "Transportation", "Behavioral health"].map((t, i) => <Chip key={i}>{t}</Chip>)}
             </div>
           </div>
 
