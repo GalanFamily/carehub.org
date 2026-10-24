@@ -414,29 +414,6 @@ function CHWSection() {
           </div>
         </div>
       </div>
-
-      {/* Poster lockup strip */}
-      <div style={{ background: "var(--paper)", borderTop: "1px solid rgba(43,24,16,0.1)" }}>
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
-            <div className="flex items-center gap-4">
-              <Logo size={26}/>
-              <div style={{ width: 1, height: 22, background: "#d6d3d1" }} aria-hidden="true"></div>
-              <span className="font-serif font-bold lowercase" style={{ fontSize: "clamp(16px, 2vw, 22px)", color: "var(--ink)" }}>
-                We all need <span style={{ color: "var(--maple)" }}>community.</span>
-              </span>
-            </div>
-            <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end" aria-hidden="true">
-              {["Connecting people", "Building trust", "Promoting well-being", "Strengthening communities"].map((label, i) => (
-                <React.Fragment key={i}>
-                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#a8a29e" }}>{label}</span>
-                  {i < 3 && <span style={{ opacity: 0.3, display: "flex" }}><MapleLeaf size={11} color="var(--maple)"/></span>}
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }
