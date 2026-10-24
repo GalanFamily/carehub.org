@@ -229,7 +229,6 @@ function Nav() {
     ["#services", "Whole person care"],
     ["#chw", "Community health work"],
     ["#delivered", "Partners"],
-    ["#standards", "Standards"],
     ["#evidence", "Evidence"],
     ["#about", "About"],
   ];
@@ -288,7 +287,7 @@ function Hero() {
             What we do
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#standards" className="px-7 py-3.5 rounded-full font-semibold text-sm border border-stone-300 bg-white/70 backdrop-blur" style={{ color: "var(--ink)" }}>Standards &amp; safeguards</a>
+          <a href="#delivered" className="px-7 py-3.5 rounded-full font-semibold text-sm border border-stone-300 bg-white/70 backdrop-blur" style={{ color: "var(--ink)" }}>Partner with us</a>
         </div>
       </div>
 
@@ -518,21 +517,6 @@ function Delivered() {
   );
 }
 
-/* ---------- Standards and safeguards ---------- */
-function Standards() {
-  return (
-    <section id="standards" className="py-12 px-6" style={{ background: "var(--paper-2)" }}>
-      <div className="max-w-7xl mx-auto reveal flex flex-col md:flex-row md:items-center justify-between gap-4">
-        <div>
-          <Label>Standards and safeguards</Label>
-          <p className="mt-2 text-[17px] leading-snug" style={{ color: "var(--ink)" }}>Built to California's provider requirements for community health worker services.</p>
-        </div>
-        <Ext href={DHCS_CHW} className="underline-grow font-semibold inline-flex items-center gap-1.5 text-[15px] whitespace-nowrap" style={{ color: "var(--maple-deep)" }}>State provider requirements <ArrowOut/></Ext>
-      </div>
-    </section>
-  );
-}
-
 /* ---------- Evidence ---------- */
 function Evidence() {
   const stats = [
@@ -660,7 +644,6 @@ function App() {
       <WholePersonCare/>
       <CHWSection/>
       <Delivered/>
-      <Standards/>
       <Evidence/>
       <About/>
       <Contact/>
