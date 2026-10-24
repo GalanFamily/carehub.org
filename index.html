@@ -363,7 +363,7 @@ function WholePersonCare() {
         <div>
           <Headword words={["whole", "person", "care"]}/>
           <Rule/>
-          <Label>Definition</Label>
+          <div className="mb-3"><Label>Definition</Label></div>
           <ol>
             {items.map((d, i) => (
               <li key={i} className="grid grid-cols-[1.75rem_1fr] gap-2" style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
@@ -420,7 +420,7 @@ function CHWSection() {
           <div>
             <Headword words={["community", "health", "work"]}/>
             <Rule/>
-            <Label>Definition</Label>
+            <div className="mb-3"><Label>Definition</Label></div>
             <p className="font-bold leading-snug" style={{ fontSize: 17, color: "var(--ink)" }}>{definition.text}</p>
             <div className="source mt-3 flex flex-col gap-1 text-[12px]">
               {definition.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
