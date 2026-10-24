@@ -512,48 +512,48 @@ function Standards() {
 /* ---------- Evidence ---------- */
 function Evidence() {
   const stats = [
-    { big: "−65%", pct: 65, sub: "Total hospital days among patients in a randomized trial of the IMPaCT community health worker model.",
-      src: <span><Ext href="https://doi.org/10.1001/jamainternmed.2018.4630">Kangovi et al., JAMA Internal Medicine, 2018</Ext></span> },
+    { big: "−65%", sub: "Total hospital days among patients in a randomized trial of the IMPaCT community health worker model.",
+      title: "Effect of Community Health Worker Support on Clinical Outcomes of Low-Income Patients Across Primary Care Facilities: A Randomized Clinical Trial",
+      cite: "Kangovi et al., JAMA Internal Medicine, 2018", href: "https://doi.org/10.1001/jamainternmed.2018.4630" },
     { big: "$2.47", sub: "Returned to the payer for every dollar invested in the same program within the first year.",
-      src: <span><Ext href="https://doi.org/10.1377/hlthaff.2019.00981">Kangovi et al., Health Affairs, 2020</Ext></span> },
-    { big: "−9%", pct: 9, sub: "Emergency department visits, with more outpatient care and depression scores falling by a third, among 1,294 high-need Medi-Cal children in Pair Team's community care program.",
-      src: <span><Ext href="https://pediatrics.jmir.org/2026/1/e88204">Juusola et al., JMIR Pediatrics and Parenting, 2026</Ext> · adult results in <Ext href="https://doi.org/10.1007/s11606-025-09839-2">Mueller et al., JGIM, 2025</Ext></span> },
+      title: "Evidence-Based Community Health Worker Program Addresses Unmet Social Needs and Generates Positive Return on Investment",
+      cite: "Kangovi et al., Health Affairs, 2020", href: "https://doi.org/10.1377/hlthaff.2019.00981" },
+    { big: "−9%", sub: "Emergency department visits, with more outpatient care and depression scores falling by a third, among 1,294 high-need Medi-Cal children in Pair Team's community care program.",
+      title: "An Innovative Approach to Enhanced Care Management for High-Need Pediatric Medicaid Members: Retrospective Cohort Study",
+      cite: "Juusola et al., JMIR Pediatrics and Parenting, 2026", href: "https://pediatrics.jmir.org/2026/1/e88204",
+      also: { title: "A Novel Intervention for Medicaid Beneficiaries with Complex Needs", cite: "Mueller et al., Journal of General Internal Medicine, 2025", href: "https://doi.org/10.1007/s11606-025-09839-2" } },
   ];
+  const Cite = ({ title, cite, href }) => (
+    <Ext href={href} className="block hover:text-white" style={{ color: "#a8a29e" }}>
+      <span className="italic" style={{ color: "#d6d3d1" }}>{title}.</span> {cite}
+    </Ext>
+  );
   return (
-    <section id="evidence" className="py-24 px-6 relative overflow-hidden" style={{ background: "var(--ink)", color: "#fff" }}>
+    <section id="evidence" className="py-16 px-6 relative overflow-hidden" style={{ background: "var(--ink)", color: "#fff" }}>
       <div className="absolute -top-24 -right-24 opacity-[0.05] pointer-events-none">
         <MapleLeaf size={420} color="#F4C99F"/>
       </div>
       <div className="max-w-7xl mx-auto relative">
-        <div className="reveal max-w-3xl mb-14">
+        <div className="reveal max-w-3xl mb-10">
           <Label color="var(--amber-soft)">Evidence</Label>
-          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ fontSize: "clamp(40px, 6vw, 76px)" }}>
+          <h2 className="font-serif font-bold lowercase mt-4 leading-[0.98] tracking-tight" style={{ fontSize: "clamp(30px, 4vw, 48px)" }}>
             this model is well studied <span className="italic" style={{ color: "var(--amber-soft)" }}>and it works.</span>
           </h2>
+          <p className="mt-4 text-[15px] leading-relaxed text-stone-300">A trained, trusted person who checks in regularly and connects people to care reduces emergency department use and hospital admissions.</p>
         </div>
 
         <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-4">
           {stats.map((s, i) => (
-            <div key={i} className="rounded-3xl p-7 grain flex flex-col justify-between min-h-[250px]" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}>
-              <div>
-                <div className="font-serif font-bold leading-none" style={{ fontSize: "clamp(42px, 5vw, 66px)", color: "var(--amber-soft)" }}>{s.big}</div>
-                {typeof s.pct === "number" && (
-                  <div className="mt-5 h-2.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.12)" }} aria-hidden="true">
-                    <div className="h-full rounded-full" style={{ width: s.pct + "%", background: "var(--amber-soft)" }}></div>
-                  </div>
-                )}
-              </div>
-              <div className="mt-5">
-                <p className="text-[14px] leading-snug text-stone-200">{s.sub}</p>
-                <div className="text-[11px] leading-relaxed text-stone-400 mt-3 [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-white">{s.src}</div>
+            <div key={i} className="rounded-2xl p-5 flex flex-col" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div className="font-serif font-bold leading-none" style={{ fontSize: "clamp(34px, 3.4vw, 44px)", color: "var(--amber-soft)" }}>{s.big}</div>
+              <p className="text-[14px] leading-snug text-stone-200 mt-3">{s.sub}</p>
+              <div className="text-[12px] leading-relaxed mt-4 flex flex-col gap-2">
+                <Cite title={s.title} cite={s.cite} href={s.href}/>
+                {s.also && <Cite {...s.also}/>}
               </div>
             </div>
           ))}
         </div>
-
-        <p className="reveal mt-10 text-[16px] leading-relaxed max-w-3xl text-stone-300 font-medium">
-          A trained, trusted person who checks in regularly and connects people to care reduces emergency department use and hospital admissions.
-        </p>
       </div>
     </section>
   );
@@ -584,7 +584,6 @@ function About() {
 
 /* ---------- Contact / Footer ---------- */
 function Contact() {
-  const legalLink = { color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 };
   return (
     <footer id="contact" className="text-white pt-24 pb-12 px-6 relative overflow-hidden" style={{ background: "linear-gradient(165deg, #BC4A22 0%, var(--maple) 100%)" }}>
       <div className="absolute top-0 inset-x-0 h-64 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(244,201,159,0.22), transparent)" }} aria-hidden="true"></div>
