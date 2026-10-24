@@ -3,24 +3,25 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Maple — We All Need Community</title>
-<meta name="description" content="We do community health work and fund the people and organizations building healthy communities." />
+<title>Maple — Community health worker services</title>
+<meta name="description" content="Maple combines a physician and community health workers to coordinate medical and social care. A California nonprofit Community Care Hub." />
+<link rel="canonical" href="https://www.carehub.org/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Maple" />
-<meta property="og:title" content="Maple — We All Need Community" />
-<meta property="og:description" content="We do community health work and fund the people and organizations building healthy communities." />
-<meta property="og:url" content="https://www.maplecommunity.org" />
-<meta property="og:image" content="https://www.maplecommunity.org/assets/favicon.png?v=4" />
+<meta property="og:title" content="Maple — Community health worker services" />
+<meta property="og:description" content="Maple combines a physician and community health workers to coordinate medical and social care. A California nonprofit Community Care Hub." />
+<meta property="og:url" content="https://www.carehub.org/" />
+<meta property="og:image" content="https://www.carehub.org/assets/favicon.png?v=4" />
 <meta name="twitter:card" content="summary" />
-<meta name="twitter:title" content="Maple — We All Need Community" />
-<meta name="twitter:description" content="We do community health work and fund the people and organizations building healthy communities." />
-<meta name="twitter:image" content="https://www.maplecommunity.org/assets/favicon.png?v=4" />
+<meta name="twitter:title" content="Maple — Community health worker services" />
+<meta name="twitter:description" content="Maple combines a physician and community health workers to coordinate medical and social care. A California nonprofit Community Care Hub." />
+<meta name="twitter:image" content="https://www.carehub.org/assets/favicon.png?v=4" />
 <link rel="icon" type="image/png" href="assets/favicon.png?v=4">
 <link rel="apple-touch-icon" href="assets/favicon.png?v=4">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Sora:wght@600;700;800&family=Spectral:ital,wght@0,600;0,700;1,600&family=DM+Serif+Display:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
     --ink: #2B1810;
@@ -32,8 +33,8 @@
     --amber-soft: #F4C99F;
     --moss: #4A6741;
     --cream: #F8E9D0;
-    --pink: #D14B6A;
     --warm-white: #FFFBF5;
+    --line: #E7E0D6;
   }
   html { scroll-behavior: smooth; scrollbar-gutter: stable; }
   html, body { overflow-x: hidden; }
@@ -44,6 +45,7 @@
     -webkit-font-smoothing: antialiased;
   }
   .font-serif { font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144; }
+  h1, h2, h3, p { text-wrap: pretty; }
   ::selection { background: #F4C99F; color: var(--maple-deep); }
 
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
@@ -95,26 +97,11 @@
   }
   .marquee-track { animation: marquee 60s linear infinite; }
 
-  /* Warm action cards */
-  .chw-card {
-    background: var(--warm-white);
-    border: 1.5px solid rgba(168,52,26,0.13);
-    border-radius: 18px;
-    padding: 22px 24px;
-    transition: border-color .3s ease, box-shadow .3s ease;
-  }
-  .chw-card:hover {
-    border-color: rgba(168,52,26,0.3);
-    box-shadow: 0 8px 28px -12px rgba(168,52,26,0.18);
-  }
+  /* Source lines under definitions and evidence */
+  .source a { color: #78716c; }
+  .source a:hover { color: var(--maple); }
 
   /* Tagline row */
-  .tagline-row {
-    display: flex;
-    gap: 0;
-    flex-wrap: wrap;
-    align-items: center;
-  }
   .tagline-item {
     display: inline-flex;
     align-items: center;
@@ -127,20 +114,14 @@
     opacity: 0.45;
     padding: 0 20px 0 0;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .maple-fall, .maple-spin, .sway, .marquee-track, .pulse-dot { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
 </style>
 </head>
 <body>
-<template id="__bundler_thumbnail" data-bg-color="#FAF6F0">
-  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
-    <rect width="1200" height="800" fill="#FAF6F0"/>
-    <g transform="translate(600 360)" fill="#A8341A">
-      <path d="M0 -200 L20 -120 L100 -180 L80 -80 L200 -100 L120 -20 L240 20 L120 60 L200 140 L80 100 L100 220 L20 140 L0 280 L-20 140 L-100 220 L-80 100 L-200 140 L-120 60 L-240 20 L-120 -20 L-200 -100 L-80 -80 L-100 -180 L-20 -120 Z"/>
-      <rect x="-8" y="260" width="16" height="60" fill="#6B1F0E" rx="4"/>
-    </g>
-    <text x="600" y="640" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-weight="700" font-size="84" fill="#2B1810">maple.</text>
-    <text x="600" y="700" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="20" letter-spacing="4" fill="#A8341A">WE ALL NEED COMMUNITY</text>
-  </svg>
-</template>
 <div id="root"></div>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -148,7 +129,11 @@
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 
 <script type="text/babel">
-const { useEffect, useState, useRef } = React;
+const { useEffect, useState } = React;
+
+/* ---------- Links used in more than one place ---------- */
+const DHCS_CHW = "https://www.dhcs.ca.gov/providers-partners/frequently-asked-questions-for-medi-cal-community-health-worker-services-provider-requirements/";
+const HHS_HUBS = "https://aspe.hhs.gov/sites/default/files/documents/81ff88859954186802b85137a61f412d/health-social-care-coordination.pdf";
 
 /* ---------- Reveal-on-scroll ---------- */
 function useReveal() {
@@ -189,9 +174,29 @@ const MapleLeaf = ({ size = 32, color = "var(--maple)", className = "" }) => (
 const Logo = ({ size = 34, dark = false }) => (
   <div className="inline-flex items-center gap-2.5">
     <span className="sway inline-block"><MapleLeaf size={size} color={dark ? "var(--cream)" : "var(--maple)"}/></span>
-    <span className="font-bold lowercase" style={{ fontFamily: "var(--logo-font, 'Inter', system-ui, sans-serif)", fontWeight: "var(--logo-weight, 700)", fontSize: size*0.7, color: dark ? "#fff" : "var(--ink)", lineHeight: 1, letterSpacing: "var(--logo-tracking, -0.01em)" }}>maple<sup style={{ fontSize: "0.5em", verticalAlign: "super", letterSpacing: 0 }}>™</sup></span>
+    <span className="font-bold lowercase" style={{ fontFamily: "'Inter', system-ui, sans-serif", fontWeight: 700, fontSize: size*0.7, color: dark ? "#fff" : "var(--ink)", lineHeight: 1, letterSpacing: "-0.01em" }}>maple<sup style={{ fontSize: "0.5em", verticalAlign: "super", letterSpacing: 0 }}>™</sup></span>
   </div>
 );
+
+/* ---------- Shared bits ---------- */
+const Label = ({ children, color = "var(--maple)" }) => (
+  <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color }}>{children}</span>
+);
+
+const Ext = ({ href, children, className = "", style }) => (
+  <a href={href} target="_blank" rel="noopener" className={className} style={style}>{children}</a>
+);
+
+const ArrowOut = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+);
+
+const Icons = {
+  chat:   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
+  compass:<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>,
+  list:   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>,
+  people: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+};
 
 /* ---------- Falling leaves (hero only) ---------- */
 const FallingLeaves = () => {
@@ -226,18 +231,26 @@ function Nav() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+  const links = [
+    ["#services", "Whole person care"],
+    ["#chw", "Community health work"],
+    ["#delivered", "How it is delivered"],
+    ["#standards", "Standards"],
+    ["#evidence", "Evidence"],
+    ["#about", "About"],
+  ];
   return (
     <nav className={`fixed w-full z-50 transition-all ${scrolled ? "bg-white/90 backdrop-blur-md border-b border-stone-200/70 py-3" : "bg-transparent py-5"}`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <a href="#top"><Logo size={34}/></a>
-        <div className="hidden md:flex items-center gap-7 text-sm font-medium" style={{ color: "var(--ink)" }}>
-          <a href="#case" className="hover:opacity-70">The problem</a>
-          <a href="#chw" className="hover:opacity-70">Community health work</a>
-          <a href="#work" className="hover:opacity-70">What we do</a>
-          <a href="#study" className="hover:opacity-70">Research</a>
-          <a href="#who" className="hover:opacity-70">Who we are</a>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center gap-6">
+        <a href="#top" className="flex items-center gap-3">
+          <Logo size={34}/>
+          <span className="hidden xl:inline-block h-6 w-px" style={{ background: "#D6CFC4" }} aria-hidden="true"></span>
+          <span className="hidden xl:inline font-serif font-bold lowercase" style={{ fontSize: 21, color: "var(--ink)", letterSpacing: "-0.02em", lineHeight: 1 }}>we all need <span style={{ color: "var(--maple)" }}>community.</span></span>
+        </a>
+        <div className="hidden lg:flex items-center gap-6 text-sm font-medium whitespace-nowrap" style={{ color: "var(--ink)" }}>
+          {links.map(([href, label]) => <a key={href} href={href} className="hover:opacity-70">{label}</a>)}
         </div>
-        <a href="#contact" className="text-white text-sm font-semibold px-4 py-2 rounded-full" style={{ background: "var(--maple-deep)" }}>Get in touch</a>
+        <a href="#contact" className="text-white text-sm font-semibold px-4 py-2 rounded-full whitespace-nowrap" style={{ background: "var(--maple-deep)" }}>Contact</a>
       </div>
     </nav>
   );
@@ -245,6 +258,7 @@ function Nav() {
 
 /* ---------- Hero ---------- */
 function Hero() {
+  const words = ["physicians", "community health workers", "neighbors", "congregations", "service clubs", "neighborhood nonprofits", "seniors aging in place", "families", "community partners"];
   return (
     <section id="top" className="pt-32 pb-20 px-6 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 65% 45% at 50% 0%, rgba(244,201,159,0.5), transparent 70%)" }}></div>
@@ -256,32 +270,30 @@ function Hero() {
           Maple Community Care Hub
         </div>
 
-        <h1 className="font-serif font-bold lowercase tracking-tight leading-[0.95] mb-8" style={{ color: "var(--ink)", fontSize: "clamp(64px, 12vw, 176px)" }}>
-          we all need <br/><span className="italic" style={{ color: "var(--maple)" }}>community</span>
+        <h1 className="font-serif font-bold lowercase tracking-tight leading-[0.95] mb-8" style={{ color: "var(--ink)", fontSize: "clamp(52px, 9vw, 128px)" }}>
+          whole care, for the <br/><span className="italic" style={{ color: "var(--maple)" }}>whole community.</span>
         </h1>
 
         <p className="text-lg md:text-2xl text-stone-700 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-          We do community health work, and fund the people and organizations building healthy communities.
+          Maple combines a physician and community health workers to coordinate medical and social care.
         </p>
 
         <div className="flex gap-3 justify-center flex-wrap">
-          <a href="#work" className="text-white px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2" style={{ background: "var(--maple-deep)" }}>
-            Our work
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          <a href="#services" className="text-white px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2" style={{ background: "var(--maple-deep)" }}>
+            What we do
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
           </a>
-          <a href="#contact" className="px-7 py-3.5 rounded-full font-semibold text-sm border border-stone-300 bg-white/70 backdrop-blur" style={{ color: "var(--ink)" }}>Connect with us</a>
+          <a href="#standards" className="px-7 py-3.5 rounded-full font-semibold text-sm border border-stone-300 bg-white/70 backdrop-blur" style={{ color: "var(--ink)" }}>Standards &amp; safeguards</a>
         </div>
       </div>
 
-      {/* Tagline row — samara separators, matches poster footer */}
+      {/* Tagline row — samara separators */}
       <div className="mt-20 max-w-5xl mx-auto" aria-hidden="true">
-        {/* Mobile: 2×2 grid, no separators */}
         <div className="grid grid-cols-2 gap-3 sm:hidden place-items-center">
           {["Connecting people", "Building trust", "Promoting well-being", "Strengthening communities"].map((label, i) => (
             <span key={i} className="tagline-item" style={{ padding: 0 }}>{label}</span>
           ))}
         </div>
-        {/* Desktop: inline row with leaf separators */}
         <div className="hidden sm:flex items-center justify-center flex-wrap gap-y-3">
           {["Connecting people", "Building trust", "Promoting well-being", "Strengthening communities"].map((label, i) => (
             <React.Fragment key={i}>
@@ -297,7 +309,7 @@ function Hero() {
         <div className="flex marquee-track gap-10 whitespace-nowrap font-serif italic lowercase text-stone-400" style={{ fontSize: "clamp(26px, 4vw, 52px)" }}>
           {Array.from({length: 2}).map((_, k) => (
             <div key={k} className="flex gap-10 shrink-0">
-              {["families", "neighbors", "clinics", "community health workers", "community-based organizations", "faith communities", "service clubs", "county agencies", "justice partners", "schools", "case managers"].map((w, i) => (
+              {words.map((w, i) => (
                 <span key={i} className="inline-flex items-center gap-10">
                   {w}
                   <span className="text-[var(--maple)]" style={{ fontStyle: "normal" }}>·</span>
@@ -311,187 +323,118 @@ function Hero() {
   );
 }
 
-/* ---------- The problem: disconnection ---------- */
-function TheCase() {
-  const stats = [
-    { big: "74%", pct: 74, sub: "of Americans don't feel a strong sense of community.", src: "American Home Shield · Digital Third Coast" },
-    { big: "13%", pct: 13, sub: "of Americans know their neighbors' names.", src: "American Home Shield · Digital Third Coast" },
-    { big: "54%", pct: 54, sub: "of adults report feeling persistently isolated.", src: "American Psychological Association" },
-  ];
-  const illness = [
-    { big: "15", viz: "cigs", sub: "Social disconnection is as deadly as smoking up to 15 cigarettes a day.", src: "U.S. Surgeon General's Advisory, 2023" },
-    { big: "+50%", viz: "up", sub: "Higher risk of dementia — alongside higher risk of heart disease and stroke.", src: "U.S. Surgeon General's Advisory, 2023" },
-    { big: "42%", pct: 42, sub: "of U.S. high schoolers feel persistently sad or hopeless — up about 50% in a decade.", src: "CDC, Youth Risk Behavior Survey" },
-  ];
-  const health = [
-    { big: "≈70%", pct: 70, sub: "higher risk of hospitalization for socially isolated patients.", src: "Manemann et al., 2018" },
-    { big: "6×", viz: "mult", n: 6, sub: "more likely to be reincarcerated with no visitors, versus those with three or more.", src: "California parolee study · Prison Policy Initiative" },
-    { big: "$6.7B", viz: "cost", sub: "in extra Medicare spending every year, linked to social isolation among older adults.", src: "AARP Public Policy Institute" },
-  ];
-  const [showData, setShowData] = useState(false);
+/* ---------- Poster headword: three stacked words, middle one in maple ---------- */
+const Headword = ({ words }) => (
+  <div className="mt-5" style={{ lineHeight: 0.93, letterSpacing: "-0.03em" }}>
+    {words.map((w, i) => (
+      <div key={i} className="font-serif" style={{ fontWeight: 800, fontSize: "clamp(52px, 8vw, 96px)", color: i === 1 ? "var(--maple)" : "var(--ink)" }}>{w}</div>
+    ))}
+  </div>
+);
 
-  const Stat = (s, i) => (
-    <div key={i} className="rounded-3xl p-7 grain flex flex-col justify-between min-h-[250px]" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}>
-      <div>
-        <div className="font-serif font-bold leading-none" style={{ fontSize: "clamp(42px, 5vw, 66px)", color: "var(--amber-soft)" }}>{s.big}</div>
-        {typeof s.pct === "number" && (
-          <div className="mt-5 h-2.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.12)" }} aria-hidden="true">
-            <div className="h-full rounded-full" style={{ width: s.pct + "%", background: "var(--amber-soft)" }}></div>
-          </div>
-        )}
-        {s.viz === "cigs" && (
-          <div className="flex gap-[4px] mt-5" aria-hidden="true">
-            {Array.from({length: 15}).map((_, k) => (<span key={k} style={{ width: "5px", height: "26px", borderRadius: "1px", background: k < 14 ? "#F4C99F" : "var(--maple)", opacity: 0.85 }}></span>))}
-          </div>
-        )}
-        {s.viz === "mult" && (
-          <div className="flex gap-1.5 mt-5" aria-hidden="true">
-            {Array.from({length: s.n}).map((_, k) => (<span key={k} style={{ width: "12px", height: "26px", borderRadius: "3px", background: "var(--amber-soft)", opacity: 0.32 + k * 0.12 }}></span>))}
-          </div>
-        )}
-        {s.viz === "up" && (
-          <div className="mt-5" aria-hidden="true"><svg width="50" height="28" viewBox="0 0 50 28" fill="none" stroke="var(--amber-soft)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 26 L18 14 L30 19 L48 3"/><path d="M37 3 L48 3 L48 14"/></svg></div>
-        )}
-      </div>
-      <div className="mt-5">
-        <p className="text-[14px] leading-snug text-stone-200">{s.sub}</p>
-        <div className="text-[10px] uppercase tracking-[0.16em] font-bold text-stone-500 mt-3">{s.src}</div>
-      </div>
-    </div>
-  );
+const Rule = () => <div style={{ width: 40, height: 3, background: "var(--maple)", borderRadius: 2, marginTop: 20, marginBottom: 20 }}></div>;
 
-  const chapters = [
-    { lead: "First — ", hi: "we pulled apart.", data: stats },
-    { lead: "Then — ", hi: "it started making us sick.", data: illness },
-    { lead: "And it landed in our most expensive, least humane places — ", hi: "hospitals and jails.", data: health },
+/* ---------- Numbered, sourced definition rows ---------- */
+const Definitions = ({ items }) => (
+  <ol>
+    {items.map((d, i) => (
+      <li key={i} className="grid grid-cols-[2.25rem_1fr] gap-3 py-6" style={{ borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
+        <span className="font-serif font-semibold leading-none" style={{ fontSize: 22, color: "var(--maple)", paddingTop: 2 }}>{i + 1}</span>
+        <div>
+          <p className="leading-relaxed" style={{ fontSize: 17, color: "var(--ink)" }}>{d.text}</p>
+          <div className="source mt-2.5 flex flex-col gap-1 text-[12px]">
+            {d.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
+          </div>
+        </div>
+      </li>
+    ))}
+  </ol>
+);
+
+/* ---------- Whole person care ---------- */
+function WholePersonCare() {
+  const items = [
+    { text: "Care that centers on what matters to you, not what is the matter with you.",
+      sources: [{ label: "U.S. Department of Veterans Affairs · Whole Health", href: "https://www.va.gov/WHOLEHEALTH/veteran-resources/whole-health-basics.asp" }] },
+    { text: "A person seen as a whole rather than a collection of parts: biological, behavioral, social, and environmental health, understood together.",
+      sources: [{ label: "National Institutes of Health · NCCIH Strategic Plan", href: "https://www.nccih.nih.gov/about/nccih-strategic-plan-2021-2025" }] },
+    { text: "Attending to the conditions people live in: food, housing, transportation, and the relationships and resources that shape health outside the clinic.",
+      sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }] },
   ];
-
   return (
-    <section id="case" className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--ink)", color: "#fff" }}>
-      <div className="absolute -top-24 -right-24 opacity-[0.05] pointer-events-none">
-        <MapleLeaf size={420} color="#F4C99F"/>
-      </div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="reveal max-w-3xl mb-14">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--amber-soft)" }}>The problem</span>
-          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ fontSize: "clamp(40px, 6vw, 76px)" }}>
-            we are more <span className="italic" style={{ color: "var(--amber-soft)" }}>disconnected than ever.</span>
-          </h2>
-          <p className="mt-7 text-lg leading-relaxed font-medium text-stone-300">
-            This disconnection shows up across every layer of community: the people next door, the dinner table, the classroom, the clubs and congregations we used to join. It's making us sicker and overloading our most expensive and least humane settings — hospitals and jails.
-          </p>
+    <section id="services" className="py-24 px-6 relative" style={{ background: "var(--warm-white)" }}>
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
+        <div>
+          <Label>Definition</Label>
+          <Headword words={["whole", "person", "care"]}/>
+          <Rule/>
+          <p className="font-bold leading-snug" style={{ fontSize: 16, color: "var(--ink)" }}>Three definitions we work from.</p>
         </div>
-
-        <div className="reveal flex justify-center">
-          <button type="button" onClick={() => setShowData(v => !v)} className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border transition" style={{ borderColor: "rgba(244,201,159,0.45)", color: "var(--amber-soft)", background: showData ? "rgba(244,201,159,0.08)" : "transparent" }}>
-            {showData ? "Hide the data" : "See the data"}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ transform: showData ? "rotate(180deg)" : "none", transition: "transform .3s" }}><path d="M6 9l6 6 6-6"/></svg>
-          </button>
+        <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
+          <Definitions items={items}/>
         </div>
-
-        {showData && (
-        <div className="mt-16 space-y-16">
-          {chapters.map((ch, ci) => (
-            <div key={ci}>
-              <p className="font-serif leading-snug max-w-3xl mb-8" style={{ fontSize: "clamp(26px, 3.6vw, 44px)" }}>
-                {ch.lead}<span className="italic" style={{ color: "var(--amber-soft)" }}>{ch.hi}</span>
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {ch.data.map((s, i) => Stat(s, i))}
-              </div>
-            </div>
-          ))}
-        </div>
-        )}
       </div>
     </section>
   );
 }
 
-/* ---------- Community Health Work section — poster layout ---------- */
+/* ---------- Community health work ---------- */
 function CHWSection() {
-  const actions = [
-    {
-      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg>,
-      title: "Navigate",
-      body: "appointments, insurance, and social services",
-      color: "var(--ink)",
-    },
-    {
-      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>,
-      title: "Provide",
-      body: "health education in plain language",
-      color: "#A8341A",
-    },
-    {
-      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>,
-      title: "Conduct",
-      body: "community outreach and needs screenings",
-      color: "var(--ink)",
-    },
-    {
-      icon: <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
-      title: "Coordinate",
-      body: "care grounded in sustained, trusting relationships",
-      color: "#A8341A",
-    },
+  const definition = {
+    text: "A trusted member of the community that acts as a bridge connecting neighbors to medical and social care, under the supervision of a licensed provider.",
+    sources: [
+      { label: "American Public Health Association", href: "https://www.apha.org/apha-communities/member-sections/community-health-workers" },
+      { label: "California Department of Health Care Services · Medi-Cal CHW benefit", href: DHCS_CHW },
+    ],
+  };
+  const services = [
+    { icon: Icons.chat,    title: "Health education",               body: "Plain-language guidance on conditions, medications, and preventive care.", color: "var(--ink)" },
+    { icon: Icons.compass, title: "Health navigation",              body: "Help finding and using medical, behavioral, and social services, including appointments and referrals.", color: "var(--maple)" },
+    { icon: Icons.list,    title: "Screening and assessment",       body: "Identifying health and social needs and connecting people to the right resources.", color: "var(--ink)" },
+    { icon: Icons.people,  title: "Individual support and advocacy", body: "Accompaniment, follow-up, and check-ins between visits.", color: "var(--maple)" },
   ];
-
   return (
     <section id="chw" className="relative" style={{ background: "var(--paper-2)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 50% at 90% 5%, rgba(244,201,159,0.55), transparent 60%)" }}></div>
 
-      {/* ── Part 1: poster editorial spread ───────────────────────── */}
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start reveal">
-
-          {/* LEFT: stacked type + description — sits directly on the page */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>What closes the gap</span>
-
-            {/* Big stacked poster type — no card, just page */}
-            <div className="mt-5" style={{ lineHeight: 0.93, letterSpacing: "-0.03em" }}>
-              <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontVariationSettings: '"opsz" 144', fontWeight: 800, fontSize: "clamp(52px, 8vw, 96px)", color: "var(--ink)" }}>Community</div>
-              <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontVariationSettings: '"opsz" 144', fontWeight: 800, fontSize: "clamp(52px, 8vw, 96px)", color: "var(--maple)" }}>Health</div>
-              <div style={{ fontFamily: "'Fraunces', Georgia, serif", fontVariationSettings: '"opsz" 144', fontWeight: 800, fontSize: "clamp(52px, 8vw, 96px)", color: "var(--ink)" }}>Work</div>
+            <Label>Definition</Label>
+            <Headword words={["community", "health", "work"]}/>
+            <Rule/>
+            <p className="font-bold leading-snug" style={{ fontSize: 17, color: "var(--ink)" }}>{definition.text}</p>
+            <div className="source mt-3 flex flex-col gap-1 text-[12px]">
+              {definition.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
             </div>
-
-            {/* Maple accent rule */}
-            <div style={{ width: 40, height: 3, background: "var(--maple)", borderRadius: 2, marginTop: 20, marginBottom: 20 }}></div>
-
-            <p className="font-bold leading-snug" style={{ fontSize: "16px", color: "var(--ink)" }}>
-              A bridge between formal medical and social settings and the community.
-            </p>
-            <p className="mt-4 leading-relaxed" style={{ fontSize: "15px", color: "#57534e" }}>
-              Community health workers are trusted members of the community who often share the same language, culture, or lived experience as the people they serve, opening doors that clinical staff often can't.
-            </p>
-            <p className="mt-4 leading-relaxed" style={{ fontSize: "13.5px", color: "#78716c" }}>
-              Health plans and states are increasingly building pathways to recognize and reimburse this work, linked to <strong style={{ color: "var(--ink)" }}>better outcomes, lower avoidable hospital use, and strong return on investment.</strong>
-            </p>
           </div>
 
-          {/* RIGHT: 4 actions — sit directly on the page, no container */}
           <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
-            {actions.map((a, i) => (
-              <React.Fragment key={i}>
-                {i > 0 && <div style={{ height: "1px", background: "rgba(43,24,16,0.1)" }}></div>}
-                <div className="flex items-start gap-5 py-6">
-                  <div className="shrink-0 flex items-center justify-center rounded-full" style={{ width: 52, height: 52, background: a.color }}>
-                    <span style={{ color: "#fff", display: "flex" }}>{a.icon}</span>
+            <Label color="#8A7F74">Covered services</Label>
+            <div className="mt-2">
+              {services.map((a, i) => (
+                <React.Fragment key={i}>
+                  {i > 0 && <div style={{ height: 1, background: "rgba(43,24,16,0.1)" }}></div>}
+                  <div className="flex items-start gap-5 py-6">
+                    <div className="shrink-0 flex items-center justify-center rounded-full" style={{ width: 52, height: 52, background: a.color }}>
+                      <span style={{ color: "#fff", display: "flex" }}>{a.icon}</span>
+                    </div>
+                    <div className="pt-1">
+                      <div style={{ fontWeight: 700, fontSize: 16, color: a.color, lineHeight: 1.2 }}>{a.title}</div>
+                      <div style={{ fontSize: 14, color: "#78716c", marginTop: 4, lineHeight: 1.5 }}>{a.body}</div>
+                    </div>
                   </div>
-                  <div className="pt-1">
-                    <div style={{ fontWeight: 700, fontSize: "16px", color: a.color, lineHeight: 1.2 }}>{a.title}</div>
-                    <div style={{ fontSize: "14px", color: "#78716c", marginTop: 4, lineHeight: 1.5 }}>{a.body}</div>
-                  </div>
-                </div>
-              </React.Fragment>
-            ))}
+                </React.Fragment>
+              ))}
+            </div>
+            <p className="source text-[12px] leading-relaxed mt-1" style={{ color: "#78716c" }}>
+              Service categories of the Medi-Cal community health worker benefit · <Ext href={DHCS_CHW}>California Department of Health Care Services</Ext>
+            </p>
           </div>
         </div>
-
       </div>
 
-      {/* ── Part 4: poster lockup strip ───────────────────────────── */}
+      {/* Poster lockup strip */}
       <div style={{ background: "var(--paper)", borderTop: "1px solid rgba(43,24,16,0.1)" }}>
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-5">
@@ -505,7 +448,7 @@ function CHWSection() {
             <div className="flex items-center gap-3 flex-wrap justify-center sm:justify-end" aria-hidden="true">
               {["Connecting people", "Building trust", "Promoting well-being", "Strengthening communities"].map((label, i) => (
                 <React.Fragment key={i}>
-                  <span style={{ fontSize: "10px", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#a8a29e" }}>{label}</span>
+                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#a8a29e" }}>{label}</span>
                   {i < 3 && <span style={{ opacity: 0.3, display: "flex" }}><MapleLeaf size={11} color="var(--maple)"/></span>}
                 </React.Fragment>
               ))}
@@ -517,385 +460,168 @@ function CHWSection() {
   );
 }
 
-/* ---------- What we do: CHW programs + funding ---------- */
-function TheWork() {
-
-  const fundPartners = [
-    { t: "Community health workers", c: "var(--maple)", d: "CHWs working directly with families and individuals in the community." },
-    { t: "Providers", c: "var(--amber)", d: "Safety-net clinics and federally qualified health centers caring for the uninsured." },
-    { t: "Faith communities", c: "var(--moss)", d: "Congregations that feed neighbors and show up for them." },
-    { t: "Neighborhood groups", c: "var(--maple-deep)", d: "Block leaders, associations, and neighbors organizing meals and support." },
-    { t: "Justice partners", c: "var(--ink)", d: "Organizations walking with people leaving jail, prison, or treatment." },
-    { t: "Service clubs", c: "var(--amber)", d: "Rotary, Lions, and the volunteers who quietly keep things running." },
-    { t: "County agencies", c: "var(--moss)", d: "Behavioral health, probation, and social-services partners." },
-    { t: "Schools", c: "var(--pink)", d: "Where kids and families are already gathered." },
-  ];
-
+/* ---------- How it is delivered ---------- */
+function Delivered() {
+  const Pill = ({ children }) => (
+    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4" style={{ background: "rgba(168,52,26,0.09)", color: "var(--maple-deep)" }}>
+      <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--maple)" }}></span>
+      {children}
+    </div>
+  );
+  const Chip = ({ children }) => (
+    <span className="px-3 py-1.5 rounded-lg text-[12px] font-semibold border text-stone-600" style={{ borderColor: "rgba(168,52,26,0.18)", background: "rgba(168,52,26,0.05)" }}>{children}</span>
+  );
   return (
-    <section id="work" className="py-20 px-6 relative" style={{ background: "var(--warm-white)" }}>
+    <section id="delivered" className="py-20 px-6 relative" style={{ background: "var(--warm-white)" }}>
       <div className="max-w-7xl mx-auto">
-
-        {/* Header */}
         <div className="reveal mb-14 max-w-3xl">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>What We Do</span>
+          <Label>How it is delivered</Label>
           <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(34px, 5vw, 62px)" }}>
-            two ways we <span className="italic" style={{ color: "var(--maple)" }}>close the gap.</span>
+            by community health workers <span className="italic" style={{ color: "var(--maple)" }}>and community partners.</span>
           </h2>
+          <p className="mt-6 text-lg text-stone-600 leading-relaxed font-medium">Care from within the neighborhood, by people you already know.</p>
         </div>
 
-        {/* Two tracks side by side */}
-        <div className="grid lg:grid-cols-2 gap-6 mb-10">
-
-          {/* Track 1: We do community health work */}
+        <div className="grid lg:grid-cols-2 gap-6">
           <div className="reveal rounded-3xl border border-stone-200 p-8 flex flex-col gap-6" style={{ background: "var(--warm-white)" }}>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4" style={{ background: "rgba(168,52,26,0.09)", color: "var(--maple-deep)" }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--maple)" }}></span>
-                We do
-              </div>
+              <Pill>Community partners</Pill>
               <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
-                Care and community health work — direct services.
+                Trusted local organizations<sup><a href="#partner-note" className="no-underline ml-0.5 text-stone-400" style={{ fontSize: "0.55em" }}>1</a></sup> that already care for the people we serve.
               </h3>
-              <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">
-                Medical services from licensed clinicians, care management and community health work from a trained team, and simple, consistent community programs that give neighbors a reason to show up, and keep showing up.
-              </p>
+              <p className="mt-4 text-stone-600 text-[15px] leading-relaxed">They remain responsible for their relationships with the community and the care they deliver.</p>
             </div>
-
-            <div className="flex flex-wrap gap-2">
-              {["Medical services", "Care management", "Case management", "Community health work", "Health & social services navigation", "Health education", "Support groups", "Community events", "Flamingo Fridays"].map((t, i) => (
-                <span key={i} className="px-3 py-1.5 rounded-lg text-[12px] font-semibold border text-stone-600" style={{ borderColor: "rgba(168,52,26,0.18)", background: "rgba(168,52,26,0.05)" }}>{t}</span>
-              ))}
-            </div>
-
-            <div className="pt-5 border-t border-stone-100">
-              <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-stone-400 mb-3">Featured by</div>
-              <div className="flex items-center gap-4">
-                <img src="https://logo.clearbit.com/aspeninstitute.org" alt="The Aspen Institute" className="w-8 h-8 rounded-lg object-contain" style={{ background: "var(--paper)" }} onError={(e) => { e.target.style.display='none'; }}/>
-                <div>
-                  <div className="font-semibold text-[15px] leading-tight" style={{ color: "var(--ink)" }}>Weave — The Social Fabric Project</div>
-                  <div className="text-[12px] text-stone-400 mt-0.5">An initiative of The Aspen Institute</div>
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {["Congregations", "Service clubs", "Neighborhood nonprofits"].map((t, i) => <Chip key={i}>{t}</Chip>)}
             </div>
           </div>
 
-          {/* Track 2: We fund others */}
           <div className="reveal rounded-3xl border p-8 flex flex-col gap-6" style={{ background: "var(--cream)", borderColor: "rgba(168,52,26,0.15)" }}>
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-4" style={{ background: "rgba(168,52,26,0.09)", color: "var(--maple-deep)" }}>
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--maple)" }}></span>
-                We fund
-              </div>
+              <Pill>Maple</Pill>
               <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(22px, 2.5vw, 30px)" }}>
-                Others building <span className="italic" style={{ color: "var(--maple)" }}>healthy communities.</span>
+                Administrative support as a <span className="italic" style={{ color: "var(--maple)" }}>Community Care Hub.</span>
               </h3>
-              <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#57534e" }}>
-                We back the organizations already holding their neighborhoods together, with funding plus the billing, claims, and operations support that helps them get paid for their work. Our goal: 70% of every dollar flows to community programs and the people doing the work.
-              </p>
+              <p className="mt-4 text-[15px] leading-relaxed" style={{ color: "#57534e" }}>Network development, payment operations, data and reporting, and quality and audit support.</p>
             </div>
-
-            <div className="grid grid-cols-2 gap-2">
-              {fundPartners.map((p, i) => (
-                <div key={i} className="rounded-xl px-3.5 py-3 flex items-center gap-2.5 bg-white/70" style={{ border: "1px solid rgba(43,24,16,0.09)" }}>
-                  <span className="w-2 h-2 rounded-full shrink-0" style={{ background: p.c }}></span>
-                  <span className="text-[13px] font-medium" style={{ color: "var(--ink)" }}>{p.t}</span>
-                </div>
-              ))}
+            <div className="flex flex-wrap gap-2 mt-auto">
+              {["Network development", "Payment operations", "Data and reporting", "Quality and audit support"].map((t, i) => <Chip key={i}>{t}</Chip>)}
             </div>
-
-            <a href="https://carehub.org" target="_blank" rel="noopener" className="inline-flex items-center gap-2 font-semibold text-[13px] self-start px-5 py-2.5 rounded-full mt-auto" style={{ color: "var(--maple-deep)", background: "white", border: "1.5px solid rgba(168,52,26,0.25)" }}>
-              Learn more at carehub.org
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
-            </a>
           </div>
         </div>
 
+        <p id="partner-note" className="reveal mt-8 text-[12px] leading-relaxed text-stone-400 max-w-3xl">
+          <sup>1</sup> Including congregations, service clubs, and neighborhood nonprofits. Community health worker services are delivered under the supervision of a licensed provider.
+        </p>
       </div>
     </section>
   );
 }
 
-/* ---------- Our Purpose ---------- */
-function OurPurpose() {
-  return (
-    <section className="py-20 px-6 relative" style={{ background: "var(--paper)" }}>
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 50% at 10% 50%, rgba(244,201,159,0.3), transparent 60%)" }}></div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="grid md:grid-cols-2 gap-14 items-start reveal">
-          <div>
-            <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Our Purpose</span>
-            <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(34px, 5vw, 62px)" }}>
-              if community were a pill, <span className="italic" style={{ color: "var(--maple)" }}>every doctor would prescribe it.</span>
-            </h2>
-            <p className="mt-8 leading-relaxed font-medium" style={{ fontSize: "16px", color: "#44403c" }}>
-              <strong style={{ color: "var(--ink)" }}>Maple is a nonprofit Community Care Hub led by two doctors on a mission to make that a reality.</strong> Our goal: 70% of every dollar flows to community programs and organizations serving underserved populations.
-            </p>
-            <div className="flex flex-wrap gap-2 mt-6">
-              <a href="https://youtu.be/2tBJ9Oknezg" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border font-semibold text-[12px] lift" style={{ color: "var(--maple-deep)", borderColor: "rgba(168,52,26,0.3)", background: "rgba(168,52,26,0.04)", boxShadow: "0 1px 4px rgba(43,24,16,0.08)" }}>DHCS <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-              <a href="https://www.chcf.org/wp-content/uploads/2024/10/ExploringEmergingMediCalCommunityCareHubs2024.pdf" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border font-semibold text-[12px] lift" style={{ color: "var(--maple-deep)", borderColor: "rgba(168,52,26,0.3)", background: "rgba(168,52,26,0.04)", boxShadow: "0 1px 4px rgba(43,24,16,0.08)" }}>CHCF <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-              <a href="https://aspe.hhs.gov/reports/community-care-hubs" target="_blank" rel="noopener" className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border font-semibold text-[12px] lift" style={{ color: "var(--maple-deep)", borderColor: "rgba(168,52,26,0.3)", background: "rgba(168,52,26,0.04)", boxShadow: "0 1px 4px rgba(43,24,16,0.08)" }}>HHS <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></a>
-            </div>
-          </div>
-          <div>
-            <div className="text-[10px] font-bold uppercase tracking-[0.22em] mb-4" style={{ color: "var(--maple-deep)" }}>U.S. Surgeon General · 2023</div>
-            <p className="leading-relaxed font-serif italic" style={{ fontSize: "clamp(18px, 2.4vw, 26px)", color: "var(--ink)" }}>
-              "Loneliness and isolation are a national epidemic — as deadly as smoking up to 15 cigarettes a day."
-            </p>
-            <p className="mt-4 leading-relaxed" style={{ fontSize: "14px", color: "#78716c" }}>
-              Linked to higher rates of heart disease, stroke, and dementia. <a href="https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf" target="_blank" rel="noopener" className="underline-grow font-semibold" style={{ color: "var(--maple-deep)" }}>Read the advisory →</a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Community: where and who + voices ---------- */
-function CommunitySection() {
-  const testimonials = [
-    { quote: "Emilio and Megan started this community group and yielded people who have been neighbors for 30 years meeting each other. I can't wait to see what they'll do with their Healthcare foundation.", name: "Kate Washley", role: "Mother of two", color: "var(--pink)" },
-    { quote: "You can be yourself and come and go as you please. There's a genuine appreciation for everyone.", name: "Revant Kapoor", role: "Father of two", color: "var(--amber)" },
-    { quote: "Raising our three kids here and being part of this supportive community is wonderful.", name: "Charlie Mock", role: "Father of three", color: "var(--moss)" },
+/* ---------- Standards and safeguards ---------- */
+function Standards() {
+  const cards = [
+    { t: "Supervising provider", b: "Maple physicians oversee each community health worker and every service delivered." },
+    { t: "Qualifications",       b: "State Certificate or Work Experience Pathway, lived experience in the community served, and annual continuing training." },
+    { t: "Written plan of care", b: "Approved by a licensed provider, renewed at least annually; every visit documented against it." },
+    { t: "Agreements",           b: "Fees set in advance at fair market value and not tied to referrals or outcomes. No health plan marketing or enrollment activity." },
   ];
   return (
-    <section className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper-2)" }}>
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 50% at 90% 10%, rgba(244,201,159,0.4), transparent 60%)" }}></div>
-      <div className="max-w-7xl mx-auto relative">
-        <div className="reveal mb-14 max-w-2xl">
-          <h2 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(34px, 5vw, 62px)" }}>
-            community is <span className="italic" style={{ color: "var(--maple)" }}>where and who.</span>
-          </h2>
-          <p className="mt-6 leading-relaxed font-medium" style={{ fontSize: "17px", color: "#44403c" }}>
-            It's where, and who, you spend your time with. The overlapping mesh of people and places that catch you when you fall: a family who picks up the phone, a neighbor next door, a community health worker. Anyone who notices when you don't show up.
-          </p>
-          <p className="mt-4 leading-relaxed font-medium pl-4" style={{ fontSize: "16px", color: "#57534e", borderLeft: "2px solid var(--maple)" }}>
-            Gaps in community lead to our most <strong style={{ color: "var(--ink)" }}>expensive and least humane</strong> places: hospitals and jails.
-          </p>
-        </div>
-        <div className="reveal">
-          <div className="text-[10px] font-bold uppercase tracking-[0.24em] mb-6 text-stone-400">From the community</div>
-          <div className="grid sm:grid-cols-3 gap-5">
-            {testimonials.map((t, i) => (
-              <div key={i} className="rounded-3xl border border-stone-200 bg-white p-7 flex flex-col gap-5">
-                <div className="font-serif text-4xl leading-none mb-1" style={{ color: t.color }} aria-hidden="true">"</div>
-                <p className="text-stone-700 text-[15px] leading-relaxed flex-1">{t.quote}"</p>
-                <div className="flex items-center gap-3 pt-2 border-t border-stone-100">
-                  <div className="w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-bold" style={{ background: "var(--paper)", color: t.color }}>
-                    {t.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                  <div>
-                    <div className="text-[13px] font-semibold" style={{ color: "var(--ink)" }}>{t.name}</div>
-                    <div className="text-[11px] text-stone-400">{t.role}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Research & Education ---------- */
-function TheStudy() {
-  const resRef = useRef(null);
-  const slideRes = (dir) => resRef.current?.scrollBy({ left: dir * 360, behavior: "smooth" });
-
-  return (
-    <section id="study" className="py-24 px-6 relative overflow-hidden" style={{ background: "var(--cream)", color: "var(--ink)" }}>
-      <div className="absolute -top-32 -left-32 opacity-[0.06] pointer-events-none">
-        <MapleLeaf size={520} color="#A8341A"/>
-      </div>
-
-      <div className="max-w-7xl mx-auto relative">
-        <div className="reveal max-w-3xl mb-10">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Research &amp; education</span>
-          <h2 className="font-serif font-bold lowercase mt-5 leading-[1.0] tracking-tight" style={{ fontSize: "clamp(34px, 5vw, 62px)" }}>
-            we believe in the power of <span className="italic" style={{ color: "var(--maple)" }}>research.</span>
-          </h2>
-        </div>
-
-        {/* Research question */}
-        <div className="reveal mb-14">
-          <p className="text-lg font-medium text-stone-600 mb-6 leading-relaxed">We work to answer our own questions, improve our programs, and share what we learn:</p>
-          <div className="grid md:grid-cols-2 gap-4">
-            {[
-              "Can stronger community reduce hospitalizations and incarcerations?",
-            ].map((q, i) => (
-              <div key={i} className="rounded-2xl p-6 grain flex gap-4 items-start" style={{ background: "#fff", border: "1px solid rgba(168,52,26,0.15)" }}>
-                <span className="font-serif font-bold leading-none" style={{ color: "var(--maple)", fontSize: "26px" }}>?</span>
-                <p className="text-[15.5px] leading-relaxed text-stone-700">{q}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Research carousel */}
-        <div className="reveal mb-14">
-          <div className="flex items-end justify-between gap-4 mb-6 flex-wrap">
-            <div className="max-w-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Building on research</span>
-              <p className="text-stone-600 text-[15px] leading-relaxed mt-3">A few of the studies that shape how we think about community and health.</p>
-            </div>
-            <div className="flex gap-2">
-              <button type="button" onClick={() => slideRes(-1)} className="w-11 h-11 rounded-full flex items-center justify-center transition hover:bg-black/5" style={{ color: "var(--ink)", border: "1px solid rgba(43,24,16,0.25)" }} aria-label="Previous studies">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-              <button type="button" onClick={() => slideRes(1)} className="w-11 h-11 rounded-full flex items-center justify-center text-white" style={{ background: "var(--maple)" }} aria-label="Next studies">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M9 6l6 6-6 6"/></svg>
-              </button>
-            </div>
-          </div>
-          <div ref={resRef} className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4" style={{ scrollbarWidth: "none" }}>
-            {[
-              { src: "U.S. Surgeon General · 2023", title: "Our Epidemic of Loneliness and Isolation", take: "The advisory: weak social connection raises premature-death risk like smoking 15 cigarettes a day.", href: "https://www.hhs.gov/sites/default/files/surgeon-general-social-connection-advisory.pdf" },
-              { src: "Holt-Lunstad et al. · PLoS Medicine, 2010", title: "Social Relationships and Mortality Risk: A Meta-Analytic Review", take: "Across 148 studies and 300,000+ people, strong ties raised the odds of survival by about 50%.", href: "https://doi.org/10.1371/journal.pmed.1000316" },
-              { src: "Berkman & Syme · Am. J. Epidemiology, 1979", title: "Social Networks, Host Resistance, and Mortality (Alameda County)", take: "People with fewer social ties were 2–3× more likely to die over nine years." },
-              { src: "House, Landis & Umberson · Science, 1988", title: "Social Relationships and Health", take: "Social isolation rivals smoking as a risk factor for early death." },
-              { src: "Egolf et al. · Am. J. Public Health, 1992", title: "The Roseto Effect: A 50-Year Comparison of Mortality Rates", take: "A tight-knit town had far less heart disease — until its close community frayed." },
-              { src: "Ruberman et al. · NEJM, 1984", title: "Psychosocial Influences on Mortality After Myocardial Infarction", take: "Socially isolated heart-attack survivors faced 2–3× the risk of death." },
-              { src: "Williams et al. · JAMA, 1992", title: "Social Resources and Survival in Coronary Artery Disease", take: "Patients without a spouse or confidant were far more likely to die within five years." },
-              { src: "Spiegel et al. · The Lancet, 1989", title: "Psychosocial Treatment and Survival in Metastatic Breast Cancer", take: "A landmark (and later debated) trial linking weekly support groups to longer survival." },
-              { src: "Duwe & Clark · Crim. Justice Policy Review, 2013", title: "Blessed Be the Social Tie That Binds: Prison Visitation & Recidivism", take: "Visits during incarceration measurably reduced reoffending after release." },
-              { src: "Flowers et al. · AARP Public Policy Institute, 2017", title: "Medicare Spends More on Socially Isolated Older Adults", take: "Isolation is tied to about $6.7 billion in extra Medicare spending each year." },
-              { src: "Klinenberg · 2002", title: "Heat Wave: A Social Autopsy of Disaster in Chicago", take: "In a deadly heat wave, better-connected neighborhoods lost far fewer lives." },
-              { src: "Cacioppo & Patrick · 2008", title: "Loneliness: Human Nature and the Need for Social Connection", take: "Loneliness reshapes the body — stress hormones, immunity, sleep, and the heart." },
-              { src: "Christakis & Fowler · NEJM, 2007", title: "The Spread of Obesity in a Large Social Network", take: "Health ripples through social networks — we quietly shape each other." },
-              { src: "Dean Ornish · 1998", title: "Love & Survival: The Healing Power of Intimacy", take: "A physician's synthesis of the evidence that connection itself is medicine." },
-            ].map((s, i) => (
-              <a key={i} href={s.href || ("https://scholar.google.com/scholar?q=" + encodeURIComponent(s.title))} target="_blank" rel="noopener" className="snap-start shrink-0 rounded-2xl p-6 flex flex-col" style={{ width: 300, background: "rgba(255,255,255,0.75)", borderLeft: "3px solid rgba(168,52,26,0.45)", borderTop: "1px solid rgba(43,24,16,0.08)", borderRight: "1px solid rgba(43,24,16,0.08)", borderBottom: "1px solid rgba(43,24,16,0.08)" }}>
-                <div className="text-[10px] font-bold uppercase tracking-[0.16em] text-stone-500 mb-3">{s.src}</div>
-                <div className="font-serif leading-snug flex-1" style={{ fontSize: "17px", color: "var(--ink)" }}>{s.title}</div>
-                <p className="text-[13px] leading-relaxed text-stone-600 mt-3 mb-4">{s.take}</p>
-                <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold" style={{ color: "var(--maple)" }}>Read the study <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
-              </a>
-            ))}
-            <div className="shrink-0" style={{ width: 1 }}></div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ---------- Who we are ---------- */
-function WhoWeAre() {
-  const [showStory, setShowStory] = useState(false);
-  const milestones = [
-    {
-      k: "The start",
-      t: "A flamingo on the lawn.",
-      b: "It started with Flamingo Friday in our own neighborhood in San Carlos, CA: a small, silly, joyful weekly ritual that gave people a reason to step outside and find each other.",
-      c: "var(--pink)",
-    },
-    {
-      k: "It spread",
-      t: "The neighbors noticed.",
-      b: "Our town magazine picked it up, and people started asking how to run a Flamingo Friday on their own block. A ritual we made up became something other neighborhoods wanted.",
-      c: "var(--amber)",
-    },
-    {
-      k: "Recognition",
-      t: "The Aspen Institute came calling.",
-      b: "Aspen featured it in the Weave Initiative as one of their three recommendations for building trust in communities. Proof the small thing was a real thing.",
-      c: "var(--moss)",
-    },
-    {
-      k: "Going deeper",
-      t: "Into the work.",
-      b: "We began working out of a local church — hosting dinners and supporting neighbors through hard seasons.",
-      c: "var(--maple)",
-    },
-    {
-      k: "Going wider",
-      t: "Building the first care hub.",
-      b: "We started seeking out other community-based organizations to support — and built the first community care hub in Santa Clara, the infrastructure that lets that funding actually reach the ground.",
-      c: "var(--maple-deep)",
-    },
-  ];
-
-  return (
-    <section id="who" className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper-2)" }}>
+    <section id="standards" className="py-24 px-6 relative overflow-hidden" style={{ background: "var(--paper-2)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 45% 55% at 8% 20%, rgba(244,201,159,0.32), transparent 70%)" }}></div>
-
       <div className="max-w-7xl mx-auto relative">
-        <div className="reveal max-w-3xl">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Who we are</span>
-          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(40px, 6vw, 76px)" }}>
-            a family, <br/>two <span className="italic" style={{ color: "var(--maple)" }}>doctors.</span>
+        <div className="reveal max-w-3xl mb-14">
+          <Label>Standards and safeguards</Label>
+          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(34px, 5vw, 62px)" }}>
+            built to California's provider requirements for <span className="italic" style={{ color: "var(--maple)" }}>community health worker services.</span>
           </h2>
-          <div className="mt-8 text-lg text-stone-700 leading-relaxed font-medium">
-            <p>Two paths, the same conclusion. One of us was out in the neighborhood, throwing Flamingo Fridays, hosting family dinners, weaving a block together. The other was in the hospital, watching people arrive lonelier and return more often.</p>
-          </div>
+          <p className="mt-6 text-[15px]">
+            <Ext href={DHCS_CHW} className="underline-grow font-semibold inline-flex items-center gap-1.5" style={{ color: "var(--maple-deep)" }}>State provider requirements <ArrowOut/></Ext>
+          </p>
         </div>
 
-        <div className="reveal mt-10">
-          <button type="button" onClick={() => setShowStory(v => !v)} className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-sm border border-stone-300 bg-white lift" style={{ color: "var(--maple-deep)" }}>
-            {showStory ? "Hide our story" : "Learn more about our story"}
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" style={{ transform: showStory ? "rotate(180deg)" : "none", transition: "transform .3s" }}><path d="M6 9l6 6 6-6"/></svg>
-          </button>
-        </div>
-
-        {showStory && (
-        <div className="mt-10 relative pl-8 max-w-3xl">
-          <div className="absolute left-[7px] top-2 bottom-2 w-px bg-stone-200"></div>
-          <div className="space-y-7">
-            {milestones.map((m, i) => (
-              <div key={i} className="relative">
-                <span className="absolute -left-8 top-1.5 w-[15px] h-[15px] rounded-full border-2 border-white" style={{ background: m.c, boxShadow: "0 0 0 1px var(--paper-2)" }}></span>
-                <div className="rounded-2xl border border-stone-200 bg-white p-6 lift">
-                  <div className="text-[10px] font-bold uppercase tracking-[0.22em] mb-2" style={{ color: m.c }}>{m.k}</div>
-                  <div className="font-serif font-bold lowercase text-2xl leading-tight mb-2.5" style={{ color: "var(--ink)" }}>{m.t}</div>
-                  <p className="text-stone-600 text-[14.5px] leading-relaxed">{m.b}</p>
-                </div>
+        <div className="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {cards.map((c, i) => (
+            <div key={i} className="rounded-2xl border border-stone-200 bg-white p-6 flex flex-col gap-4 lift">
+              <span className="font-serif font-semibold leading-none" style={{ fontSize: 26, color: "var(--maple)" }}>{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <div className="font-semibold text-[16px] leading-tight" style={{ color: "var(--ink)" }}>{c.t}</div>
+                <p className="text-stone-600 text-[14.5px] leading-relaxed mt-2">{c.b}</p>
               </div>
-            ))}
-          </div>
-        </div>
-        )}
-
-        {/* Team */}
-        <div className="reveal mt-14">
-          <div className="text-[10px] font-bold uppercase tracking-[0.28em] mb-5" style={{ color: "var(--maple)" }}>The team</div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              { name: "Megan Galán", creds: "MD, MS", role: "Stanford-trained hospitalist", initials: "MG" },
-              { name: "Emilio Galán", creds: "MD, MS", role: "Established the first Community Care Hub in Santa Clara County", initials: "EG" },
-              { name: "Marta Galán", creds: "MPP, MSW", role: "Bureau Chief of Homelessness, California Department of Social Services", initials: "MG" },
-              { name: "Jacob Parkinson", creds: "", role: "Program Director, California Data Exchange Framework", initials: "JP" },
-            ].map((p, i) => (
-              <div key={i} className="rounded-2xl border border-stone-200 bg-white p-6 flex gap-4 items-start">
-                <div className="w-14 h-14 rounded-full flex items-center justify-center font-serif font-bold text-[17px] shrink-0" style={{ background: "var(--cream)", color: "var(--maple-deep)" }}>{p.initials}</div>
-                <div>
-                  <div className="font-serif font-bold text-[18px] leading-tight" style={{ color: "var(--ink)" }}>{p.name}{p.creds ? <span className="text-stone-400">, {p.creds}</span> : null}</div>
-                  <p className="text-stone-600 text-[14px] leading-relaxed mt-1.5">{p.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-/* ---------- Why Maple ---------- */
-function WhyMaple() {
+/* ---------- Evidence ---------- */
+function Evidence() {
+  const stats = [
+    { big: "−65%", pct: 65, sub: "Total hospital days among patients in a randomized trial of the IMPaCT community health worker model.",
+      src: <span>Kangovi et al., JAMA Internal Medicine, 2018</span> },
+    { big: "$2.47", sub: "Returned to the payer for every dollar invested in the same program within the first year.",
+      src: <span>Kangovi et al., Health Affairs, 2020</span> },
+    { big: "−9%", pct: 9, sub: "Emergency department visits, with more outpatient care and depression scores falling by a third, among 1,294 high-need Medi-Cal children in Pair Team's community care program.",
+      src: <span><Ext href="https://pediatrics.jmir.org/2026/1/e88204">Juusola et al., JMIR Pediatrics and Parenting, 2026</Ext> · adult results in <Ext href="https://doi.org/10.1007/s11606-025-09839-2">Mueller et al., JGIM, 2025</Ext></span> },
+  ];
   return (
-    <section className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper)" }}>
+    <section id="evidence" className="py-24 px-6 relative overflow-hidden" style={{ background: "var(--ink)", color: "#fff" }}>
+      <div className="absolute -top-24 -right-24 opacity-[0.05] pointer-events-none">
+        <MapleLeaf size={420} color="#F4C99F"/>
+      </div>
+      <div className="max-w-7xl mx-auto relative">
+        <div className="reveal max-w-3xl mb-14">
+          <Label color="var(--amber-soft)">Evidence</Label>
+          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ fontSize: "clamp(40px, 6vw, 76px)" }}>
+            this model is well studied <span className="italic" style={{ color: "var(--amber-soft)" }}>and it works.</span>
+          </h2>
+        </div>
+
+        <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-4">
+          {stats.map((s, i) => (
+            <div key={i} className="rounded-3xl p-7 grain flex flex-col justify-between min-h-[250px]" style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.12)" }}>
+              <div>
+                <div className="font-serif font-bold leading-none" style={{ fontSize: "clamp(42px, 5vw, 66px)", color: "var(--amber-soft)" }}>{s.big}</div>
+                {typeof s.pct === "number" && (
+                  <div className="mt-5 h-2.5 rounded-full overflow-hidden" style={{ background: "rgba(255,255,255,0.12)" }} aria-hidden="true">
+                    <div className="h-full rounded-full" style={{ width: s.pct + "%", background: "var(--amber-soft)" }}></div>
+                  </div>
+                )}
+              </div>
+              <div className="mt-5">
+                <p className="text-[14px] leading-snug text-stone-200">{s.sub}</p>
+                <div className="text-[11px] leading-relaxed text-stone-400 mt-3 [&_a]:underline [&_a]:underline-offset-2 [&_a:hover]:text-white">{s.src}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="reveal mt-10 text-[16px] leading-relaxed max-w-3xl text-stone-300 font-medium">
+          A trained, trusted person who checks in regularly and connects people to care reduces emergency department use and hospital admissions.
+        </p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- About Maple ---------- */
+function About() {
+  return (
+    <section id="about" className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(244,201,159,0.35), transparent 70%)" }}></div>
       <div className="max-w-7xl mx-auto relative">
         <div className="grid md:grid-cols-[1.3fr_1fr] gap-14 items-center">
           <div className="reveal">
-            <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--maple)" }}>Why "Maple"</span>
-            <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(40px, 6vw, 76px)" }}>
-              the place we <span className="italic" style={{ color: "var(--maple)" }}>kept coming back to.</span>
+            <Label>About Maple</Label>
+            <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5.5vw, 70px)" }}>
+              a return to an older model of care, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
             </h2>
-            <div className="mt-10 space-y-5 text-lg text-stone-700 leading-relaxed font-medium">
-              <p><strong style={{ color: "var(--ink)" }}>For us, maple means community.</strong> Growing up, every summer we'd return to a cabin with a maple tree — a small picnic table and a few chairs around it. It was simple.</p>
-              <p>We spent countless days there with friends, extended family, and neighbors. It was a place to be ourselves — and it always stayed with us when we left.</p>
+            <div className="mt-8 space-y-4 text-[16px] md:text-[17px] text-stone-700 leading-relaxed">
+              <p>Maple is a nonprofit that provides direct community care from within the neighborhood it serves. Community health work, by definition, is done by trusted members of the community, with relationships built through proximity and everyday contact: knowing neighbors by name, helping them navigate care and social services, visiting at home when needed, and providing accompanying primary care. It is increasingly recognized by state and federal health programs and regulators, and meets all state licensure requirements.</p>
+              <p>Care is offered on a subsidized basis, with neighbors who are able to pay for increased access helping cover those who can't. The need is real and often unrecognized: seniors aging in place, long-standing residents on fixed incomes, and families stretched thin who put off care until it becomes a crisis.</p>
+              <p>Most of us have felt some version of this: not knowing who to call, waiting weeks for an appointment, or seeing a different provider each time. Community care fills that gap with known members of the community, close to home. Because our mission is to serve people in our neighborhood, often going to them, it is a quiet presence.</p>
             </div>
           </div>
           <div className="reveal flex justify-center">
@@ -932,11 +658,10 @@ function WhyMaple() {
 
 /* ---------- Contact / Footer ---------- */
 function Contact() {
+  const legalLink = { color: "#fff", textDecoration: "underline", textUnderlineOffset: 3 };
   return (
     <footer id="contact" className="text-white pt-24 pb-12 px-6 relative overflow-hidden" style={{ background: "linear-gradient(165deg, #BC4A22 0%, var(--maple) 100%)" }}>
-      {/* Warm gradient bleed from above */}
       <div className="absolute top-0 inset-x-0 h-64 pointer-events-none" style={{ background: "linear-gradient(to bottom, rgba(244,201,159,0.22), transparent)" }} aria-hidden="true"></div>
-      {/* Scattered samara field */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <span className="absolute" style={{ top: "8%",  right: "4%",   opacity: 0.07,  transform: "rotate(22deg)"  }}><MapleLeaf size={340} color="#F8E9D0"/></span>
         <span className="absolute" style={{ bottom: "2%",  left: "1%",   opacity: 0.05,  transform: "rotate(-38deg)" }}><MapleLeaf size={220} color="#F8E9D0"/></span>
@@ -947,26 +672,23 @@ function Contact() {
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="reveal max-w-3xl">
-          <span className="text-[10px] font-bold uppercase tracking-[0.28em]" style={{ color: "var(--cream)" }}>Get in touch</span>
+          <Label color="var(--cream)">Get in touch</Label>
           <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95]" style={{ fontSize: "clamp(44px, 7vw, 92px)" }}>
-            community is built <span className="italic" style={{ color: "var(--cream)" }}>one introduction at a time.</span>
+            community is built <br/><span className="italic" style={{ color: "var(--cream)" }}>one introduction at a time.</span>
           </h2>
-          <p className="mt-8 text-white/90 leading-relaxed text-lg max-w-xl font-medium">
-            Whether you're a community organization looking for funding, a county partner, a researcher, or a neighbor who just wants to help: write us. And if you're someone's person, the one who shows up for them, we especially want to know you, connect you in, and help fund the work you're already doing.
-          </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <a href="mailto:partners@carehub.org" className="inline-flex items-center gap-2 bg-white px-6 py-3.5 rounded-full font-semibold text-sm" style={{ color: "var(--ink)" }}>
               partners@carehub.org
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M7 17 17 7M7 7h10v10"/></svg>
+              <ArrowOut/>
             </a>
           </div>
         </div>
 
         <div className="mt-24 pt-8 border-t border-white/25 flex flex-col gap-6">
-          <p className="text-[12px] leading-relaxed text-white/75 max-w-2xl normal-case tracking-normal">
-            <strong style={{ color: "#fff" }}>Maple Community Care Hub™</strong> is a California public benefit nonprofit.
+          <p className="text-[13px] leading-relaxed max-w-2xl" style={{ color: "#FBEDE4" }}>
+            Maple is a California Public Benefit Nonprofit and Social Purpose and Professional Medical Corporation, and a Community Care Hub as defined by the <Ext href={HHS_HUBS} style={legalLink}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} style={legalLink}>California Department of Health Care Services</Ext>.
           </p>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.24em] text-white/75">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.24em]" style={{ color: "#FBEDE4" }}>
             <Logo size={28} dark={true}/>
             <span>maple · we all need community · © 2026</span>
           </div>
@@ -983,14 +705,12 @@ function App() {
     <div className="relative">
       <Nav/>
       <Hero/>
-      <TheCase/>
+      <WholePersonCare/>
       <CHWSection/>
-      <TheWork/>
-      <OurPurpose/>
-      <WhoWeAre/>
-      <WhyMaple/>
-      <CommunitySection/>
-      <TheStudy/>
+      <Delivered/>
+      <Standards/>
+      <Evidence/>
+      <About/>
       <Contact/>
     </div>
   );
