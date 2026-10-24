@@ -431,24 +431,13 @@ function CHWSection() {
           </div>
 
           <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
-            <Label color="#8A7F74">Covered services</Label>
-            <div className="mt-2">
-              {services.map((a, i) => (
-                <React.Fragment key={i}>
-                  {i > 0 && <div style={{ height: 1, background: "rgba(43,24,16,0.1)" }}></div>}
-                  <div className="flex items-start gap-5 py-6">
-                    <div className="shrink-0 flex items-center justify-center rounded-full" style={{ width: 52, height: 52, background: a.color }}>
-                      <span style={{ color: "#fff", display: "flex" }}>{a.icon}</span>
-                    </div>
-                    <div className="pt-1">
-                      <div style={{ fontWeight: 700, fontSize: 16, color: a.color, lineHeight: 1.2 }}>{a.title}</div>
-                      <div style={{ fontSize: 14, color: "#78716c", marginTop: 4, lineHeight: 1.5 }}>{a.body}</div>
-                    </div>
-                  </div>
-                </React.Fragment>
-              ))}
+            <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(24px, 2.6vw, 32px)" }}>
+              covered services, under a <span className="italic" style={{ color: "var(--maple)" }}>plan of care.</span>
+            </h3>
+            <div className="grid sm:grid-cols-2 gap-4 mt-6">
+              {services.map((t, i) => <FlipCard key={i} {...t}/>)}
             </div>
-            <p className="source text-[12px] leading-relaxed mt-1" style={{ color: "#78716c" }}>
+            <p className="source text-[12px] leading-relaxed mt-5" style={{ color: "#78716c" }}>
               Service categories of the Medi-Cal community health worker benefit · <Ext href={DHCS_CHW}>California Department of Health Care Services</Ext>
             </p>
           </div>
