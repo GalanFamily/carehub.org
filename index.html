@@ -432,7 +432,7 @@ function CHWSection() {
               help with the everyday parts <span className="italic" style={{ color: "var(--maple)" }}>of care.</span>
             </h3>
             <div className="grid sm:grid-cols-2 gap-4 mt-6">
-              {services.map((t, i) => <FlipCard key={i} {...t}/>)}
+              {services.map((t, i) => <FlipCard key={i} tone="white" {...t}/>)}
             </div>
             <p className="source text-[12px] leading-relaxed mt-5" style={{ color: "#78716c" }}>
               Service categories of the Medi-Cal community health worker benefit · <Ext href={DHCS_CHW}>California Department of Health Care Services</Ext>
