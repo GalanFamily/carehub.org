@@ -669,10 +669,24 @@ function Contact() {
           <p className="text-[13px] leading-relaxed max-w-2xl" style={{ color: "#FBEDE4" }}>
             Maple is a California Public Benefit Nonprofit and Social Purpose and Professional Medical Corporation, and a Community Care Hub as defined by the <Ext href={HHS_HUBS} style={legalLink}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} style={legalLink}>California Department of Health Care Services</Ext>.
           </p>
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 text-[11px] uppercase tracking-[0.24em]" style={{ color: "#FBEDE4" }}>
-            <Logo size={28} dark={true}/>
-            <span>maple · we all need community · © 2026</span>
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            <div className="flex items-center gap-4">
+              <Logo size={28} dark={true}/>
+              <div style={{ width: 1, height: 22, background: "rgba(255,255,255,0.35)" }} aria-hidden="true"></div>
+              <span className="font-serif font-bold lowercase" style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "#fff" }}>
+                We all need <span style={{ color: "var(--cream)" }}>community.</span>
+              </span>
+            </div>
+            <div className="flex items-center gap-3 flex-wrap lg:justify-end" aria-hidden="true">
+              {["Connecting people", "Building trust", "Promoting well-being", "Strengthening communities"].map((label, i) => (
+                <React.Fragment key={i}>
+                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FBEDE4", opacity: 0.8 }}>{label}</span>
+                  {i < 3 && <span style={{ opacity: 0.5, display: "flex" }}><MapleLeaf size={11} color="#F8E9D0"/></span>}
+                </React.Fragment>
+              ))}
+            </div>
           </div>
+          <div className="text-[11px] uppercase tracking-[0.24em]" style={{ color: "#FBEDE4", opacity: 0.8 }}>maple · © 2026</div>
         </div>
       </div>
     </footer>
