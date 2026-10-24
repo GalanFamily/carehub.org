@@ -405,10 +405,14 @@ function CHWSection() {
     ],
   };
   const services = [
-    { icon: Icons.chat,    title: "Health education",               body: "Plain-language guidance on conditions, medications, and preventive care.", color: "var(--ink)" },
-    { icon: Icons.compass, title: "Health navigation",              body: "Help finding and using medical, behavioral, and social services, including appointments and referrals.", color: "var(--maple)" },
-    { icon: Icons.list,    title: "Screening and assessment",       body: "Identifying health and social needs and connecting people to the right resources.", color: "var(--ink)" },
-    { icon: Icons.people,  title: "Individual support and advocacy", body: "Accompaniment, follow-up, and check-ins between visits.", color: "var(--maple)" },
+    { icon: Icons.chat,    title: "Health education",      front: "Plain-language guidance on conditions, medications, and preventive care.",
+      back: "Teaching that follows the written plan of care: what a diagnosis means, how to take medications as prescribed, and how to prevent illness and injury." },
+    { icon: Icons.compass, title: "Health navigation",     front: "Help finding and using medical, behavioral, and social services, including appointments and referrals.",
+      back: "Help understanding coverage, scheduling and getting to appointments, following through on referrals, and connecting with community resources." },
+    { icon: Icons.list,    title: "Screening",             front: "Identifying health and social needs and connecting people to the right resources.",
+      back: "Structured check-ins for health and social needs such as food, housing, and transportation, shared with the supervising provider so the plan of care stays current." },
+    { icon: Icons.people,  title: "Support and advocacy",  front: "Accompaniment, follow-up, and check-ins between visits.",
+      back: "Standing with people as they use care: accompanying them to visits, following up afterward, and checking in regularly so small problems don't become emergencies." },
   ];
   return (
     <section id="chw" className="relative" style={{ background: "var(--paper-2)" }}>
