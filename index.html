@@ -311,6 +311,35 @@ const Definitions = ({ items }) => (
   </ol>
 );
 
+/* ---------- Flip card: plain front, detail on the back ---------- */
+function FlipCard({ icon, title, front, back }) {
+  const [flipped, setFlipped] = useState(false);
+  return (
+    <button
+      type="button"
+      aria-pressed={flipped}
+      aria-label={`${title}. ${flipped ? back : front} Activate to ${flipped ? "show less" : "show more"}.`}
+      onClick={() => setFlipped(v => !v)}
+      className={`flip text-left w-full ${flipped ? "is-flipped" : ""}`}
+      style={{ height: 232 }}
+    >
+      <div className="flip-inner">
+        <div className="flip-face rounded-3xl border border-stone-200 bg-white p-6 flex flex-col">
+          <div className="flex items-center justify-center rounded-full" style={{ width: 44, height: 44, background: "var(--paper-2)", color: "var(--maple)" }}>{icon}</div>
+          <div className="font-serif font-bold lowercase leading-tight mt-auto" style={{ fontSize: "clamp(20px, 2vw, 24px)", color: "var(--ink)" }}>{title}</div>
+          <p className="text-[14px] leading-relaxed text-stone-600 mt-1.5">{front}</p>
+          <span className="mt-3 text-[11px] font-bold uppercase tracking-[0.18em] text-stone-400">More</span>
+        </div>
+        <div className="flip-face flip-back rounded-3xl p-6 flex flex-col" style={{ background: "var(--ink)", color: "#fff" }}>
+          <span className="text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--amber-soft)" }}>{title}</span>
+          <p className="text-[14.5px] leading-relaxed mt-3" style={{ color: "rgba(255,255,255,0.86)" }}>{back}</p>
+          <span className="mt-auto text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: "rgba(255,255,255,0.45)" }}>Back</span>
+        </div>
+      </div>
+    </button>
+  );
+}
+
 /* ---------- Whole person care ---------- */
 function WholePersonCare() {
   const items = [
@@ -322,36 +351,41 @@ function WholePersonCare() {
       sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }] },
   ];
   const dayToDay = [
-    { icon: Icons.home,   title: "Housing",              body: "Through community partners, help finding transitional housing and shelter resources you can count on." },
-    { icon: Icons.basket, title: "Food",                 body: "Food banks, meal programs, and grocery delivery partners bring healthy food to people where they are." },
-    { icon: Icons.cal,    title: "Getting to the doctor", body: "Your care team makes it easy to see your doctor, with help scheduling, rides to visits, and getting medications refilled." },
-    { icon: Icons.heart,  title: "Behavioral health",    body: "Access to behavioral health specialists for counseling, guidance, and support, coordinated with your doctor." },
+    { icon: Icons.home,   title: "Housing",               front: "Connections to housing resources.",
+      back: "Through community partners, help finding transitional housing and shelter resources you can count on." },
+    { icon: Icons.basket, title: "Food",                  front: "Connections to food and meal programs.",
+      back: "Food banks, meal programs, and grocery delivery partners bring healthy food to people where they are." },
+    { icon: Icons.cal,    title: "Getting to the doctor", front: "Help getting to appointments.",
+      back: "Your care team makes it easy to see your doctor, with help scheduling, rides to visits, and getting medications refilled." },
+    { icon: Icons.heart,  title: "Behavioral health",     front: "Connections to behavioral health specialists.",
+      back: "Access to behavioral health specialists for counseling, guidance, and support, coordinated with your doctor." },
   ];
   return (
     <section id="services" className="py-24 px-6 relative" style={{ background: "var(--warm-white)" }}>
-      <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
-          <div>
-            <Label>Definition</Label>
-            <Headword words={["whole", "person", "care"]}/>
-            <Rule/>
-            <p className="font-bold leading-snug" style={{ fontSize: 16, color: "var(--ink)" }}>Three definitions we work from.</p>
-          </div>
-          <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
-            <Definitions items={items}/>
-          </div>
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
+        <div>
+          <Label>Definition</Label>
+          <Headword words={["whole", "person", "care"]}/>
+          <Rule/>
+          <ol>
+            {items.map((d, i) => (
+              <li key={i} className="grid grid-cols-[1.75rem_1fr] gap-2" style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
+                <span className="font-serif font-semibold leading-none" style={{ fontSize: 20, color: "var(--maple)", paddingTop: 3 }}>{i + 1}</span>
+                <div>
+                  <p className={i === 0 ? "font-bold leading-snug" : "leading-relaxed"} style={{ fontSize: i === 0 ? 17 : 15.5, color: "var(--ink)" }}>{d.text}</p>
+                  <div className="source mt-2 flex flex-col gap-1 text-[12px]">
+                    {d.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
+                  </div>
+                </div>
+              </li>
+            ))}
+          </ol>
         </div>
 
-        <div className="reveal mt-20">
+        <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
           <Label color="#8A7F74">What this looks like day to day</Label>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5">
-            {dayToDay.map((t, i) => (
-              <div key={i} className="rounded-3xl p-7 flex flex-col gap-4 min-h-[250px]" style={{ background: i % 2 ? "var(--maple-deep)" : "var(--ink)", color: "#fff" }}>
-                <div className="flex items-center justify-center rounded-full" style={{ width: 44, height: 44, background: "rgba(255,255,255,0.12)", color: "var(--amber-soft)" }}>{t.icon}</div>
-                <div className="font-serif font-bold lowercase leading-tight mt-auto" style={{ fontSize: "clamp(20px, 2.2vw, 24px)" }}>{t.title}</div>
-                <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.75)" }}>{t.body}</p>
-              </div>
-            ))}
+          <div className="grid sm:grid-cols-2 gap-4 mt-5">
+            {dayToDay.map((t, i) => <FlipCard key={i} {...t}/>)}
           </div>
         </div>
       </div>
