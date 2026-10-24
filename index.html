@@ -312,7 +312,7 @@ const Definitions = ({ items }) => (
 );
 
 /* ---------- Flip card: plain front, detail on the back ---------- */
-function FlipCard({ icon, title, front, back }) {
+function FlipCard({ icon, title, front, back, tone = "paper" }) {
   const [flipped, setFlipped] = useState(false);
   return (
     <button
