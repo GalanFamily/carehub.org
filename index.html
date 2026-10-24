@@ -565,8 +565,7 @@ function About() {
     <section id="about" className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(244,201,159,0.35), transparent 70%)" }}></div>
       <div className="max-w-7xl mx-auto relative">
-        <div className="grid md:grid-cols-[1.3fr_1fr] gap-14 items-center">
-          <div className="reveal">
+          <div className="reveal max-w-3xl">
             <Label>About Maple</Label>
             <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5.5vw, 70px)" }}>
               a return to an older model of care, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
@@ -577,33 +576,7 @@ function About() {
               <p>Most of us have felt some version of this: not knowing who to call, waiting weeks for an appointment, or seeing a different provider each time. Community care fills that gap with known members of the community, close to home. Because our mission is to serve people in our neighborhood, often going to them, it is a quiet presence.</p>
             </div>
           </div>
-          <div className="reveal flex justify-center">
-            <svg viewBox="0 0 240 320" className="w-full max-w-[280px] h-auto" fill="none" aria-hidden="true">
-              <ellipse cx="120" cy="310" rx="70" ry="6" fill="#2B1810" opacity=".1"/>
-              <path d="M115 308 L115 200 Q115 180 120 170 Q125 180 125 200 L125 308 Z" fill="#6B3F2A"/>
-              <path d="M118 280 L118 220" stroke="#3D2418" strokeWidth="1" opacity=".6"/>
-              <path d="M122 280 L122 230" stroke="#3D2418" strokeWidth="1" opacity=".5"/>
-              <path d="M120 200 Q90 180 70 150" stroke="#6B3F2A" strokeWidth="6" fill="none" strokeLinecap="round"/>
-              <path d="M120 200 Q150 180 170 150" stroke="#6B3F2A" strokeWidth="6" fill="none" strokeLinecap="round"/>
-              <path d="M120 170 Q100 140 95 110" stroke="#6B3F2A" strokeWidth="5" fill="none" strokeLinecap="round"/>
-              <path d="M120 170 Q140 140 150 110" stroke="#6B3F2A" strokeWidth="5" fill="none" strokeLinecap="round"/>
-              <g className="sway" style={{ transformOrigin: "120px 200px" }}>
-                <circle cx="70" cy="140" r="38" fill="#D97706" opacity=".9"/>
-                <circle cx="170" cy="140" r="38" fill="#A8341A" opacity=".95"/>
-                <circle cx="95" cy="100" r="36" fill="#C2410C"/>
-                <circle cx="150" cy="100" r="36" fill="#D97706"/>
-                <circle cx="120" cy="75" r="40" fill="#A8341A"/>
-                <circle cx="120" cy="130" r="44" fill="#6B1F0E" opacity=".85"/>
-              </g>
-              <g opacity=".9">
-                <g transform="translate(60 220) scale(.32)"><MapleLeaf size={32} color="#D97706"/></g>
-                <g transform="translate(190 240) scale(.28) rotate(45)"><MapleLeaf size={32} color="#A8341A"/></g>
-                <g transform="translate(80 270) scale(.26) rotate(-30)"><MapleLeaf size={32} color="#C2410C"/></g>
-              </g>
-              <path d="M60 308 q3 -6 6 0 M 76 308 q3 -7 6 0 M 154 308 q3 -7 6 0 M 172 308 q3 -6 6 0" stroke="#4A6741" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
-            </svg>
-          </div>
-        </div>
+
       </div>
     </section>
   );
@@ -638,9 +611,6 @@ function Contact() {
         </div>
 
         <div className="mt-24 pt-8 border-t border-white/25 flex flex-col gap-6">
-          <p className="text-[13px] leading-relaxed max-w-2xl" style={{ color: "#FBEDE4" }}>
-            Maple is a California Public Benefit Nonprofit and Social Purpose and Professional Medical Corporation, and a Community Care Hub as defined by the <Ext href={HHS_HUBS} style={legalLink}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} style={legalLink}>California Department of Health Care Services</Ext>.
-          </p>
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <Logo size={28} dark={true}/>
@@ -648,14 +618,6 @@ function Contact() {
               <span className="font-serif font-bold lowercase" style={{ fontSize: "clamp(18px, 2vw, 24px)", color: "#fff" }}>
                 We all need <span style={{ color: "var(--cream)" }}>community.</span>
               </span>
-            </div>
-            <div className="flex items-center gap-3 flex-wrap lg:justify-end" aria-hidden="true">
-              {["Connecting people", "Building trust", "Promoting well-being", "Strengthening communities"].map((label, i) => (
-                <React.Fragment key={i}>
-                  <span style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "#FBEDE4", opacity: 0.8 }}>{label}</span>
-                  {i < 3 && <span style={{ opacity: 0.5, display: "flex" }}><MapleLeaf size={11} color="#F8E9D0"/></span>}
-                </React.Fragment>
-              ))}
             </div>
           </div>
           <div className="text-[11px] uppercase tracking-[0.24em]" style={{ color: "#FBEDE4", opacity: 0.8 }}>maple · © 2026</div>
