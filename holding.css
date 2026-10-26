@@ -1,0 +1,15 @@
+:root{--ink:#2B1810;--paper:#FAF6F0;--maple:#A8341A;--maple-deep:#6B1F0E;--cream:#F8E9D0}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center}
+.wrap{max-width:640px}
+.logo{display:inline-flex;align-items:center;gap:10px;margin-bottom:40px}
+.leaf{display:inline-block;width:34px;height:34px;background:var(--maple);-webkit-mask:url('assets/maple-icon.png') center/contain no-repeat;mask:url('assets/maple-icon.png') center/contain no-repeat}
+.word{font-weight:700;font-size:24px;letter-spacing:-.01em}
+.word sup{font-size:.5em;vertical-align:super}
+h1{font-family:'Fraunces',Georgia,serif;font-variation-settings:"opsz" 144;font-weight:700;font-size:clamp(44px,8vw,96px);line-height:.98;letter-spacing:-.02em;margin:0 0 24px;text-transform:lowercase}
+h1 em{font-style:italic;color:var(--maple)}
+p{font-size:18px;line-height:1.6;margin:0 auto 32px;max-width:28em;color:#57534e}
+a.btn{display:inline-flex;align-items:center;gap:8px;background:var(--maple-deep);color:#fff;text-decoration:none;border-radius:999px;padding:12px 22px;font-weight:600;font-size:14px}
+a.btn:hover{background:var(--maple)}
+.tag{margin-top:48px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8A7F74}
