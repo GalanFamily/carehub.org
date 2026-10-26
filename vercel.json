@@ -6,11 +6,5 @@
         { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" }
       ]
     }
-  ],
-  "rewrites": [
-    { "source": "/", "has": [{ "type": "host", "value": "(maple\\.carehub\\.org|www\\.maplecommunity\\.org|maplecommunity\\.org)" }], "destination": "/under-construction.html" },
-    { "source": "/index.html", "has": [{ "type": "host", "value": "(maple\\.carehub\\.org|www\\.maplecommunity\\.org|maplecommunity\\.org)" }], "destination": "/under-construction.html" },
-    { "source": "/", "has": [{ "type": "host", "value": "(www\\.carehub\\.org|carehub\\.org|carehub-org\\.vercel\\.app)" }], "destination": "/coming-soon.html" },
-    { "source": "/index.html", "has": [{ "type": "host", "value": "(www\\.carehub\\.org|carehub\\.org|carehub-org\\.vercel\\.app)" }], "destination": "/coming-soon.html" }
   ]
 }
