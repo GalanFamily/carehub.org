@@ -228,8 +228,8 @@ function Nav() {
   const links = [
     ["#services", "Whole person care"],
     ["#chw", "Community health work"],
-    ["#delivered", "Partners"],
     ["#evidence", "Evidence"],
+    ["#delivered", "Partners"],
     ["#about", "About"],
   ];
   return (
@@ -471,7 +471,7 @@ function Delivered() {
             Maple connects people with the community partners, clinics, and care teams they need most. We coordinate with local organizations, clinics, and care teams to make sure people get the medical, mental health, and everyday support they need. We also help partners participate in health care programs that create sustainable financial support, so they can keep improving the health of the people they serve. Interested in partnering with us? Let's connect.
           </p>
           <p className="mt-4 text-[15px] text-stone-500 leading-relaxed">
-            Programs include the Medi-Cal Community Health Worker benefit, Enhanced Care Management, and Advanced Primary Care Management. Network development, payment operations, data and reporting, and quality and audit support: the role of a Community Care Hub as defined by the <Ext href={HHS_HUBS} className="underline-grow" style={{ color: "var(--maple-deep)" }}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} className="underline-grow" style={{ color: "var(--maple-deep)" }}>California Department of Health Care Services</Ext>.
+            Network development, payment operations, data and reporting, and quality and audit support: the role of a Community Care Hub as defined by the <Ext href={HHS_HUBS} className="underline-grow" style={{ color: "var(--maple-deep)" }}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} className="underline-grow" style={{ color: "var(--maple-deep)" }}>California Department of Health Care Services</Ext>.
           </p>
           <a href="#contact" className="mt-9 text-white px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2" style={{ background: "var(--maple-deep)" }}>
             Join our partner network
@@ -558,17 +558,31 @@ function Evidence() {
 
 /* ---------- About Maple ---------- */
 function About() {
+  const programs = [
+    { name: "Advanced Primary Care Management", payer: "Medicare", body: "Monthly primary care management for people with ongoing health needs." },
+    { name: "Enhanced Care Management", payer: "Medi-Cal", body: "Whole person care management for members with complex needs." },
+    { name: "Community Health Worker benefit", payer: "Medi-Cal", body: "Community health worker services under a licensed provider's plan of care." },
+  ];
   return (
     <section id="about" className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(244,201,159,0.35), transparent 70%)" }}></div>
       <div className="max-w-7xl mx-auto relative">
-          <div className="reveal max-w-2xl">
-            <Label>About Maple</Label>
-            <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5.5vw, 70px)" }}>
-              a return to an older model of care with modern resources, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
-            </h2>
-          </div>
-
+        <div className="reveal max-w-2xl">
+          <Label>About Maple</Label>
+          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5.5vw, 70px)" }}>
+            a return to an older model of care with modern resources, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
+          </h2>
+          <p className="mt-8 text-[17px] text-stone-700 leading-relaxed">A physician and a community health worker, caring for people they know. The model is recognized in innovative payment programs that ask medical groups to look after the whole person.</p>
+        </div>
+        <div className="reveal grid sm:grid-cols-3 gap-4 mt-12">
+          {programs.map((p, i) => (
+            <div key={i} className="rounded-2xl p-6 flex flex-col" style={{ background: "var(--paper-2)", minHeight: 200 }}>
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "#8A7F74" }}>{p.payer}</span>
+              <span className="mt-auto pt-8 leading-tight" style={{ fontSize: "clamp(19px, 1.8vw, 22px)", fontWeight: 400, color: "var(--ink)" }}>{p.name}</span>
+              <p className="text-[14px] leading-relaxed text-stone-600 mt-2">{p.body}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -629,8 +643,8 @@ function App() {
       <Hero/>
       <WholePersonCare/>
       <CHWSection/>
-      <Delivered/>
       <Evidence/>
+      <Delivered/>
       <About/>
       <Contact/>
     </div>
