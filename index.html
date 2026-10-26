@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Maple — Community health worker services</title>
-<meta name="description" content="Maple combines a physician and community health workers to coordinate whole person care. A California nonprofit Community Care Hub." />
+<meta name="description" content="Maple combines a physician and community health worker to coordinate whole person care. A California nonprofit Community Care Hub." />
 <link rel="canonical" href="https://www.carehub.org/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Maple" />
 <meta property="og:title" content="Maple — Community health worker services" />
-<meta property="og:description" content="Maple combines a physician and community health workers to coordinate whole person care. A California nonprofit Community Care Hub." />
+<meta property="og:description" content="Maple combines a physician and community health worker to coordinate whole person care. A California nonprofit Community Care Hub." />
 <meta property="og:url" content="https://www.carehub.org/" />
 <meta property="og:image" content="https://www.carehub.org/assets/favicon.png?v=4" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Maple — Community health worker services" />
-<meta name="twitter:description" content="Maple combines a physician and community health workers to coordinate whole person care. A California nonprofit Community Care Hub." />
+<meta name="twitter:description" content="Maple combines a physician and community health worker to coordinate whole person care. A California nonprofit Community Care Hub." />
 <meta name="twitter:image" content="https://www.carehub.org/assets/favicon.png?v=4" />
 <link rel="icon" type="image/png" href="assets/favicon.png?v=4">
 <link rel="apple-touch-icon" href="assets/favicon.png?v=4">
@@ -279,7 +279,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg md:text-2xl text-stone-700 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-          Maple combines a physician and community health workers to coordinate whole person care.
+          Maple combines a physician and community health worker to coordinate whole person care.
         </p>
 
         <div className="flex gap-3 justify-center flex-wrap">
@@ -351,14 +351,10 @@ function FlipCard({ icon, title, front, back, tone = "paper" }) {
 
 /* ---------- Whole person care ---------- */
 function WholePersonCare() {
-  const items = [
-    { text: "Care that centers on what matters to you, not what is the matter with you.",
-      sources: [{ label: "U.S. Department of Veterans Affairs · Whole Health", href: "https://www.va.gov/WHOLEHEALTH/veteran-resources/whole-health-basics.asp" }] },
-    { text: "A person seen as a whole rather than a collection of parts: biological, behavioral, social, and environmental health, understood together.",
-      sources: [{ label: "National Institutes of Health · NCCIH Strategic Plan", href: "https://www.nccih.nih.gov/about/nccih-strategic-plan-2021-2025" }] },
-    { text: "Attending to the conditions people live in: food, housing, transportation, and the relationships and resources that shape health outside the clinic.",
-      sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }] },
-  ];
+  const definition = {
+    text: "Attending to the conditions people live in: food, housing, transportation, and the relationships and resources that shape health outside the clinic.",
+    sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }],
+  };
   const dayToDay = [
     { icon: Icons.home,   title: "Housing",        front: "Find housing support, including transitional and permanent housing or shelters.",
       back: "Through our partnerships with community organizations, we guide you to transitional housing and shelter resources you can count on." },
@@ -376,19 +372,10 @@ function WholePersonCare() {
           <Headword words={["whole", "person", "care"]}/>
           <Rule/>
           <div className="mb-3"><Label>Definition</Label></div>
-          <ol>
-            {items.map((d, i) => (
-              <li key={i} className="grid grid-cols-[1.75rem_1fr] gap-2" style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
-                <span className="font-serif font-semibold leading-none" style={{ fontSize: 20, color: "var(--maple)", paddingTop: 3 }}>{i + 1}</span>
-                <div>
-                  <p className={i === 0 ? "font-bold leading-snug" : "leading-relaxed"} style={{ fontSize: i === 0 ? 17 : 15.5, color: "var(--ink)" }}>{d.text}</p>
-                  <div className="source mt-2 flex flex-col gap-1 text-[12px]">
-                    {d.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <p className="font-bold leading-snug" style={{ fontSize: 17, color: "var(--ink)" }}>{definition.text}</p>
+          <div className="source mt-3 flex flex-col gap-1 text-[12px]">
+            {definition.sources.map((x, k) => <Ext key={k} href={x.href}>{x.label}</Ext>)}
+          </div>
         </div>
 
         <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
@@ -526,10 +513,9 @@ function Evidence() {
     { big: "$2.47", sub: "Returned to the payer for every dollar invested in the same program within the first year.",
       title: "Evidence-Based Community Health Worker Program Addresses Unmet Social Needs and Generates Positive Return on Investment",
       cite: "Kangovi et al., Health Affairs, 2020", href: "https://doi.org/10.1377/hlthaff.2019.00981" },
-    { big: "−9%", sub: "Emergency department visits, with more outpatient care and depression scores falling by a third, among 1,294 high-need Medi-Cal children in Pair Team's community care program.",
-      title: "An Innovative Approach to Enhanced Care Management for High-Need Pediatric Medicaid Members: Retrospective Cohort Study",
-      cite: "Juusola et al., JMIR Pediatrics and Parenting, 2026", href: "https://pediatrics.jmir.org/2026/1/e88204",
-      also: { title: "A Novel Intervention for Medicaid Beneficiaries with Complex Needs", cite: "Mueller et al., Journal of General Internal Medicine, 2025", href: "https://doi.org/10.1007/s11606-025-09839-2" } },
+    { big: "−52%", sub: "Emergency department visits, with inpatient admissions down 26% and depression scores lower, among adult Medi-Cal members in Pair Team's community care program.",
+      title: "A Novel Intervention for Medicaid Beneficiaries with Complex Needs",
+      cite: "Mueller, Batlivala, Palisoc, Kim, Ostrovsky, Ong and Favini, Journal of General Internal Medicine, 2025", href: "https://doi.org/10.1007/s11606-025-09839-2" },
   ];
   const Cite = ({ title, cite, href }) => (
     <Ext href={href} className="block hover:text-white" style={{ color: "#a8a29e" }}>
@@ -576,13 +562,8 @@ function About() {
           <div className="reveal max-w-2xl">
             <Label>About Maple</Label>
             <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5.5vw, 70px)" }}>
-              a return to an older model of care, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
+              a return to an older model of care with modern resources, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
             </h2>
-            <div className="mt-8 space-y-4 text-[16px] md:text-[17px] text-stone-700 leading-relaxed">
-              <p>Maple is a nonprofit that provides direct community care from within the neighborhood it serves. Community health work, by definition, is done by trusted members of the community, with relationships built through proximity and everyday contact: knowing neighbors by name, helping them navigate care and social services, visiting at home when needed, and providing accompanying primary care. It is increasingly recognized by state and federal health programs and regulators, and meets all state licensure requirements. As a Community Care Hub, Maple also supports community partners that deliver this care for their own neighbors.</p>
-              <p>Care is offered on a subsidized basis, with neighbors who are able to pay for increased access helping cover those who can't. The need is real and often unrecognized: seniors aging in place, long-standing residents on fixed incomes, and families stretched thin who put off care until it becomes a crisis.</p>
-              <p>Most of us have felt some version of this: not knowing who to call, waiting weeks for an appointment, or seeing a different provider each time. Community care fills that gap with known members of the community, close to home. Because our mission is to serve people in our neighborhood, often going to them, it is a quiet presence.</p>
-            </div>
           </div>
 
       </div>
