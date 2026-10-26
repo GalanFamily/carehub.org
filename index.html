@@ -4,17 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Maple — Community health worker services</title>
-<meta name="description" content="Maple combines a physician and community health worker to coordinate whole person care. A California nonprofit Community Care Hub." />
+<meta name="description" content="Maple pairs a primary care physician with a community health worker to deliver whole person care. A California nonprofit Community Care Hub." />
 <link rel="canonical" href="https://www.carehub.org/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Maple" />
 <meta property="og:title" content="Maple — Community health worker services" />
-<meta property="og:description" content="Maple combines a physician and community health worker to coordinate whole person care. A California nonprofit Community Care Hub." />
+<meta property="og:description" content="Maple pairs a primary care physician with a community health worker to deliver whole person care. A California nonprofit Community Care Hub." />
 <meta property="og:url" content="https://www.carehub.org/" />
 <meta property="og:image" content="https://www.carehub.org/assets/favicon.png?v=4" />
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Maple — Community health worker services" />
-<meta name="twitter:description" content="Maple combines a physician and community health worker to coordinate whole person care. A California nonprofit Community Care Hub." />
+<meta name="twitter:description" content="Maple pairs a primary care physician with a community health worker to deliver whole person care. A California nonprofit Community Care Hub." />
 <meta name="twitter:image" content="https://www.carehub.org/assets/favicon.png?v=4" />
 <link rel="icon" type="image/png" href="assets/favicon.png?v=4">
 <link rel="apple-touch-icon" href="assets/favicon.png?v=4">
@@ -279,7 +279,7 @@ function Hero() {
         </h1>
 
         <p className="text-lg md:text-2xl text-stone-700 leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
-          Maple combines a physician and community health worker to coordinate whole person care.
+          Maple pairs a primary care physician with a community health worker to deliver whole person care.
         </p>
 
         <div className="flex gap-3 justify-center flex-wrap">
@@ -405,7 +405,7 @@ function CHWSection() {
       back: "Your community health worker explains things in plain language, so you know what a diagnosis means, how to take your medications, and how to stay ahead of problems." },
     { icon: Icons.compass, title: "Health navigation",     front: "Find your way to the care, benefits, and services you need.",
       back: "Help understanding your coverage, accessing benefits you're eligible for, scheduling appointments, following through on referrals, and connecting with local programs." },
-    { icon: Icons.list,    title: "Screening",             front: "A regular check on how things are going.",
+    { icon: Icons.list,    title: "Social health check",    front: "A regular check on how things are going.",
       back: "Simple check-ins on your health and everyday needs like food, housing, and transportation, so the right support is in place and your care team stays in the loop." },
     { icon: Icons.people,  title: "Support and advocacy",  front: "Someone in your corner, between visits.",
       back: "A familiar face who can come with you to appointments, follows up afterward, and checks in regularly." },
@@ -430,7 +430,10 @@ function CHWSection() {
             <div className="grid sm:grid-cols-2 gap-4">
               {services.map((t, i) => <FlipCard key={i} tone="white" {...t}/>)}
             </div>
-            <p className="source text-[12px] leading-relaxed mt-5" style={{ color: "#78716c" }}>
+            <p className="mt-6 text-[15px] leading-relaxed" style={{ color: "var(--ink)" }}>
+              Clinical care stays with a physician, Maple's or your own. Community health workers can't diagnose or prescribe; they help you get to care and follow through.
+            </p>
+            <p className="source text-[12px] leading-relaxed mt-3" style={{ color: "#78716c" }}>
               Service categories of the Medi-Cal community health worker benefit · <Ext href={DHCS_CHW}>California Department of Health Care Services</Ext>
             </p>
           </div>
@@ -468,7 +471,7 @@ function Delivered() {
             Maple connects people with the community partners, clinics, and care teams they need most. We coordinate with local organizations, clinics, and care teams to make sure people get the medical, mental health, and everyday support they need. We also help partners participate in health care programs that create sustainable financial support, so they can keep improving the health of the people they serve. Interested in partnering with us? Let's connect.
           </p>
           <p className="mt-4 text-[15px] text-stone-500 leading-relaxed">
-            Network development, payment operations, data and reporting, and quality and audit support: the role of a Community Care Hub as defined by the <Ext href={HHS_HUBS} className="underline-grow" style={{ color: "var(--maple-deep)" }}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} className="underline-grow" style={{ color: "var(--maple-deep)" }}>California Department of Health Care Services</Ext>.
+            Programs include the Medi-Cal Community Health Worker benefit, Enhanced Care Management, and Advanced Primary Care Management. Network development, payment operations, data and reporting, and quality and audit support: the role of a Community Care Hub as defined by the <Ext href={HHS_HUBS} className="underline-grow" style={{ color: "var(--maple-deep)" }}>U.S. Department of Health and Human Services</Ext> and the <Ext href={DHCS_CHW} className="underline-grow" style={{ color: "var(--maple-deep)" }}>California Department of Health Care Services</Ext>.
           </p>
           <a href="#contact" className="mt-9 text-white px-7 py-3.5 rounded-full font-semibold text-sm inline-flex items-center gap-2" style={{ background: "var(--maple-deep)" }}>
             Join our partner network
@@ -590,11 +593,13 @@ function Contact() {
           <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95]" style={{ fontSize: "clamp(44px, 7vw, 92px)" }}>
             community is built <br/><span className="italic" style={{ color: "var(--cream)" }}>one introduction at a time.</span>
           </h2>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="mailto:partners@carehub.org" className="inline-flex items-center gap-2 bg-white px-6 py-3.5 rounded-full font-semibold text-sm" style={{ color: "var(--ink)" }}>
               partners@carehub.org
               <ArrowOut/>
             </a>
+            <a href="tel:+16506145651" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm border" style={{ color: "#fff", borderColor: "rgba(255,255,255,0.45)" }}>(650) 614-5651</a>
+            <span className="text-sm" style={{ color: "#FBEDE4" }}>Fax (650) 689-4568</span>
           </div>
         </div>
 
