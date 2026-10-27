@@ -566,14 +566,28 @@ function About() {
     <section id="about" className="py-20 px-6 relative overflow-hidden" style={{ background: "var(--paper)" }}>
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 60% at 100% 50%, rgba(244,201,159,0.35), transparent 70%)" }}></div>
       <div className="max-w-7xl mx-auto relative">
-        <div className="reveal max-w-2xl">
-          <Label>About Maple</Label>
-          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5.5vw, 70px)" }}>
-            a return to an older model of care with modern resources, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
-          </h2>
-          <p className="mt-8 text-[17px] text-stone-700 leading-relaxed">A physician and a community health worker, caring for people they know. The model is recognized in innovative payment programs that ask medical groups to look after the whole person.</p>
+        <div className="reveal grid lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-start">
+          <div>
+            <Label>About Maple</Label>
+            <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95] tracking-tight" style={{ color: "var(--ink)", fontSize: "clamp(36px, 5vw, 64px)" }}>
+              a return to an older model of care with modern resources, <span className="italic" style={{ color: "var(--maple)" }}>rooted in connection.</span>
+            </h2>
+            <p className="mt-8 text-[17px] text-stone-700 leading-relaxed">A physician and a community health worker, caring for people they know. The model is recognized in innovative payment programs that ask medical groups to look after the whole person.</p>
+          </div>
+          <div className="lg:pt-10" style={{ borderTop: "1px solid rgba(43,24,16,0.12)" }}>
+            {[
+              ["#services", "community ", "care", "Medical care and community health work, delivered as one team."],
+              ["#supported", "community-", "supported", "Health plans cover care for eligible members. Neighbors who can pay help cover those who can't."],
+              ["#delivered", "community ", "partners", "We work with community organizations, clinics, hospitals, and health plans to reach people where they are."],
+            ].map(([href, a, b, text]) => (
+              <a key={href} href={href} className="group block py-6" style={{ borderBottom: "1px solid rgba(43,24,16,0.12)" }}>
+                <span className="font-serif font-bold lowercase leading-none block" style={{ fontSize: "clamp(24px, 2.4vw, 30px)", color: "var(--ink)" }}>{a}<span style={{ color: "var(--maple)" }}>{b}</span></span>
+                <span className="block mt-2 text-[15px] leading-relaxed text-stone-700">{text} <span className="inline-block transition-transform group-hover:translate-x-1" style={{ color: "var(--maple)" }} aria-hidden="true">→</span></span>
+              </a>
+            ))}
+          </div>
         </div>
-        <div className="reveal grid sm:grid-cols-3 gap-4 mt-12">
+        <div id="supported" className="reveal grid sm:grid-cols-3 gap-4 mt-12">
           {programs.map((p, i) => (
             <div key={i} className="rounded-2xl p-6 flex flex-col" style={{ background: "var(--paper-2)", minHeight: 200 }}>
               <span className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: "#8A7F74" }}>{p.payer}</span>
@@ -602,9 +616,8 @@ function Contact() {
       </div>
       <div className="max-w-7xl mx-auto relative">
         <div className="reveal max-w-3xl">
-          <Label color="var(--cream)">Get in touch</Label>
-          <h2 className="font-serif font-bold lowercase mt-5 leading-[0.95]" style={{ fontSize: "clamp(44px, 7vw, 92px)" }}>
-            community is built <br/><span className="italic" style={{ color: "var(--cream)" }}>one introduction at a time.</span>
+          <h2 className="font-serif font-bold lowercase leading-[0.95]" style={{ fontSize: "clamp(44px, 7vw, 92px)" }}>
+            get in <span className="italic" style={{ color: "var(--cream)" }}>touch.</span>
           </h2>
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <a href="mailto:partners@carehub.org" className="inline-flex items-center gap-2 bg-white px-6 py-3.5 rounded-full font-semibold text-sm" style={{ color: "var(--ink)" }}>
