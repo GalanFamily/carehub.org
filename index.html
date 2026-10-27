@@ -100,7 +100,7 @@
   .flip-inner { display: grid; height: 100%; transform-style: preserve-3d; transition: transform .65s cubic-bezier(.2,.7,.2,1); }
   .flip.is-flipped .flip-inner { transform: rotateY(180deg); }
   @media (hover: hover) { .flip:hover .flip-inner { transform: rotateY(180deg); } }
-  .flip-face { grid-area: 1 / 1; min-height: 176px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+  .flip-face { grid-area: 1 / 1; min-height: 132px; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
   .flip-back { transform: rotateY(180deg); }
 
   @media (prefers-reduced-motion: reduce) {
@@ -335,13 +335,13 @@ function FlipCard({ icon, title, front, back, tone = "paper" }) {
       className={`flip text-left w-full h-full ${flipped ? "is-flipped" : ""}`}
     >
       <div className="flip-inner">
-        <div className="flip-face rounded-2xl p-5 flex flex-col" style={{ background: tone === "white" ? "#fff" : "var(--paper-2)" }}>
+        <div className="flip-face rounded-2xl p-4 flex flex-col" style={{ background: tone === "white" ? "#fff" : "var(--paper-2)" }}>
           <div style={{ color: "var(--ink)", display: "flex" }}>{icon}</div>
-          <p className="mt-auto pt-7 leading-snug" style={{ fontSize: "clamp(15px, 1.3vw, 17px)", fontWeight: 400, color: "var(--ink)" }}>{front}</p>
+          <p className="mt-auto pt-5 leading-snug" style={{ fontSize: "clamp(14px, 1.15vw, 15px)", fontWeight: 400, color: "var(--ink)" }}>{front}</p>
         </div>
-        <div className="flip-face flip-back rounded-2xl p-5 flex flex-col" style={{ background: "var(--ink)", color: "#fff" }}>
+        <div className="flip-face flip-back rounded-2xl p-4 flex flex-col" style={{ background: "var(--ink)", color: "#fff" }}>
           <span className="text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: "var(--amber-soft)" }}>{title}</span>
-          <p className="text-[13.5px] leading-relaxed mt-3" style={{ color: "rgba(255,255,255,0.86)" }}>{back}</p>
+          <p className="text-[13px] leading-snug mt-2" style={{ color: "rgba(255,255,255,0.86)" }}>{back}</p>
           <span className="mt-auto text-[11px] font-bold uppercase tracking-[0.18em]" style={{ color: "rgba(255,255,255,0.45)" }}>Back</span>
         </div>
       </div>
