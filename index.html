@@ -351,10 +351,12 @@ function FlipCard({ icon, title, front, back, tone = "paper" }) {
 
 /* ---------- Whole person care ---------- */
 function WholePersonCare() {
-  const definition = {
-    text: "Attending to the conditions people live in: food, housing, transportation, and the relationships and resources that shape health outside the clinic.",
-    sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }],
-  };
+  const definitions = [
+    { text: "The coordination of health, behavioral health, and social services in a patient-centered manner.",
+      sources: [{ label: "California Department of Health Care Services · Whole Person Care", href: "https://www.dhcs.ca.gov/services/whole-person-care-pilots/" }] },
+    { text: "Attending to the conditions people live in: food, housing, transportation, and the relationships and resources that shape health outside the clinic.",
+      sources: [{ label: "U.S. Department of Health and Human Services · Healthy People 2030", href: "https://health.gov/healthypeople/priority-areas/social-determinants-health" }] },
+  ];
   const dayToDay = [
     { icon: Icons.home,   title: "Housing",        front: "Find housing support, including transitional and permanent housing or shelters.",
       back: "Through our partnerships with community organizations, we guide you to transitional housing and shelter resources you can count on." },
@@ -372,10 +374,14 @@ function WholePersonCare() {
           <Headword words={["whole", "person", "care"]}/>
           <Rule/>
           <div className="mb-3"><Label>Definition</Label></div>
-          <p className="font-bold leading-snug" style={{ fontSize: 17, color: "var(--ink)" }}>{definition.text}</p>
-          <div className="source mt-3 flex flex-col gap-1 text-[12px]">
-            {definition.sources.map((x, k) => <Ext key={k} href={x.href}>{x.label}</Ext>)}
-          </div>
+          {definitions.map((d, i) => (
+            <div key={i} style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
+              <p className={i === 0 ? "font-bold leading-snug" : "leading-relaxed"} style={{ fontSize: i === 0 ? 17 : 15.5, color: "var(--ink)" }}>{d.text}</p>
+              <div className="source mt-2 flex flex-col gap-1 text-[12px]">
+                {d.sources.map((x, k) => <Ext key={k} href={x.href}>{x.label}</Ext>)}
+              </div>
+            </div>
+          ))}
         </div>
 
         <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
