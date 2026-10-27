@@ -369,26 +369,30 @@ function WholePersonCare() {
   ];
   return (
     <section id="services" className="py-24 px-6 relative" style={{ background: "var(--warm-white)" }}>
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
-        <div>
-          <Headword words={["whole", "person", "care"]}/>
-          <Rule/>
-          <div className="mb-3"><Label>Definition</Label></div>
-          {definitions.map((d, i) => (
-            <div key={i} style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
-              <p className={i === 0 ? "font-bold leading-snug" : "leading-relaxed"} style={{ fontSize: i === 0 ? 17 : 15.5, color: "var(--ink)" }}>{d.text}</p>
-              <div className="source mt-2 flex flex-col gap-1 text-[12px]">
-                {d.sources.map((x, k) => <Ext key={k} href={x.href}>{x.label}</Ext>)}
+      <div className="max-w-7xl mx-auto">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-20 items-start reveal">
+          <div>
+            <Headword words={["whole", "person", "care"]}/>
+            <Rule/>
+          </div>
+          <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
+            <div className="mb-3"><Label>Definition</Label></div>
+            {definitions.map((d, i) => (
+              <div key={i} style={{ paddingTop: i ? 18 : 0, marginTop: i ? 18 : 0, borderTop: i ? "1px solid rgba(43,24,16,0.1)" : "none" }}>
+                <p className={i === 0 ? "font-bold leading-snug" : "leading-relaxed"} style={{ fontSize: i === 0 ? 19 : 16, color: "var(--ink)" }}>{d.text}</p>
+                <div className="source mt-2 flex flex-col gap-1 text-[12px]">
+                  {d.sources.map((x, k) => <Ext key={k} href={x.href}>{x.label}</Ext>)}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
+        <div className="reveal mt-16">
           <h3 className="font-serif font-bold lowercase leading-tight" style={{ color: "var(--ink)", fontSize: "clamp(24px, 2.6vw, 32px)" }}>
             real care that helps with <span className="italic" style={{ color: "var(--maple)" }}>real life.</span>
           </h3>
-          <div className="grid sm:grid-cols-2 gap-4 mt-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
             {dayToDay.map((t, i) => <FlipCard key={i} {...t}/>)}
           </div>
         </div>
@@ -421,25 +425,25 @@ function CHWSection() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 50% at 90% 5%, rgba(244,201,159,0.55), transparent 60%)" }}></div>
 
       <div className="max-w-7xl mx-auto px-6 pt-24 pb-20 relative">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-start reveal">
+        <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-20 items-start reveal">
           <div>
             <Headword words={["community", "health", "work"]}/>
             <Rule/>
+          </div>
+          <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
             <div className="mb-3"><Label>Definition</Label></div>
-            <p className="font-bold leading-snug" style={{ fontSize: 17, color: "var(--ink)" }}>{definition.text}</p>
+            <p className="font-bold leading-snug" style={{ fontSize: 19, color: "var(--ink)" }}>{definition.text}</p>
             <div className="source mt-3 flex flex-col gap-1 text-[12px]">
               {definition.sources.map((s, k) => <Ext key={k} href={s.href}>{s.label}</Ext>)}
-            </div>
-          </div>
-
-          <div style={{ paddingTop: "clamp(0px, 2vw, 20px)" }}>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {services.map((t, i) => <FlipCard key={i} tone="white" {...t}/>)}
             </div>
             <p className="mt-6 text-[15px] leading-relaxed" style={{ color: "var(--ink)" }}>
               Clinical care stays with a physician, Maple's or your own. Community health workers can't diagnose or prescribe; they help you get to care and follow through.
             </p>
           </div>
+        </div>
+
+        <div className="reveal grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-16">
+          {services.map((t, i) => <FlipCard key={i} tone="white" {...t}/>)}
         </div>
       </div>
     </section>
