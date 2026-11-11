@@ -1,0 +1,40 @@
+:root{--ink:#2B1810;--paper:#FAF6F0;--paper-2:#F4ECE0;--maple:#A8341A;--maple-deep:#6B1F0E;--cream:#F8E9D0;--line:#E7E0D6}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+.inner{width:100%;max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Banner */
+.banner{position:relative;overflow:hidden;background:linear-gradient(165deg,#BC4A22 0%,var(--maple) 100%);color:#fff;padding:44px 0}
+.banner .inner{display:flex;align-items:center;gap:14px;position:relative}
+.leaf{display:inline-block;flex:none;background:var(--cream);-webkit-mask:url('/assets/maple-icon.png') center/contain no-repeat;mask:url('/assets/maple-icon.png') center/contain no-repeat}
+.banner .leaf{width:52px;height:52px}
+.word{font-weight:700;font-size:40px;line-height:1;letter-spacing:-.01em}
+.word sup{font-size:.4em;vertical-align:super;letter-spacing:0}
+.banner .mark{position:absolute;right:-40px;top:-90px;width:320px;height:320px;opacity:.08;transform:rotate(22deg);pointer-events:none}
+
+/* Statement */
+main{flex:1;display:flex;align-items:center;padding:96px 0}
+h1{font-family:'Fraunces',Georgia,serif;font-variation-settings:"opsz" 144;font-weight:700;text-transform:lowercase;font-size:clamp(38px,6.4vw,84px);line-height:.97;letter-spacing:-.02em;margin:0;max-width:13em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--maple)}
+main p{font-size:clamp(17px,1.6vw,20px);line-height:1.65;color:#57534e;margin:36px 0 0;max-width:36em;text-wrap:pretty}
+
+/* Contact */
+footer{background:var(--paper-2);border-top:1px solid var(--line);padding:56px 0 40px}
+footer h2{font-family:'Fraunces',Georgia,serif;font-variation-settings:"opsz" 144;font-weight:700;text-transform:lowercase;font-size:clamp(26px,3vw,34px);line-height:1;letter-spacing:-.01em;margin:0 0 24px}
+.contact{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.btn{display:inline-flex;align-items:center;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px;text-decoration:none;white-space:nowrap}
+.btn.solid{background:var(--maple-deep);color:#fff}
+.btn.solid:hover{background:var(--maple)}
+.btn.ghost{border:1px solid #D6CFC4;color:var(--ink);background:#fff}
+.btn.ghost:hover{border-color:var(--ink)}
+.fax{font-size:15px;color:#57534e}
+.legal{margin-top:40px;font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#8A7F74}
+a:focus-visible{outline:2px solid var(--maple);outline-offset:3px}
+
+@media (max-width:640px){
+  .banner{padding:32px 0}
+  .banner .leaf{width:40px;height:40px}
+  .word{font-size:32px}
+  main{padding:64px 0}
+}
