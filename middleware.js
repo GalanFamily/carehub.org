@@ -1,14 +1,15 @@
 // Host routing and the dev gate.
 //
 // carehub.org and maplecommunity.org forward to maple.carehub.org, which serves
-// the one-page public site (home.html) for every path except the files that
-// page itself needs. Every other host (dev.carehub.org, preview
+// the under-construction holding page for every path except the files that
+// page itself needs. (The one-page site, home.html, stays in the repo unserved;
+// point HOLDING at it and add it to OPEN to bring it back.) Every other host (dev.carehub.org, preview
 // deployments, anything unexpected) requires HTTP Basic auth with the password
 // in the DEV_GATE_PASSWORD environment variable, and is refused if it is unset.
 export const config = { matcher: "/:path*" };
 
 const HOLDING = {
-  "maple.carehub.org": "/home.html",
+  "maple.carehub.org": "/under-construction.html",
 };
 
 // Public hostnames that forward to maple.carehub.org for now.
@@ -20,7 +21,7 @@ const FORWARD = new Set([
   "carehub-org.vercel.app",
 ]);
 
-const OPEN = /^\/(assets\/|home\.css$|home\.html$|favicon)/;
+const OPEN = /^\/(assets\/|holding\.css$|under-construction\.html$|favicon)/;
 
 function rewriteTo(request, pathname) {
   const url = new URL(request.url);
